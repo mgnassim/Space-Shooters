@@ -7,7 +7,7 @@ servo1=GPIO.PWM(11,50)#pin 11 heeft 50 herts
 servo1.start(2)
 time.sleep(1)
 
-servo1.ChangeDutyCycle(12)#rechts
+servo1.ChangeDutyCycle(7)#rechts
 time.sleep(1)
 pwm.stop()
 print("doei")
