@@ -9,7 +9,7 @@ time.sleep(1)
 
 servo1.ChangeDutyCycle(7)#rechts
 time.sleep(1)
-pwm.stop()
+servo1.stop()
 print("doei")
 
 #pwm.ChangeDutyCycle(5)
