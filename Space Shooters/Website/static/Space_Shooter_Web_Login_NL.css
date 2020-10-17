@@ -18,6 +18,13 @@ p {
   text-align: center;
 }
 
+img {
+  padding: 16px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .header {
   padding: 60px;
   text-align: center;

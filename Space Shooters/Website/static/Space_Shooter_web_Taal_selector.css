@@ -34,27 +34,18 @@ img {
 .Images {
   text-align: center;
   margin: 12px;
-
+  max-width: 100%;
+  height: auto;
 }
 
 @media screen and (min-width: 601px) {
   body {
     font-size: 100%;
   }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
 }
 
 @media screen and (max-width: 600px) {
   body {
     font-size: 100%;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
   }
 }
