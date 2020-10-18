@@ -18,14 +18,14 @@ def login_en():
     return render_template("Space_Shooter_Web_Login_EN.html")
 
 
-@app.route("/NL/home")
-def home_nl():
-    return render_template("Space_Shooter_Web_Home_Page_NL.html")
-
-
 @app.route("/EN/home")
 def home_en():
     return render_template("Space_Shooter_Web_Home_Page_EN.html")
+
+
+@app.route("/NL/home")
+def home_nl():
+    return render_template("Space_Shooter_Web_Home_Page_NL.html")
 
 
 @app.route("/language/")

@@ -19,8 +19,12 @@ p {
 }
 
 .header {
-  padding: 60px;
+  padding: 20px;
   text-align: center;
   background-color: #1abc9c;
   color: white;
+}
+
+.content {
+  padding:20px;
 }
