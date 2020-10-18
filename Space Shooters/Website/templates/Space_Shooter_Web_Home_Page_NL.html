@@ -7,28 +7,48 @@
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1">
 
-        <link rel = "stylesheet" href = "../static/Space_Shooter_Web_Home_Page_NL.css">
+        <link rel = "stylesheet" href = "../static/Space_Shooter_Web_Home_Page.css">
     </head>
     <body>
+
         <div class = "header">
             <h1>Hoofd pagina</h1>
-            <p>
-                <a href = "/NL/home">
-                    <button type="button">Home</button>
-                </a>
-
-                <a href = "/NL/score">
-                    <button type="button">score</button>
-                </a>
-
-                <a href = "/NL/about">
-                    <button type="button">about</button>
-                </a>
-            </p>
+            <div class="tab">
+                <button class="tablinks" onclick="openPage(event, 'Home')">Home</button>
+                <button class="tablinks" onclick="openPage(event, 'Score')">Score</button>
+                <button class="tablinks" onclick="openPage(event, 'About')">About</button>
+            </div>
         </div>
 
-        <div class = "content">
-            score bord
+        <div id="Home" class="tabcontent">
+            <h3>Home</h3>
+            <p>London is the capital city of England.</p>
         </div>
+
+        <div id="Score" class="tabcontent" style="display:none">
+            <h3>Score</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+
+        <div id="About" class="tabcontent" style="display:none">
+            <h3>About</h3>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+
+        <script>
+        function openPage(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        </script>
     </body>
 </html>

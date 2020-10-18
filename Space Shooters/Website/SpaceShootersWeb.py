@@ -18,9 +18,9 @@ def login_en():
     return render_template("Space_Shooter_Web_Login_EN.html")
 
 
-@app.route("/EN/home")
-def home_en():
-    return render_template("Space_Shooter_Web_Home_Page_EN.html")
+@app.route("/language/")
+def language():
+    return render_template("Space_Shooter_Web_language_selector.html")
 
 
 @app.route("/NL/home")
@@ -28,9 +28,29 @@ def home_nl():
     return render_template("Space_Shooter_Web_Home_Page_NL.html")
 
 
-@app.route("/language/")
-def language():
-    return render_template("Space_Shooter_Web_language_selector.html")
+@app.route("/EN/home")
+def home_en():
+    return render_template("Space_Shooter_Web_Home_Page_EN.html")
+
+
+@app.route("/NL/score")
+def score_nl():
+    return render_template("Space_Shooter_Web_Score_NL.html")
+
+
+@app.route("/EN/score")
+def score_en():
+    return render_template("Space_Shooter_Web_Score_EN.html")
+
+
+@app.route("/NL/About")
+def about_nl():
+    return render_template("Space_Shooter_Web_About_NL.html")
+
+
+@app.route("/EN/About")
+def about_en():
+    return render_template("Space_Shooter_Web_About_EN.html")
 
 
 if __name__ == '__main__':
