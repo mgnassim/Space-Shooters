@@ -1,5 +1,6 @@
 body {
   background-color: #d7d7d7;
+  font-family: Arial;
   margin: 0;
 }
 
@@ -22,8 +23,8 @@ img {
 }
 
 .header {
-  padding: 16px;
-  image-align: center;
+  padding: 60px;
+  text-align: center;
   background-color: #1abc9c;
   color: white;
 }
