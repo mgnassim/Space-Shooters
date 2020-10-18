@@ -8,13 +8,21 @@
 <body>
     <form action="results.html" method="GET">
         <div>
-        <table>
-            <tr>
-                <td> Nickname : </td>
-                <td> <input type="text" name="nickname"></td>
-            </tr>
-        </table>
-            </div>
-    <button>submit</button>
+            <label for="name">Username :</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="gender"> Gender :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <select name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Attack helicopter">Attack helicopter</option>
+            </select>
+        </div>
+        <div>
+            <label for="date"> Birthdate :&nbsp;</label>
+            <input type="date" name="date" id="date" min="1900-01-01" max="2020-01-01"required>
+        </div>
+    <button type="submit">submit</button>
 </form>
 
