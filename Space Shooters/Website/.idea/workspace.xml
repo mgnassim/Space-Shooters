@@ -74,6 +74,8 @@
       <option name="presentableId" value="Default" />
       <updated>1603016316672</updated>
       <workItem from="1603016317777" duration="5860000" />
+      <workItem from="1603038736556" duration="388000" />
+      <workItem from="1603102611123" duration="1283000" />
     </task>
     <servers />
   </component>
@@ -90,12 +92,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="258" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603024917320">
+    <state x="258" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603039122468">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="258" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603024917320" />
+    <state x="258" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603039122468" />
     <state x="547" y="293" key="FileChooserDialogImpl" timestamp="1603024744477">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
