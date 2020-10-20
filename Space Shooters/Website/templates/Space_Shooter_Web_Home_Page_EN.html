@@ -51,20 +51,20 @@
             <h1>Hoofd menu</h1>
             <div class="tab">
                 <button class="links" onclick="page(event, 'Home')">User Profile</button>
-                <button class="links" onclick="page(event, 'Score')">Score bord</button>
+                <button class="links" onclick="page(event, 'Score')">Score board</button>
                 <button class="links" onclick="page(event, 'About')">About</button>
             </div>
         </div>
 
         <div id="Home" class="content links">
-            <h2>User Profile<</h2>
+            <h2>User Profile</h2>
             <p>
                 filler
             </p>
         </div>
 
         <div id="Score" class="content links" style = "display: none">
-            <h2>Score bord</h2>
+            <h2>Score board</h2>
             <p>
                 filler
             </p>
@@ -72,15 +72,19 @@
 
         <div id="About" class="content links" style = "display: none">
             <h2>About</h2>
+
             <h3>game rules</h3>
             <p>
                 filler
             </p>
+
+            <h3>Creators</h3>
+            <p class = "schuine_text">
+                Made by Butros Groot, Riyad Ljeljak, Sirito Mathijssen, Giorgio, Bilal Malik, Nassim Mengat
+            </p>
         </div>
 
         <script>
-
-
             function page(evt, pageName) {
                 let i, content, links;
 
