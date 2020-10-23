@@ -36,8 +36,8 @@ h4 {
     margin: 0;
     padding: 8px 0;
     color: black;
-    font-size: 1.5em;
-    font-weight: normal;
+    font-size: 1em;
+    font-weight: Bold;
 }
 
 p {
@@ -69,6 +69,6 @@ p {
     cursor: pointer;
 }
 
-.schuinetext {
+.schuine_text {
     font-style: italic;
 }
