@@ -46,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="190e5e0b-67c7-46c4-b92a-aa18ceb3a838" />
+  <component name="JupyterTrust" id="9f94ce98-e2b3-47ca-87eb-10691a8029a0" />
   <component name="ProjectId" id="1icAPSwf1Kc0gj3YB8I4Iy6UPVR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -107,6 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602196481911</updated>
       <workItem from="1602196483094" duration="4613000" />
+      <workItem from="1603389142355" duration="109000" />
     </task>
     <servers />
   </component>
@@ -123,16 +124,19 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="90" key="#Deployment" timestamp="1602234471569">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="451" y="108" key="#Deployment" timestamp="1603389247220">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="90" key="#Deployment/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602234471569" />
-    <state x="345" y="77" key="#SSH_Configurations" timestamp="1602234108764">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="451" y="108" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1603389247220" />
+    <state x="431" y="93" key="#SSH_Configurations" timestamp="1603389191304">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="345" y="77" key="#SSH_Configurations/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602234108764" />
+    <state x="431" y="93" key="#SSH_Configurations/0.0.1920.1040@0.0.1920.1040" timestamp="1603389191304" />
     <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602251247886">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
