@@ -3,26 +3,39 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Gebruik een nickname om later je score te vinden </title>
-</head>
+    <link rel="stylesheet" href="../static/Space_Schooters_Login_EN.css">
+
+    </head>
 <body>
-    <form action="results.html" method="GET">
-        <div>
-            <label for="name">Username :</label>
-            <input type="text" name="name" id="name" required>
-        </div>
-        <div>
-            <label for="gender"> Gender :&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <select name="gender" id="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Attack helicopter">Attack helicopter</option>
-            </select>
-        </div>
-        <div>
-            <label for="date"> Birthdate :&nbsp;</label>
-            <input type="date" name="date" id="date" min="1900-01-01" max="2020-01-01" required>
-        </div>
-    <button type="submit">submit</button>
-</form>
+  <div class="box">
+    <h2>Create account</h2>
+    <form action="">
+      <div class="input-box">
+        <input type="text" name="username" required>
+        <label for="">Username</label>
+      </div>
+        <div class="input-box">
+        <input type="email" name="email" required>
+        <label for="">Email</label>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password" required>
+        <label for="">Password</label>
+      </div>
+        <input type="submit" value="Save">
+    </form>
+  </div>
+</body>
+</html>
+
+<?php
+    extract($_request)
+?>
+
+
+
+
+
 
