@@ -23,6 +23,7 @@ padding: 0px;
 color: #66FF00;
 text-align: center;
 }
+
 .box .input-box{
 position: relative;
 }
@@ -36,7 +37,7 @@ position: relative;
   border: none;
   outline: none;
   background: transparent;
-  border-bottom: 1px solid #66FF00;
+  border-bottom: 1px solid #66ff00;
 }
 .box .input-box label{
   position: absolute;
@@ -55,4 +56,17 @@ position: relative;
   color: #66FF00;
   font-size: 17px;
 }
+.box input[type="submit"]{
+  position: relative;
+  top: 0;
+  left: 83px;
+  background:transparent;
+  border: 2px solid #66FF00;
+  outline: #66FF00;
+  color: #66FF00;
+  padding: 12px 10px;
+  border-radius: 5px;
+  cursor:pointer;
+}
+
 

@@ -62,10 +62,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
     </key>
   </component>
@@ -109,6 +110,7 @@
       <workItem from="1603559727639" duration="777000" />
       <workItem from="1603617396399" duration="7624000" />
       <workItem from="1603657571558" duration="4254000" />
+      <workItem from="1603720753371" duration="2775000" />
     </task>
     <servers />
   </component>
