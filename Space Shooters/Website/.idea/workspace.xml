@@ -57,16 +57,18 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/andere website" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
     </key>
   </component>
@@ -112,7 +114,7 @@
       <workItem from="1603657571558" duration="4254000" />
       <workItem from="1603720753371" duration="4825000" />
       <workItem from="1603731598944" duration="1332000" />
-      <workItem from="1603752428284" duration="1705000" />
+      <workItem from="1603752428284" duration="2796000" />
     </task>
     <servers />
   </component>

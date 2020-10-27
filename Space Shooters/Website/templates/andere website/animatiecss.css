@@ -7,7 +7,7 @@
 body {
   width: 100%;
   height: 100vh;
-  background-color: rgb(32, 35, 48);
+  background-color: #111a21;
 }
 
 #logo {
@@ -15,7 +15,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: fills 1s ease forwards 0.5s;
+  animation: fills 1s ease forwards 0.5s, boven 1s ease forwards 2s;
 }
 
 /* #logo path {
@@ -71,7 +71,7 @@ body {
 }
 
 #logo path:nth-child(9) {
-          stroke-dasharray: 379.02191162109375;
+  stroke-dasharray: 379.02191162109375;
   stroke-dashoffset: 379.02191162109375;
   animation: line-anim 2s ease forwards;
 }
@@ -121,4 +121,15 @@ body {
     fill: #50FF61;
 
   }
+}
+
+@keyframes boven {
+from{
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+to{
+  top: 0px;
+  transform: translate(-50%, 0) scale(0.4);
+}
 }
