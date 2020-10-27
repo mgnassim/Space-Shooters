@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def link():
-    return redirect(url_for("registration_en"))
+    return redirect(url_for("register_en"))
 
 
 @app.route("/NL/RFID")
