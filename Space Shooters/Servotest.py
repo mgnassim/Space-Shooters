@@ -7,7 +7,7 @@ GPIO.setup(7,GPIO.IN)
 
 servo1=GPIO.PWM(11,50)#pin 11 heeft 50 herts
 SensorGPIO = 7
-servo1.start(2)#draait direct 90 garden
+servo1.start(1.5)#draait direct 90 garden
 
 
 while True:
