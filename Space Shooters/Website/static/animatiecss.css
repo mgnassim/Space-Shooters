@@ -9,6 +9,12 @@ body {
   height: 100vh;
   background-color: #111a21;
 }
+#aboutgroen {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 #logo {
   position: absolute;
@@ -118,19 +124,18 @@ body {
   }
 
   to {
-    fill: #50FF61;
-
+    fill: #50ff61;
   }
 }
 
 @keyframes boven {
-from{
-    top: 50%; 
+  from {
+    top: 50%;
     transform: translate(-50%, -50%);
-}
-to{
-  top: 0px;
-  transform: translate(-50%, 0) scale(0.4);
+  }
+  to {
+    top: 0px;
+    transform: translate(-50%, 0) scale(0.4);
+  }
 }
 
-}
