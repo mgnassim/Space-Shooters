@@ -46,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="9f94ce98-e2b3-47ca-87eb-10691a8029a0" />
+  <component name="JupyterTrust" id="190e5e0b-67c7-46c4-b92a-aa18ceb3a838" />
   <component name="ProjectId" id="1icAPSwf1Kc0gj3YB8I4Iy6UPVR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -54,7 +54,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -69,7 +69,29 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.SpaceShootersWeb">
+    <configuration name="SpaceShootersWeb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Space Shooters, Git" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Space Shooters/Website" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Space Shooters/Website/SpaceShootersWeb.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="website" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Space Shooters, Git" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -94,6 +116,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SpaceShootersWeb" />
         <item itemvalue="Python.website" />
       </list>
     </recent_temporary>
@@ -127,10 +150,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="108" key="#Deployment" timestamp="1603389247220">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="361" y="90" key="#Deployment" timestamp="1603797001437">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="90" key="#Deployment/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602234471569" />
+    <state x="361" y="90" key="#Deployment/0.0.1536.864@0.0.1536.864" timestamp="1603797001437" />
     <state x="451" y="108" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1603389247220" />
     <state x="431" y="93" key="#SSH_Configurations" timestamp="1603389191304">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -145,22 +169,26 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="93" y="93" width="1350" height="678" key="DirDiffDialog/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602234471977" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1602251252055">
+    <state width="1493" height="130" key="GridCell.Tab.0.bottom" timestamp="1603798954229">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602251252055" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1602251252054">
+    <state width="1493" height="130" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1603798954229" />
+    <state width="1493" height="130" key="GridCell.Tab.0.center" timestamp="1603798954229">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602251252054" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1602251252054">
+    <state width="1493" height="130" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1603798954229" />
+    <state width="1493" height="130" key="GridCell.Tab.0.left" timestamp="1603798954229">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602251252054" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1602251252054">
+    <state width="1493" height="130" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1603798954229" />
+    <state width="1493" height="130" key="GridCell.Tab.0.right" timestamp="1603798954229">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602251252054" />
+    <state width="1493" height="130" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1603798954229" />
     <state x="555" y="80" key="SettingsEditor" timestamp="1602197271447">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -171,6 +199,8 @@
     <state x="624" y="331" key="WebDeployment.AddServerDialog.v.1/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602234030464" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Space_Shooters__Git$SpaceShootersWeb.coverage" NAME="SpaceShootersWeb Coverage Results" MODIFIED="1603798954219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters/Website" />
+    <SUITE FILE_PATH="coverage/Space_Shooters__Git$website.coverage" NAME="website Coverage Results" MODIFIED="1603792251091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters" />
     <SUITE FILE_PATH="coverage/Space_Shooters__Git$main.coverage" NAME="website Coverage Results" MODIFIED="1602251222318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters" />
   </component>
 </project>

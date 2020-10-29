@@ -5,12 +5,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def link():
-    return redirect(url_for("login_nl"))
+    return redirect(url_for("register_en"))
 
 
-@app.route("/NL/login")
-def login_nl():
-    return render_template("Space_Shooter_Web_Login_NL.html")
+@app.route("/NL/RFID")
+def rfid_nl():
+    return render_template("Space_Shooter_Web_RFID_NL.html")
+
+
+@app.route("/EN/RFID")
+def rfid_en():
+    return render_template("Space_Shooter_Web_RFID_EN.html")
+
+
+@app.route("/language/")
+def language():
+    return render_template("Space_Shooter_Web_language_selector.html")
 
 
 @app.route("/EN/login")
@@ -18,9 +28,9 @@ def login_en():
     return render_template("Space_Shooter_Web_Login_EN.html")
 
 
-@app.route("/language/")
-def language():
-    return render_template("Space_Shooter_Web_language_selector.html")
+@app.route("/EN/register")
+def register_en():
+    return render_template("Space_Shooter_Web_register_EN.html")
 
 
 @app.route("/NL/home")
@@ -34,4 +44,4 @@ def home_en():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True)
