@@ -29,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -57,19 +58,21 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\.idea" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
     </key>
   </component>
   <component name="RunManager">
@@ -118,6 +121,8 @@
       <workItem from="1603796562573" duration="11367000" />
       <workItem from="1603825681955" duration="1785000" />
       <workItem from="1603889616049" duration="3817000" />
+      <workItem from="1603974634026" duration="727000" />
+      <workItem from="1603988830562" duration="2030000" />
     </task>
     <servers />
   </component>
