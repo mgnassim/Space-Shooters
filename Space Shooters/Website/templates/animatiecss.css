@@ -3,6 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #111a21;
+  font-family: sans-serif;
+}
+
+header {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 5);
+  animation: nietverschijnen 3.5s, verschijnen 1s 3.5s;
+  position: sticky;
+  top: 0px;
+}
 
 nav {
   display: flex;
@@ -13,10 +24,12 @@ nav {
   font-family: "Orbitron", sans-serif;
   transition: transform 0.5s ease-in;
   animation: nietverschijnen 3.5s;
+  position: sticky;
+  top: 0px;
 }
 .top {
-  color: transparent;
-  letter-spacing: 26px;
+  color: #50ff61;
+  letter-spacing: 0px;
 }
 
 .nav-links {
@@ -38,10 +51,48 @@ nav {
   font-weight: bold;
 }
 
-body {
-  width: 100%;
-  height: 100vh;
-  background-color: #111a21;
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section h2 {
+  font-size: 5rem;
+  color: #50ff61;
+}
+
+.home {
+  background: #111a21;
+  animation: nietverschijnen 3.5s;
+}
+
+.Scoreboard {
+  background: #111a21;
+  animation: nietverschijnen 3.5s;
+}
+
+.Gamerules {
+  background: #111a21;
+  animation: nietverschijnen 3.5s;
+}
+
+.About {
+  background: #111a21;
+  animation: nietverschijnen 3.5s;
+}
+
+.border {
+  position: absolute;
+  z-index: -2;
+  background: transparent;
+  transform: scale(2);
+  border: 1px;
+  border-style: solid;
+  border-color: #50ff61;
+  border-radius: 13px;
+  transition: all 0.7s;
 }
 
 #logo {
@@ -49,7 +100,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: fills 1s ease forwards 0.5s, boven 1s ease forwards 2s;
+  animation: fills 1s ease forwards 0.5s, boven 1s ease forwards 2s,
+    verdwijnen 1s 3.5s, nietverschijnen 1s 4s, nietverschijnen 36000000s 4s;
 }
 
 .menu div {
@@ -58,6 +110,154 @@ body {
   background-color: #50ff61;
   margin: 6px;
   transition: all 0.3s;
+  opacity: 0;
+}
+
+@keyframes line-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fills {
+  from {
+    fill: transparent;
+  }
+
+  to {
+    fill: #50ff61;
+  }
+}
+
+@keyframes boven {
+  from {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    top: -39px;
+    transform: translate(-110.49%, 0%) scale(0.17);
+  }
+}
+
+@keyframes nietverschijnen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes verschijnen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes verdwijnen {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.menu {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  #logo {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #50ff61;
+    margin: 6px;
+    transition: all 0.3s;
+    opacity: 1;
+  }
+
+  @keyframes boven {
+    from {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    to {
+      top: -43px;
+      transform: translate(-69.5%, 0%) scale(0.8);
+    }
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    border-style: solid;
+    border-color: #50ff61;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    transform: translateX(100%);
+    transition: transform 1s ease-in;
+    opacity: 1;
+    background-color: #111a21;
+  }
+
+  .nav-links li {
+    opacity: 0;
+  }
+
+  .menu {
+    display: block;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-7px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-7px, -6px);
 }
 
 #logo path:nth-child(1) {
@@ -142,119 +342,4 @@ body {
   stroke-dasharray: 762.86962890625;
   stroke-dashoffset: 762.86962890625;
   animation: line-anim 2s ease forwards;
-}
-
-@keyframes line-anim {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes fills {
-  from {
-    fill: transparent;
-  }
-
-  to {
-    fill: #50ff61;
-  }
-}
-
-@keyframes boven {
-  from {
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  to {
-    top: -39px;
-    transform: translate(-110%, 0%) scale(0.2);
-  }
-}
-
-@keyframes nietverschijnen {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-.menu {
-  cursor: pointer;
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  #logo {
-    width: 70%;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  @keyframes boven {
-    from {
-      top: 40%;
-      transform: translate(-50%, -50%);
-    }
-    to {
-      top: -42px;
-      transform: translate(-60%, 0%) scale(0.6);
-    }
-  }
-
-  .nav-links {
-    position: absolute;
-    right: 0px;
-    height: 92vh;
-    top: 8vh;
-    border-style: solid;
-    border-color: #50ff61;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 45%;
-    transform: translateX(100%);
-    transition: transform 1s ease-in;
-  }
-
-  .nav-links li {
-    opacity: 0;
-  }
-
-  .menu {
-    display: block;
-  }
-}
-
-.nav-active {
-  transform: translateX(0%);
-}
-
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-7px, 6px);
-}
-
-.toggle .line2 {
-  opacity: 0;
-}
-
-.toggle .line3 {
-  transform: rotate(45deg) translate(-7px, -6px);
 }

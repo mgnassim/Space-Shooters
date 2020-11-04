@@ -30,7 +30,7 @@ def login_en():
 
 @app.route("/EN/register")
 def register_en():
-    return render_template("Space_Shooter_Web_register_EN.html")
+    return render_template("Space_Shooter_Web_HomePage.html")
 
 
 @app.route("/NL/home")
@@ -40,7 +40,7 @@ def home_nl():
 
 @app.route("/EN/home")
 def home_en():
-    return render_template("Space_Shooter_Web_Home_Page_EN.html")
+    return render_template("Space_Shooter_Web_register_EN.html")
 
 
 if __name__ == '__main__':

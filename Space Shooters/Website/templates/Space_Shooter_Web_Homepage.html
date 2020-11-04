@@ -13,22 +13,40 @@
   </head>
 
   <body>
-    <nav>
-      <div class="top">
-        <h4>The nav</h4>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Scoreboard</a></li>
-        <li><a href="#">Game rules</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-      <div class="menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-    </nav>
+    <header>
+      <nav>
+        <div class="top">
+          <h1>Space Shooters</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a data-page="home" href="#sec1">Home</a></li>
+          <li><a data-page="Scoreboard" href="#sec2">Scoreboard</a></li>
+          <li><a data-page="Gamerules" href="#sec3">Game rules</a></li>
+          <li><a data-page="About" href="#sec4">About</a></li>
+          <div class="border"></div>
+        </ul>
+        <div class="menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="sec1" data-index="0" class="home">
+        <h2>Home</h2>
+      </section>
+      <section id="sec2" data-index="1" class="Scoreboard">
+        <h2>Scoreboard</h2>
+      </section>
+      <section id="sec3" data-index="2" class="Gamerules">
+        <h2>Game rules</h2>
+      </section>
+      <section id="sec4" data-index="3" class="About">
+        <h2>About</h2>
+      </section>
+    </main>
 
     <svg
       id="logo"
