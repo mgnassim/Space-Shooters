@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def link():
-    return redirect(url_for("register_en"))
+    return redirect(url_for("home_nl"))
 
 
 @app.route("/NL/RFID")
@@ -35,7 +35,7 @@ def register_en():
 
 @app.route("/NL/home")
 def home_nl():
-    return render_template("Space_Shooter_Web_Home_Page_NL.html")
+    return render_template("Space_Shooter_Web_NL_Homepage.html")
 
 
 @app.route("/EN/home")
@@ -43,5 +43,10 @@ def home_en():
     return render_template("Space_Shooter_Web_Home_Page_EN.html")
 
 
+@app.route("/NL/home")
+def home2_nl():
+    return render_template("Space_Shooter_Web_NL_Homepage.html")
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
