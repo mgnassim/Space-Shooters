@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, url_for, session, request, g
 acounts = []
 users = []
 totalusers = 1
+usernames = []
 
 
 class User:
@@ -19,11 +20,12 @@ class User:
 users.append(User(id=0, username="admin", password="root", email="root@gmail.com"))
 users.append(User(id=1, username="test", password="test", email="test@gmail.com"))
 
-
 for line in open("accountfile.txt", "r").readlines():
     acounts = line.split()
     users.append(User(id=acounts[0], username=acounts[1], password=acounts[2], email=acounts[3]))
     totalusers += 1
+    usernames += acounts[1]
+    print(users)
 
 app = Flask(__name__)
 app.secret_key = 'somesecretkeythatonlyishouldknow'
@@ -43,6 +45,21 @@ def link():
     return redirect(url_for("login_nl"))
 
 
+@app.route('/NL/login')
+def link():
+    return redirect(url_for("login_nl"))
+
+
+@app.route('/nl/login')
+def link():
+    return redirect(url_for("login_nl"))
+
+
+@app.route('/nl/Login')
+def link():
+    return redirect(url_for("login_nl"))
+
+
 @app.route("/NL/Login", methods=["GET", "POST"])
 def login_nl():
     if request.method == 'POST':
@@ -50,15 +67,33 @@ def login_nl():
 
         username = request.form['username']
         password = request.form['password']
+        print(users)
 
-        user = [x for x in users if x.username == username][0]
-        if user and user.password == password:
-            session['user_id'] = user.id
-            return redirect(url_for('homepage_nl'))
-
-        return redirect(url_for('login_nl'))
+        try:
+            user = [x for x in users if x.username == username][0]
+        except:
+            return redirect(url_for('login_nl'))
+        else:
+            if user and user.password == password:
+                session['user_id'] = user.id
+                return redirect(url_for('homepage_nl'))
 
     return render_template("Space_Shooter_Web_NL_Login.html")
+
+
+@app.route('/EN/login')
+def link():
+    return redirect(url_for("login_en"))
+
+
+@app.route('/en/login')
+def link():
+    return redirect(url_for("login_en"))
+
+
+@app.route('/en/login')
+def link():
+    return redirect(url_for("login_en"))
 
 
 @app.route("/EN/Login", methods=['GET', 'POST'])
@@ -69,12 +104,14 @@ def login_en():
         username = request.form['username']
         password = request.form['password']
 
-        user = [x for x in users if x.username == username][0]
-        if user and user.password == password:
-            session['user_id'] = user.id
-            return redirect(url_for('homepage_en'))
-
-        return redirect(url_for('login_en'))
+        try:
+            user = [x for x in users if x.username == username][0]
+        except:
+            return redirect(url_for('login_nl'))
+        else:
+            if user and user.password == password:
+                session['user_id'] = user.id
+                return redirect(url_for('homepage_nl'))
 
     return render_template("Space_Shooter_Web_EN_Login.html")
 
@@ -88,13 +125,17 @@ def language_selection():
 def registration_nl():
     if request.method == "POST":
 
+        totalusersnew = 1
         username = request.form["username"]
         password = request.form["password"]
         email = request.form["email"]
 
+        for line in open("accountfile.txt", "r").readlines():
+            totalusersnew += 1
+
         file = open("accountfile.txt", "a")
         file.write("\n")
-        file.write(str(totalusers))
+        file.write(str(totalusersnew))
         file.write(" ")
         file.write(username)
         file.write(" ")
@@ -103,7 +144,7 @@ def registration_nl():
         file.write(email)
         file.close()
 
-        users.append(User(id=totalusers, username=username, password=password, email=email))
+        users.append(User(id=totalusersnew, username=username, password=password, email=email))
 
         return redirect(url_for('login_nl'))
 
@@ -113,7 +154,6 @@ def registration_nl():
 @app.route("/EN/Registration")
 def registration_en():
     if request.method == "POST":
-
         username = request.form["username"]
         password = request.form["password"]
         email = request.form["email"]
@@ -150,4 +190,4 @@ def homepage_en():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
