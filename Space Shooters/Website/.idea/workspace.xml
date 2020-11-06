@@ -63,16 +63,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\.idea" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
       <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
+      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
     </key>
   </component>
   <component name="RunManager">
@@ -122,12 +122,7 @@
       <workItem from="1603825681955" duration="1785000" />
       <workItem from="1603889616049" duration="3817000" />
       <workItem from="1603974634026" duration="727000" />
-      <workItem from="1603988830562" duration="3674000" />
-      <workItem from="1604066909014" duration="1271000" />
-      <workItem from="1604088298822" duration="10000" />
-      <workItem from="1604524916971" duration="801000" />
-      <workItem from="1604573369984" duration="946000" />
-      <workItem from="1604581272106" duration="284000" />
+      <workItem from="1603988830562" duration="2030000" />
     </task>
     <servers />
   </component>
@@ -163,26 +158,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="547" y="293" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603024744477" />
-    <state width="561" height="297" key="GridCell.Tab.0.bottom" timestamp="1604021697397">
+    <state width="938" height="316" key="GridCell.Tab.0.bottom" timestamp="1603908399555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="316" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="561" height="297" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604021697397" />
-    <state width="561" height="297" key="GridCell.Tab.0.center" timestamp="1604021697397">
+    <state width="1124" height="316" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116985" />
+    <state width="938" height="316" key="GridCell.Tab.0.center" timestamp="1603908399555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="316" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="561" height="297" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604021697397" />
-    <state width="561" height="297" key="GridCell.Tab.0.left" timestamp="1604021697397">
+    <state width="1124" height="316" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116984" />
+    <state width="938" height="316" key="GridCell.Tab.0.left" timestamp="1603908399555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="316" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="561" height="297" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604021697397" />
-    <state width="561" height="297" key="GridCell.Tab.0.right" timestamp="1604021697397">
+    <state width="1124" height="316" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116984" />
+    <state width="938" height="316" key="GridCell.Tab.0.right" timestamp="1603908399555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="316" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="561" height="297" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604021697397" />
+    <state width="1124" height="316" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116984" />
     <state x="85" y="161" key="SettingsEditor" timestamp="1603632958255">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -193,6 +188,6 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603662705708" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Website$Website.coverage" NAME="Website Coverage Results" MODIFIED="1604021612864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Website$Website.coverage" NAME="Website Coverage Results" MODIFIED="1603889635694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

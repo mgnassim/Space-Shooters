@@ -52,7 +52,7 @@ body {
 .box .input-box input:focus ~ label,
 .box .input-box input:valid ~ label {
   top: -20px;
-
+  left: 100px;
   color: #66ff00;
   font-size: 17px;
 }
@@ -71,6 +71,11 @@ body {
 }
 
 .submit {
+  position: relative;
+  width: 70%;
+}
+
+.login {
   position: relative;
   width: 70%;
 }

@@ -15,6 +15,9 @@ const navSlide = () => {
          });
          menu.classList.toggle('toggle');
     });
-}
+}   
 
 navSlide();
+
+
+
