@@ -181,7 +181,7 @@ def homepage_nl():
     if not g.user:
         return redirect(url_for('login_nl'))
 
-    return render_template("Space_Shooter_Web_Homepage.html")
+    return render_template("Space_Shooter_Web_NL_Homepage.html")
 
 
 @app.route("/EN/Homepage")
