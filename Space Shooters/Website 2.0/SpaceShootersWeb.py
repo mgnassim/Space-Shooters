@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, session, request, g
+import base64
 
 acounts = []
 users = []
@@ -25,7 +26,6 @@ for line in open("accountfile.txt", "r").readlines():
     users.append(User(id=acounts[0], username=acounts[1], password=acounts[2], email=acounts[3]))
     totalusers += 1
     usernames += acounts[1]
-    print(users)
 
 app = Flask(__name__)
 app.secret_key = 'somesecretkeythatonlyishouldknow'
@@ -41,22 +41,22 @@ def before_request():
 
 
 @app.route('/')
-def link():
+def link1():
     return redirect(url_for("login_nl"))
 
 
 @app.route('/NL/login')
-def link():
+def link2():
     return redirect(url_for("login_nl"))
 
 
 @app.route('/nl/login')
-def link():
+def link3():
     return redirect(url_for("login_nl"))
 
 
 @app.route('/nl/Login')
-def link():
+def link4():
     return redirect(url_for("login_nl"))
 
 
@@ -76,23 +76,27 @@ def login_nl():
         else:
             if user and user.password == password:
                 session['user_id'] = user.id
+                if user.id == 0:
+                    return redirect(url_for('admin'))
                 return redirect(url_for('homepage_nl'))
+
+            return redirect(url_for('login_nl'))
 
     return render_template("Space_Shooter_Web_NL_Login.html")
 
 
 @app.route('/EN/login')
-def link():
+def link5():
     return redirect(url_for("login_en"))
 
 
 @app.route('/en/login')
-def link():
+def link6():
     return redirect(url_for("login_en"))
 
 
 @app.route('/en/login')
-def link():
+def link7():
     return redirect(url_for("login_en"))
 
 
@@ -107,11 +111,15 @@ def login_en():
         try:
             user = [x for x in users if x.username == username][0]
         except:
-            return redirect(url_for('login_nl'))
+            return redirect(url_for('login_en'))
         else:
             if user and user.password == password:
                 session['user_id'] = user.id
-                return redirect(url_for('homepage_nl'))
+                if user.id == 0:
+                    return redirect(url_for('admin'))
+                return redirect(url_for('homepage_en'))
+
+            return redirect(url_for('login_en'))
 
     return render_template("Space_Shooter_Web_EN_Login.html")
 
@@ -178,7 +186,7 @@ def registration_en():
 
 @app.route("/NL/Homepage")
 def homepage_nl():
-    if not g.user:
+    if not int(g.user.id) >= 1:
         return redirect(url_for('login_nl'))
 
     return render_template("Space_Shooter_Web_NL_Homepage.html")
@@ -186,7 +194,18 @@ def homepage_nl():
 
 @app.route("/EN/Homepage")
 def homepage_en():
+    if not int(g.user.id) >= 1:
+        return redirect(url_for('login_nl'))
+
     return render_template("Space_Shooter_Web_EN_Homepage.html")
+
+
+@app.route("/Admin")
+def admin():
+    if not g.user.id == 0:
+        return redirect(url_for('login_nl'))
+
+    return render_template("Space_Shooter_Web_Admin.html")
 
 
 if __name__ == '__main__':
