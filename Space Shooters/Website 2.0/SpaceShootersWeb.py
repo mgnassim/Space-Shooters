@@ -18,9 +18,6 @@ class User:
         return f'<User: {self.username}>'
 
 
-users.append(User(id=0, username="admin", password="root", email="root@gmail.com"))
-users.append(User(id=1, username="test", password="test", email="test@gmail.com"))
-
 for line in open("accountfile.txt", "r").readlines():
     acounts = line.split()
     users.append(User(id=acounts[0], username=acounts[1], password=acounts[2], email=acounts[3]))
@@ -74,7 +71,12 @@ def login_nl():
         except:
             return redirect(url_for('login_nl'))
         else:
-            if user and user.password == password:
+            base64_message = user.password
+            base64_bytes = base64_message.encode('ascii')
+            message_bytes = base64.b64decode(base64_bytes)
+            passwordencode = message_bytes.decode('ascii')
+
+            if passwordencode == password:
                 session['user_id'] = user.id
                 if user.id == 0:
                     return redirect(url_for('admin'))
@@ -138,6 +140,11 @@ def registration_nl():
         password = request.form["password"]
         email = request.form["email"]
 
+        message = password
+        message_bytes = message.encode('ascii')
+        base64_bytes = base64.b64encode(message_bytes)
+        password = base64_bytes.decode('ascii')
+
         for line in open("accountfile.txt", "r").readlines():
             totalusersnew += 1
 
@@ -194,7 +201,7 @@ def homepage_nl():
 
 @app.route("/EN/Homepage")
 def homepage_en():
-    if not int(g.user.id) >= 1:
+    if not int(g.user.id) >= 2:
         return redirect(url_for('login_nl'))
 
     return render_template("Space_Shooter_Web_EN_Homepage.html")
@@ -202,7 +209,7 @@ def homepage_en():
 
 @app.route("/Admin")
 def admin():
-    if not g.user.id == 0:
+    if not g.user.id == 1:
         return redirect(url_for('login_nl'))
 
     return render_template("Space_Shooter_Web_Admin.html")
