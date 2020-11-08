@@ -28,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -63,7 +63,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Space Shooters/Website 2.0/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Website2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,19 +75,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 2.0\templates" />
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space_Shooters\Website 2.0\templates" />
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website\templates" />
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website\static" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 3.0\Admin" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 3.0\Main" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 3.0\Engels" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 3.0" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 3.0\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space_Shooters\Website\templates" />
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website" />
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website\templates" />
-      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website\static" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 3.0" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 2.0\templates" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 2.0" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 2.0\nederlands\templates" />
+      <recent name="C:\Users\butro\Desktop\Google drive\Projecten\Code\Python\PycharmProjects\Space Shooters, Git\Space Shooters\Website 2.0\nederlands" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SpaceShootersWeb (3)">
+  <component name="RunManager" selected="Python.SpaceShootersWeb (1)">
     <configuration name="SpaceShootersWeb (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Space Shooters, Git" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,34 +98,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Space_Shooters/Website" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Space Shooters/Website2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Space_Shooters/Website/SpaceShootersWeb.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SpaceShootersWeb (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Space Shooters, Git" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Space_Shooters/Website 2.0" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Space_Shooters/Website 2.0/SpaceShootersWeb.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Space Shooters/Website2/SpaceShootersWeb.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,6 +156,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Space Shooters, Git" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Space Shooters/Website3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Space Shooters/Website3/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="website" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Space Shooters, Git" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -200,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.SpaceShootersWeb (3)" />
-        <item itemvalue="Python.SpaceShootersWeb (2)" />
-        <item itemvalue="Python.website" />
-        <item itemvalue="Python.SpaceShootersWeb" />
         <item itemvalue="Python.SpaceShootersWeb (1)" />
+        <item itemvalue="Python.__init__" />
+        <item itemvalue="Python.website" />
+        <item itemvalue="Python.SpaceShootersWeb (3)" />
+        <item itemvalue="Python.SpaceShootersWeb" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +225,10 @@
       <workItem from="1604589274388" duration="2031000" />
       <workItem from="1604651114103" duration="24739000" />
       <workItem from="1604755147660" duration="6763000" />
-      <workItem from="1604768007399" duration="1299000" />
+      <workItem from="1604768007399" duration="4348000" />
+      <workItem from="1604825333465" duration="5833000" />
+      <workItem from="1604838843916" duration="743000" />
+      <workItem from="1604860933940" duration="2873000" />
     </task>
     <servers />
   </component>
@@ -276,26 +281,31 @@
     </state>
     <state x="93" y="93" width="1350" height="678" key="DirDiffDialog/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1602234471977" />
     <state x="93" y="93" width="1350" height="678" key="DirDiffDialog/0.0.1536.864@0.0.1536.864" timestamp="1604256139006" />
-    <state width="1493" height="126" key="GridCell.Tab.0.bottom" timestamp="1604769504728">
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1604861062383">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="126" key="GridCell.Tab.0.bottom/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604739327085" />
-    <state width="1493" height="126" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604769504728" />
-    <state width="1493" height="126" key="GridCell.Tab.0.center" timestamp="1604769504728">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604861062383" />
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1604838819705" />
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom" timestamp="1604862136963">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="126" key="GridCell.Tab.0.center/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604739327085" />
-    <state width="1493" height="126" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604769504728" />
-    <state width="1493" height="126" key="GridCell.Tab.0.left" timestamp="1604769504728">
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604862136963" />
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604839768839" />
+    <state width="1493" height="125" key="GridCell.Tab.0.center" timestamp="1604862136963">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="126" key="GridCell.Tab.0.left/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604739327085" />
-    <state width="1493" height="126" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604769504728" />
-    <state width="1493" height="126" key="GridCell.Tab.0.right" timestamp="1604769504728">
+    <state width="1493" height="125" key="GridCell.Tab.0.center/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604862136963" />
+    <state width="1493" height="125" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604839768839" />
+    <state width="1493" height="125" key="GridCell.Tab.0.left" timestamp="1604862136962">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="126" key="GridCell.Tab.0.right/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604739327085" />
-    <state width="1493" height="126" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604769504728" />
+    <state width="1493" height="125" key="GridCell.Tab.0.left/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604862136962" />
+    <state width="1493" height="125" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604839768839" />
+    <state width="1493" height="125" key="GridCell.Tab.0.right" timestamp="1604862136963">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="125" key="GridCell.Tab.0.right/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604862136963" />
+    <state width="1493" height="125" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604839768839" />
     <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1604589253063">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -325,11 +335,22 @@
     </state>
     <state x="491" y="344" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1536.864@0.0.1536.864" timestamp="1604582397613" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Space Shooters/Website3/SpaceShootersWeb.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Space_Shooters__Git$SpaceShootersWeb__3_.coverage" NAME="SpaceShootersWeb (3) Coverage Results" MODIFIED="1604769504716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters/Website 2.0" />
+    <SUITE FILE_PATH="coverage/Space_Shooters__Git$SpaceShootersWeb__3_.coverage" NAME="SpaceShootersWeb (3) Coverage Results" MODIFIED="1604828092486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters/Website 2.0" />
+    <SUITE FILE_PATH="coverage/Space_Shooters__Git$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1604839207931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters/Website3" />
     <SUITE FILE_PATH="coverage/Space_Shooters__Git$SpaceShootersWeb.coverage" NAME="SpaceShootersWeb Coverage Results" MODIFIED="1604589635181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters/Website" />
-    <SUITE FILE_PATH="coverage/Space_Shooters__Git$SpaceShootersWeb__1_.coverage" NAME="SpaceShootersWeb (1) Coverage Results" MODIFIED="1604572541150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space_Shooters/Website" />
-    <SUITE FILE_PATH="coverage/Space_Shooters__Git$website.coverage" NAME="website Coverage Results" MODIFIED="1603792251091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters" />
+    <SUITE FILE_PATH="coverage/Space_Shooters__Git$SpaceShootersWeb__1_.coverage" NAME="SpaceShootersWeb (1) Coverage Results" MODIFIED="1604862136949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters/Website2" />
+    <SUITE FILE_PATH="coverage/Space_Shooters__Git$website.coverage" NAME="website Coverage Results" MODIFIED="1604828115038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters" />
     <SUITE FILE_PATH="coverage/Space_Shooters__Git$main.coverage" NAME="website Coverage Results" MODIFIED="1602251222318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space Shooters" />
     <SUITE FILE_PATH="coverage/Space_Shooters__Git$SpaceShootersWeb__2_.coverage" NAME="SpaceShootersWeb (2) Coverage Results" MODIFIED="1604660652063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Space_Shooters/Website 2.0" />
   </component>
