@@ -13,12 +13,20 @@
       <h2>Log in</h2>
       <form method="POST">
         <div class="input-box">
-          <input type = "text" name = "username" placeholder = "Username">
+          <input type = "text" name = "username" placeholder = "gebruikersnaam">
         </div>
         <div class="input-box">
-          <input type = "password" name = "password" placeholder = "Password">
+          <input type = "password" name = "password" placeholder = "Wachtwoord">
         </div>
         <input type="submit" class="submit" value="Login" />
+      </form>
+
+      <form action="/NL/Registration">
+        <input type="submit" class="login" value="Account maken kan hier">
+      </form>
+
+      <form action="/NL/Password/request">
+        <input type="submit" class="login" value="Wachtwoord vergeten?">
       </form>
     </div>
   </body>
