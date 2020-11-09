@@ -153,55 +153,56 @@ def login_en():
 
 @Engels.route("/Password/Reset", methods=['GET', 'POST'])
 def password_reset_en():
-    username = request.form['username']
-    email = request.form["email"]
-    password = request.form['password']
-    password2 = request.form['password2']
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form["email"]
+        password = request.form['password']
+        password2 = request.form['password2']
 
-    if password == password2:
-        try:
-            user = [x for x in users if x.username == username][0]
-        except:
-            return redirect(url_for('Engels.password_reset_en'))
-        else:
-            if user.email == email:
-                message = password
-                message_bytes = message.encode('ascii')
-                base64_bytes = base64.b64encode(message_bytes)
-                password = base64_bytes.decode('ascii')
+        if password == password2:
+            try:
+                user = [x for x in users if x.username == username][0]
+            except:
+                return redirect(url_for('Engels.password_reset_en'))
+            else:
+                if user.email == email:
+                    message = password
+                    message_bytes = message.encode('ascii')
+                    base64_bytes = base64.b64encode(message_bytes)
+                    password = base64_bytes.decode('ascii')
 
-                line1 = 0
+                    line1 = 0
 
-                for line in open("accountfile.txt", "r").readlines():
-                    accounts = line.split()
-                    line1 += 1
-                    if accounts[1] == username & accounts[3] == email:
-                        users.append(User(id=accounts[0], username=accounts[1], password=password, email=accounts[3]))
+                    for line in open("accountfile.txt", "r").readlines():
+                        accounts = line.split()
+                        line1 += 1
+                        if accounts[1] == username & accounts[3] == email:
+                            users.append(User(id=accounts[0], username=accounts[1], password=password, email=accounts[3]))
 
-                        filename = '../Website/accountfile.txt'
-                        line_to_delete = line1
-                        initial_line = 1
-                        file_lines = {}
+                            filename = '../Website/accountfile.txt'
+                            line_to_delete = line1
+                            initial_line = 1
+                            file_lines = {}
 
-                        with open(filename) as f:
-                            content = f.readlines()
+                            with open(filename) as f:
+                                content = f.readlines()
 
-                        for line in content:
-                            file_lines[initial_line] = line.strip()
-                            initial_line += 1
+                            for line in content:
+                                file_lines[initial_line] = line.strip()
+                                initial_line += 1
 
-                        f = open(filename, "w")
-                        for line_number, line_content in file_lines.items():
-                            if line_number != line_to_delete:
-                                f.write('{}\n'.format(line_content))
+                            f = open(filename, "w")
+                            for line_number, line_content in file_lines.items():
+                                if line_number != line_to_delete:
+                                    f.write('{}\n'.format(line_content))
 
-                        f.close()
-                        print('Deleted line: {}'.format(line_to_delete))
+                            f.close()
+                            print('Deleted line: {}'.format(line_to_delete))
 
-                        file = open(filename, "a")
-                        file.write(accounts[0] + " " + accounts[1] + " " + password + " " + accounts[3] + " " + accounts[4])
+                            file = open(filename, "a")
+                            file.write(accounts[0] + " " + accounts[1] + " " + password + " " + accounts[3] + " " + accounts[4])
 
-                return redirect(url_for('Engels.login_en'))
+                    return redirect(url_for('Engels.login_en'))
 
 
     return render_template("Space_Shooter_Web_EN_Password_Reset.html")
