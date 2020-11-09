@@ -14,19 +14,20 @@ users = []
 
 
 class User:
-    def __init__(self, id, username, password, email):
+    def __init__(self, id, username, password, email, logins):
         self.id = id
         self.username = username
         self.password = password
         self.email = email
+        self.logins = logins
 
     def __repr__(self):
         return f'<User: {self.username}>'
 
 
-for line in open("/accountfile.txt", "r").readlines():
+for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
-    users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3]))
+    users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
 
 ##by start send email of connected ip
 ##enable this when deployd
