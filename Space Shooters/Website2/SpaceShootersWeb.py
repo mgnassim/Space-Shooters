@@ -3,15 +3,14 @@ import smtplib
 import socket
 
 from flask import Flask, render_template, redirect, url_for, session, request, g
-from Nederlands.Nederlands import Nederlands
-from Engels.Engels import Engels
+from users.Nederlands.Nederlands import Nederlands
+from users.Engels.Engels import Engels
 from Admin.Admin import Admin
+from Error.Error import Error
 
 
 acounts = []
 users = []
-totalusers = 1
-usernames = []
 
 
 class User:
@@ -25,11 +24,9 @@ class User:
         return f'<User: {self.username}>'
 
 
-for line in open("C:/Users/butro/Desktop/Website2/accountfile.txt", "r").readlines():
+for line in open("../Website2/accountfile.txt", "r").readlines():
     accounts = line.split()
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3]))
-    totalusers += 1
-    usernames += accounts[1]
 
 ##by start send email of connected ip
 ##enable this when deployd
@@ -84,7 +81,8 @@ def link1():
 
 app.register_blueprint(Nederlands, url_prefix="/NL")
 app.register_blueprint(Engels, url_prefix="/EN")
-app.register_blueprint(Engels, url_prefix="/admin")
+app.register_blueprint(Admin, url_prefix="/admin")
+app.register_blueprint(Error, url_prefix="")
 
 
 @app.route("/language")
