@@ -14,19 +14,33 @@ users = []
 
 
 class User:
+<<<<<<< .merge_file_a14736
     def __init__(self, id, username, password, email):
+=======
+    def __init__(self, id, username, password, email, logins):
+>>>>>>> .merge_file_a09368
         self.id = id
         self.username = username
         self.password = password
         self.email = email
+<<<<<<< .merge_file_a14736
+=======
+        self.logins = logins
+>>>>>>> .merge_file_a09368
 
     def __repr__(self):
         return f'<User: {self.username}>'
 
 
+<<<<<<< .merge_file_a14736
 for line in open("/accountfile.txt", "r").readlines():
     accounts = line.split()
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3]))
+=======
+for line in open("../Website/accountfile.txt", "r").readlines():
+    accounts = line.split()
+    users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
+>>>>>>> .merge_file_a09368
 
 ##by start send email of connected ip
 ##enable this when deployd
