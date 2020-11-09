@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="929bd911-ddcc-4d24-855f-26b83b7d02bb" name="Default Changelist" comment="" />
+    <list default="true" id="865d15ec-3833-4699-8260-498f1d52f807" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,56 +28,48 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
-    </option>
-  </component>
-  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
-    <envs>
-      <env key="FLASK_APP" value="app" />
-    </envs>
-    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
-    <option name="myEnvs">
-      <map>
-        <entry key="FLASK_APP" value="app" />
-      </map>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="JupyterTrust" id="a6de4e0f-f903-403f-873a-06b7064012d5" />
-  <component name="ProjectId" id="1j2y7nyVBMt7JASNj2xfze6wrnO" />
+  <component name="JupyterTrust" id="190e5e0b-67c7-46c4-b92a-aa18ceb3a838" />
+  <component name="ProjectId" id="1k1HEH3xbPsyMGayfzgDOmo165d" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\.idea" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\static" />
-      <recent name="C:\Users\sirit\OneDrive\Documents\space-invaders\Space Shooters\Website\templates\andere website" />
+      <recent name="C:\Users\butro\Desktop\Website2\Engels" />
+      <recent name="C:\Users\butro\Desktop\Website2\Nederlands" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\butro\Desktop\Website2\Admin" />
+      <recent name="C:\Users\butro\Desktop\Website2\Engels" />
+      <recent name="C:\Users\butro\Desktop\Website2\Nederlands" />
+      <recent name="C:\Users\butro\Desktop\Website2" />
+      <recent name="C:\Users\butro\Desktop\Website2\static" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Website" type="PythonConfigurationType" factoryName="Python">
-      <module name="Website" />
+    <configuration name="Website2" type="PythonConfigurationType" factoryName="Python">
+      <module name="Website2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -102,27 +94,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="929bd911-ddcc-4d24-855f-26b83b7d02bb" name="Default Changelist" comment="" />
-      <created>1603016316672</created>
+      <changelist id="865d15ec-3833-4699-8260-498f1d52f807" name="Default Changelist" comment="" />
+      <created>1604861063907</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603016316672</updated>
-      <workItem from="1603016317777" duration="5860000" />
-      <workItem from="1603038736556" duration="388000" />
-      <workItem from="1603102611123" duration="1283000" />
-      <workItem from="1603202182494" duration="850000" />
-      <workItem from="1603361392789" duration="5629000" />
-      <workItem from="1603559727639" duration="777000" />
-      <workItem from="1603617396399" duration="7624000" />
-      <workItem from="1603657571558" duration="4254000" />
-      <workItem from="1603720753371" duration="4825000" />
-      <workItem from="1603731598944" duration="1332000" />
-      <workItem from="1603752428284" duration="4552000" />
-      <workItem from="1603796562573" duration="11367000" />
-      <workItem from="1603825681955" duration="1785000" />
-      <workItem from="1603889616049" duration="3817000" />
-      <workItem from="1603974634026" duration="727000" />
-      <workItem from="1603988830562" duration="2030000" />
+      <updated>1604861063907</updated>
+      <workItem from="1604861064939" duration="4805000" />
+      <workItem from="1604867103337" duration="49000" />
     </task>
     <servers />
   </component>
@@ -139,55 +117,23 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="258" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603039122468">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="174" key="GridCell.Tab.0.bottom" timestamp="1604865387210">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="258" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603039122468" />
-    <state x="232" y="289" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1603618051673">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="174" key="GridCell.Tab.0.bottom/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604865387210" />
+    <state width="1493" height="174" key="GridCell.Tab.0.center" timestamp="1604865387210">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="232" y="289" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603618051673" />
-    <state x="380" y="248" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603364830673">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="174" key="GridCell.Tab.0.center/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604865387210" />
+    <state width="1493" height="174" key="GridCell.Tab.0.left" timestamp="1604865387210">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="380" y="248" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603364830673" />
-    <state x="547" y="293" key="FileChooserDialogImpl" timestamp="1603024744477">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="174" key="GridCell.Tab.0.left/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604865387210" />
+    <state width="1493" height="174" key="GridCell.Tab.0.right" timestamp="1604865387210">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="547" y="293" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603024744477" />
-    <state width="938" height="316" key="GridCell.Tab.0.bottom" timestamp="1603908399555">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="316" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="1124" height="316" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116985" />
-    <state width="938" height="316" key="GridCell.Tab.0.center" timestamp="1603908399555">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="316" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="1124" height="316" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116984" />
-    <state width="938" height="316" key="GridCell.Tab.0.left" timestamp="1603908399555">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="316" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="1124" height="316" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116984" />
-    <state width="938" height="316" key="GridCell.Tab.0.right" timestamp="1603908399555">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="316" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603908399555" />
-    <state width="1124" height="316" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603762116984" />
-    <state x="85" y="161" key="SettingsEditor" timestamp="1603632958255">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="85" y="161" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603632958255" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603662705708">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603662705708" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Website$Website.coverage" NAME="Website Coverage Results" MODIFIED="1603889635694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <state width="1493" height="174" key="GridCell.Tab.0.right/0.0.1536.864/-1200.-463.1200.1920@0.0.1536.864" timestamp="1604865387210" />
   </component>
 </project>

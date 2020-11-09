@@ -17,7 +17,7 @@ class User:
     def __repr__(self):
         return f'<User: {self.username}>'
 
-for line in open("../Website2/accountfile.txt", "r").readlines():
+for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3]))
 
