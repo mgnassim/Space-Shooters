@@ -12,16 +12,20 @@
       <h2>Create account</h2>
       <form method="POST">
         <div class="input-box">
-          <input type = "text" name = "username" placeholder = "Gebruikersnaam">
+          <input type = "text" name = "username" autocomplete="off" required>
+          <label for="">Gebruikersnaam</label>
         </div>
         <div class="input-box">
-          <input type = "email" name = "email" placeholder = "Email">
+          <input type = "email" name = "email" autocomplete="off" required>
+          <label for="">E-mail</label>
         </div>
         <div class="input-box">
-          <input type = "password" name = "password" placeholder = "Wachtwoord">
+          <input type = "password" name = "password" autocomplete="off" required>
+          <label for="">Wachtwoord</label>
         </div>
         <div class="input-box">
-          <input type = "password" name = "password2" placeholder = "Bevestigen">
+          <input type = "password" name = "password2" autocomplete="off" required>
+          <label for="">Bevestig Wachtwoord</label>
         </div>
         <input type="submit" class="submit" value="Registreer"/>
       </form>

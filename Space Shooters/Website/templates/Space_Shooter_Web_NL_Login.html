@@ -14,12 +14,14 @@
       <h2>Log in</h2>
       <form method="POST">
         <div class="input-box">
-          <input type = "text" name = "username" placeholder = "gebruikersnaam">
+          <input type = "text" name = "username" autocomplete="off" required>
+          <label for="">Gebruikersnaam</label>
         </div>
         <div class="input-box">
-          <input type = "password" name = "password" placeholder = "Wachtwoord">
+          <input type = "password" name = "password" autocomplete="off" required>
         </div>
         <input type="submit" class="submit" value="Login" />
+        <label for="">Wachtwoord</label>
       </form>
 
       <form action="/NL/Registration">

@@ -11,13 +11,15 @@
 
   <body>
     <div class="box">
-      <h2>Log in</h2>
+      <h2>Login</h2>
       <form method="POST">
         <div class="input-box">
-          <input type = "text" name = "username" placeholder = "Username">
+          <input type = "text" name = "username" autocomplete="off" required>
+          <label for="">Username</label>
         </div>
         <div class="input-box">
-          <input type = "password" name = "password" placeholder = "Password">
+          <input type = "password" name = "password" autocomplete="off" required>
+          <label for="">password</label>
         </div>
         <input type="submit" class="submit" value="Welcome">
       </form>

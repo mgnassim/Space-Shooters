@@ -41,19 +41,20 @@ body {
 }
 .box .input-box label {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
   letter-spacing: 5px;
   padding: -20px 0px;
   font-size: 16px;
   color: #fff;
   transition: 1s;
+  opacity: 0.6;
 }
 .box .input-box input:focus ~ label,
 .box .input-box input:valid ~ label {
   top: -20px;
-  left: 100px;
   color: #66ff00;
+  opacity: 1;
   font-size: 17px;
 }
 .box input[type="submit"] {
