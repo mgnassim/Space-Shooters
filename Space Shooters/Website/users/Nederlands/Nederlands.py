@@ -8,30 +8,19 @@ Nederlands = Blueprint("Nederlands", __name__, static_folder="static", template_
 users = []
 
 class User:
-<<<<<<< .merge_file_a14496
-    def __init__(self, id, username, password, email):
-=======
     def __init__(self, id, username, password, email, logins):
->>>>>>> .merge_file_a01484
         self.id = id
         self.username = username
         self.password = password
         self.email = email
-<<<<<<< .merge_file_a14496
-=======
         self.logins = logins
->>>>>>> .merge_file_a01484
 
     def __repr__(self):
         return f'<User: {self.username}>'
 
 for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
-<<<<<<< .merge_file_a14496
-    users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3]))
-=======
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
->>>>>>> .merge_file_a01484
 
 @Nederlands.route("/Registration", methods=['GET', 'POST'])
 def registration_nl():
@@ -49,17 +38,10 @@ def registration_nl():
             base64_bytes = base64.b64encode(message_bytes)
             password = base64_bytes.decode('ascii')
 
-<<<<<<< .merge_file_a14496
-            for line in open("../../accountfile.txt", "r").readlines():
-                totalusersnew += 1
-
-            file = open("../../accountfile.txt", "a")
-=======
             for line in open("../Website/accountfile.txt", "r").readlines():
                 totalusersnew += 1
 
             file = open("../Website/accountfile.txt", "a")
->>>>>>> .merge_file_a01484
             file.write("\n")
             file.write(str(totalusersnew))
             file.write(" ")
@@ -68,17 +50,11 @@ def registration_nl():
             file.write(password)
             file.write(" ")
             file.write(email)
-<<<<<<< .merge_file_a14496
-            file.close()
-
-            users.append(User(id=totalusersnew, username=username, password=password, email=email))
-=======
             file.write(" ")
             file.write("0")
             file.close()
 
             users.append(User(id=totalusersnew, username=username, password=password, email=email, logins=accounts[4]))
->>>>>>> .merge_file_a01484
 
             gmail_user = 'spaceshooters1@gmail.com'
             gmail_password = 'SpaceInvaders'
@@ -89,21 +65,12 @@ def registration_nl():
             body = 'Regestratie email van SpaceShooters'
 
             email_text = """\
-<<<<<<< .merge_file_a14496
-            From: %s
-            To: %s
-            Subject: %s
-    
-            %s
-            """ % (sent_from, ", ".join(to), subject, body)
-=======
                     From: %s
                     To: %s
                     Subject: %s
             
                     %s
                     """ % (sent_from, ", ".join(to), subject, body)
->>>>>>> .merge_file_a01484
 
             try:
                 server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
@@ -117,10 +84,6 @@ def registration_nl():
             except:
                 print("Something went wrong...")
 
-<<<<<<< .merge_file_a14496
-
-=======
->>>>>>> .merge_file_a01484
             return redirect(url_for('Nederlands.login_nl'))
 
     return render_template("Space_Shooter_Web_NL_Registration.html")
@@ -131,10 +94,7 @@ def registration_nl():
 def login_nl():
     if request.method == 'POST':
         session.pop('user_id', None)
-<<<<<<< .merge_file_a14496
-=======
         line1 = 0
->>>>>>> .merge_file_a01484
 
         username = request.form['username']
         password = request.form['password']
@@ -154,9 +114,6 @@ def login_nl():
                 if user.id == 1:
                     return redirect(url_for('Admin.admin'))
                 else:
-<<<<<<< .merge_file_a14496
-                    return redirect(url_for('Nederlands.homepage_nl'))
-=======
                     for line in open("../Website/accountfile.txt", "r").readlines():
                         accounts = line.split()
                         line1 += 1
@@ -188,7 +145,6 @@ def login_nl():
                             file.write(accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " + str(logins))
 
                             return redirect(url_for('Nederlands.homepage_nl'))
->>>>>>> .merge_file_a01484
 
             return redirect(url_for('Nederlands.login_nl'))
 
@@ -214,12 +170,6 @@ def password_reset_nl():
                 base64_bytes = base64.b64encode(message_bytes)
                 password = base64_bytes.decode('ascii')
 
-<<<<<<< .merge_file_a14496
-                for line in open("../../accountfile.txt", "r").readlines():
-                    accounts = line.split()
-                    if accounts[1] == username & accounts[3] == email:
-                        users.append(User(id=accounts[0], username=accounts[1], password=password, email=accounts[3]))
-=======
                 line1 = 0
 
                 for line in open("../Website/accountfile.txtt", "r").readlines():
@@ -254,7 +204,6 @@ def password_reset_nl():
                         file = open(filename, "a")
                         file.write(
                             accounts[0] + " " + accounts[1] + " " + password + " " + accounts[3] + " " + accounts[4])
->>>>>>> .merge_file_a01484
 
                 return redirect(url_for('Nederlands.login_nl'))
 

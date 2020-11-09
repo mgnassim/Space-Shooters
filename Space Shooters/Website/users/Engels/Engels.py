@@ -8,30 +8,19 @@ Engels = Blueprint("Engels", __name__, static_folder="static", template_folder="
 users = []
 
 class User:
-<<<<<<< .merge_file_a14648
-    def __init__(self, id, username, password, email):
-=======
     def __init__(self, id, username, password, email, logins):
->>>>>>> .merge_file_a23760
         self.id = id
         self.username = username
         self.password = password
         self.email = email
-<<<<<<< .merge_file_a14648
-=======
         self.logins = logins
->>>>>>> .merge_file_a23760
 
     def __repr__(self):
         return f'<User: {self.username}>'
 
 for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
-<<<<<<< .merge_file_a14648
-    users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3]))
-=======
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
->>>>>>> .merge_file_a23760
 
 @Engels.route("/Registration", methods=['GET', 'POST'])
 def registration_en():
@@ -49,38 +38,23 @@ def registration_en():
             base64_bytes = base64.b64encode(message_bytes)
             password = base64_bytes.decode('ascii')
 
-<<<<<<< .merge_file_a14648
-            for line in open("accountfile.txt", "r").readlines():
-                totalusersnew += 1
-
-            file = open("accountfile.txt", "a")
-            file.write("\n")
-            file.write(str(totalusers))
-=======
             for line in open("../Website/accountfile.txt", "r").readlines():
                 totalusersnew += 1
 
             file = open("../Website/accountfile.txt", "a")
             file.write("\n")
             file.write(str(totalusersnew))
->>>>>>> .merge_file_a23760
             file.write(" ")
             file.write(username)
             file.write(" ")
             file.write(password)
             file.write(" ")
             file.write(email)
-<<<<<<< .merge_file_a14648
-            file.close()
-
-            users.append(User(id=totalusers, username=username, password=password, email=email))
-=======
             file.write(" ")
             file.write("0")
             file.close()
 
             users.append(User(id=totalusersnew, username=username, password=password, email=email, logins=accounts[4]))
->>>>>>> .merge_file_a23760
 
             gmail_user = 'spaceshooters1@gmail.com'
             gmail_password = 'SpaceInvaders'
@@ -106,10 +80,7 @@ def registration_en():
                 server.close()
 
                 print('Email sent!')
-<<<<<<< .merge_file_a14648
-=======
 
->>>>>>> .merge_file_a23760
             except:
                 print('Something went wrong...')
 
@@ -123,10 +94,7 @@ def registration_en():
 def login_en():
     if request.method == 'POST':
         session.pop('user_id', None)
-<<<<<<< .merge_file_a14648
-=======
         line1 = 0
->>>>>>> .merge_file_a23760
 
         username = request.form['username']
         password = request.form['password']
@@ -143,11 +111,6 @@ def login_en():
 
             if passwordencode == password:
                 session['user_id'] = user.id
-<<<<<<< .merge_file_a14648
-                if user.id == 0:
-                    return redirect(url_for('admin.admin'))
-                return redirect(url_for('Engels.homepage_en'))
-=======
                 if user.id == 1:
                     return redirect(url_for('Admin.admin'))
                 else:
@@ -182,7 +145,6 @@ def login_en():
                             file.write(accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " + str(logins))
 
                             return redirect(url_for('Engels.homepage_en'))
->>>>>>> .merge_file_a23760
 
             return redirect(url_for('Engels.login_en'))
 
@@ -208,13 +170,6 @@ def password_reset_en():
                 base64_bytes = base64.b64encode(message_bytes)
                 password = base64_bytes.decode('ascii')
 
-<<<<<<< .merge_file_a14648
-                for line in open("accountfile.txt", "r").readlines():
-                    accounts = line.split()
-                    if accounts[1] == username & accounts[3] == email:
-                        users.append(User(id=accounts[0], username=accounts[1], password=password, email=accounts[3]))
-
-=======
                 line1 = 0
 
                 for line in open("accountfile.txt", "r").readlines():
@@ -246,7 +201,6 @@ def password_reset_en():
                         file = open(filename, "a")
                         file.write(accounts[0] + " " + accounts[1] + " " + password + " " + accounts[3] + " " + accounts[4])
 
->>>>>>> .merge_file_a23760
                 return redirect(url_for('Engels.login_en'))
 
 
