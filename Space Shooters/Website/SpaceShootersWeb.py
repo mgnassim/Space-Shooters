@@ -82,11 +82,10 @@ def before_request():
 def link1():
     return redirect("/NL/Login")
 
-
+app.register_blueprint(Error, url_prefix="")
 app.register_blueprint(Nederlands, url_prefix="/NL")
 app.register_blueprint(Engels, url_prefix="/EN")
 app.register_blueprint(Admin, url_prefix="/admin")
-app.register_blueprint(Error, url_prefix="")
 
 
 @app.route("/language")
@@ -95,4 +94,4 @@ def language_selection():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True)

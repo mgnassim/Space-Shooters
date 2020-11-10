@@ -22,6 +22,7 @@ for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
 
+
 @Nederlands.route("/Registration", methods=['GET', 'POST'])
 def registration_nl():
     if request.method == "POST":
@@ -144,11 +145,9 @@ def login_nl():
                             file = open(filename, "a")
                             file.write(accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " + str(logins))
 
-                            print(users)
                             users.append(
                                 User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3],
                                      logins=logins))
-                            print(users)
 
                             return redirect(url_for('Nederlands.homepage_nl'))
 
@@ -225,4 +224,31 @@ def homepage_nl():
     except:
         return redirect(url_for('Nederlands.login_nl'))
 
-    return render_template("Space_Shooter_Web_NL_Homepage.html")
+    array = []
+
+    for line in open("../Website/highscore", "r").readlines():
+        scorebord = line.split()
+        array.append(scorebord[0] + " " + scorebord[1])
+
+    n = len(array)
+
+    for i in range(n):
+        already_sorted = True
+
+        for j in range(n - i - 1):
+
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+
+                already_sorted = False
+
+        if already_sorted:
+            break
+
+    array.reverse()
+    g.scourebord = array
+
+
+
+
+    return render_template("Space_Shooter_Web_NL_Homepage.html", list_to_send=array)
