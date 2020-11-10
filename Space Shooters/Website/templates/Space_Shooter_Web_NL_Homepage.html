@@ -45,7 +45,9 @@
         <h2>Scoreboard</h2>
         </form>
 
-        <p>{{g.scourebord}}</p>
+        {% for element in list_to_send%}
+            <p>{{element}}</p>
+        {% endfor %}
       </section>
       <section id="sec3" data-index="2" class="Gamerules">
         <h2>Game rules</h2>
