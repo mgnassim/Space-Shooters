@@ -17,16 +17,16 @@ Sensor5 = 5
 while True:
     if GPIO.input(Sensor1):  # if port 11 == 1
         print("Port 4 is 1/GPIO.HIGH/True")
-        time.sleep(1)
+        #time.sleep(1)
     if GPIO.input(Sensor2):  # if port 11 == 1
         print("Port 17 is 1/GPIO.HIGH/True")
-        time.sleep(1)
+        #time.sleep(1)
     if GPIO.input(Sensor3):  # if port 11 == 1
         print("Port 27 is 1/GPIO.HIGH/True")
-        time.sleep(1)
+        #time.sleep(1)
     if GPIO.input(Sensor4):  # if port 11 == 1
         print("Port 22 is 1/GPIO.HIGH/True")
-        time.sleep(1)
+        #time.sleep(1)
     if GPIO.input(Sensor5):  # if port 11 == 1
         print("Port 5 is 1/GPIO.HIGH/True")
-        time.sleep(1)
+        #time.sleep(1)
