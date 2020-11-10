@@ -58,7 +58,7 @@ body {
   font-size: 17px;
 }
 .box input[type="submit"] {
-  position: flex;
+
   top: 0;
   left: 15.7%;
   background: transparent;

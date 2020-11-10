@@ -31,35 +31,35 @@ for line in open("../Website/accountfile.txt", "r").readlines():
 
 ##by start send email of connected ip
 ##enable this when deployd
-def multiline_example():
-    hostname = socket.gethostname()
-    IPAddr = socket.gethostbyname(hostname)
 
-    gmail_user = 'spaceshooters1@gmail.com'
-    gmail_password = 'SpaceInvaders'
+hostname = socket.gethostname()
+IPAddr = socket.gethostbyname(hostname)
 
-    sent_from = gmail_user
-    to = "butrosgroot@gmail.com"
-    subject = 'SpaceShooters'
-    body = IPAddr
+gmail_user = 'spaceshooters1@gmail.com'
+gmail_password = 'SpaceInvaders'
 
-    email_text = """\
-            From: %s
-            To: %s
-            Subject: %s
-            
-            %s
-            """ % (sent_from, ", ".join(to), subject, body)
+sent_from = gmail_user
+to = "butrosgroot@gmail.com"
+subject = 'SpaceShooters'
+body = IPAddr
 
-    try:
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        server.ehlo()
-        server.login(gmail_user, gmail_password)
-        server.sendmail(sent_from, to, email_text)
-        server.close()
-        print("Email sent!")
-    except:
-        print("Something went wrong...")
+email_text = """\
+        From: %s
+        To: %s
+        Subject: %s
+        
+        %s
+        """ % (sent_from, ", ".join(to), subject, body)
+
+try:
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server.ehlo()
+    server.login(gmail_user, gmail_password)
+    server.sendmail(sent_from, to, email_text)
+    server.close()
+    print("Email sent!")
+except:
+    print("Something went wrong...")
 
 
 app = Flask(__name__)
