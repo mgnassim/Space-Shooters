@@ -1,50 +1,59 @@
-from __future__ import division
-import RPi.GPIO as GPIO
-import time ,threading
+#from __future__ import division                  #helpt bij het jet importen zorgt voor geen verwaring
+
+import RPi.GPIO as GPIO                           # Import library GPIO
+
+import time,threading                             # Import library Time.
+
+import Adafruit_PCA9685                           # Import library van PCA9685 module.
+
+GPIO.setmode(GPIO.BCM)                            # Aangeven welke type pin notering er gebruikt word
+GPIO.setwarnings(False)                           # Zet waarschuwing uit
+
+#pinnen instellen
+GPIO.setup(4, GPIO.IN)                            # Pin 4 is input van sensor 3
+GPIO.setup(27, GPIO.IN)                           # Pin 27 is input van sensor 3
+GPIO.setup(5, GPIO.IN)                            # Pin 5 is input van sensor 3
 
 
-# Import the PCA9685 module.
-import Adafruit_PCA9685
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(4, GPIO.IN)#pin 4 is input van sesnor 1
-GPIO.setup(27, GPIO.IN)#pin 27 is input van sesnor 1
-GPIO.setup(5, GPIO.IN)#pin 5 is input van sesnor 1
+#decaleer ik waarden
 Sensor1 = 4
 Sensor2 = 27
 Sensor3 = 5
 
 
-# Initialise the PCA9685 using the default address (0x40).
-
-def foo():
-    print(time.ctime())
-    threading.Timer(3600, foo).start()
-    if threading.Timer(3600):
 
 
 if __name__ == '__main__':
 
-    pwm = Adafruit_PCA9685.PCA9685()
+    pwm = Adafruit_PCA9685.PCA9685()                      #Initialiseer de PCA9685 met het standaardadres (basis adddres 0x40).
 
-    # Configure min and max servo pulse lengths
+    pwm.set_pwm_freq(50)                                  #Verander de PWM frequentrie naar 50MHZ
+
+    # Hier congigureer ik de minimaale en maximaale waardes voor de pulse
     servo_min = 100  # Min pulse length out of 4096
     servo_max = 350  # Max pulse length out of 4096 (90 graden)
 
-    pwm.set_pwm_freq(50)
-
     print('press Ctrl-C to quit...')
 
-    pwm.set_pwm(15, 0, servo_min)
+    pwm.set_pwm(15, 0, servo_min)       #draao90graden
+    pwm.set_pwm(12, 0, servo_min)       #draao90graden
+    pwm.set_pwm(0, 0, servo_min)        #draao90graden
     time.sleep(1)
-    while True:
-        # Move servo on channel O between extremes.
 
+
+    tijd_limiet = 30                      #aantal minuten dat er gespeeld kan worden
+    start_tijd = time.time()              #start tijd is de actueele tijd van nu
+    while True:                                            #loop altijd
+        gespeeld_tijd = time.time() - start_tijd              #berekening gespeelde tijd
+
+         # Als de if waarde true is word word de statement uitgevoerd
+
+        if gespeeld_tijd > tijd_limiet:
+            break
         if GPIO.input(Sensor1):
             pwm.set_pwm(15, 0, servo_max)
             time.sleep(1)
             pwm.set_pwm(15, 0, servo_min)
-
         if GPIO.input(Sensor2):
             pwm.set_pwm(0, 0, servo_max)
             time.sleep(1)
@@ -53,3 +62,9 @@ if __name__ == '__main__':
             pwm.set_pwm(12, 0, servo_max)
             time.sleep(1)
             pwm.set_pwm(12, 0, servo_min)
+
+    print('game over')
+    pwm.set_pwm(15, 0, servo_max)
+    pwm.set_pwm(12, 0, servo_max)
+    pwm.set_pwm(0, 0, servo_max)
+    time.sleep(1)
