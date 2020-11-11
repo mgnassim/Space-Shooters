@@ -135,6 +135,17 @@ if __name__ == '__main__':
                 if gespeeld_tijd > tijd_limiet:
                     break
 
+    pwm.set_pwm(servo1, 0, servo_actief)
+    pwm.set_pwm(servo2, 0, servo_actief)
+    pwm.set_pwm(servo3, 0, servo_actief)
+
+    time.sleep(1)
+
+    pwm.set_pwm(servo1, 0, servo_rust)
+    pwm.set_pwm(servo2, 0, servo_rust)
+    pwm.set_pwm(servo3, 0, servo_rust)
+    print('game over')
+
     if afstand() < 10:
         punten_nomering = 0
 
@@ -149,17 +160,6 @@ if __name__ == '__main__':
 
     elif afstand() > 100:
         punten_nomering = 4
-
-    pwm.set_pwm(servo1, 0, servo_actief)
-    pwm.set_pwm(servo2, 0, servo_actief)
-    pwm.set_pwm(servo3, 0, servo_actief)
-
-    time.sleep(1)
-
-    pwm.set_pwm(servo1, 0, servo_rust)
-    pwm.set_pwm(servo2, 0, servo_rust)
-    pwm.set_pwm(servo3, 0, servo_rust)
-    print('game over')
 
     totaalscore = geraakt * punten_nomering
     print(totaalscore)
