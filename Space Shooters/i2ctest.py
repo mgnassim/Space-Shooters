@@ -76,7 +76,7 @@ if __name__ == '__main__':
     totaalscore=0
 
 
-    tijd_limiet = 30                                                          #aantal minuten dat er gespeeld kan worden
+    tijd_limiet = 10                                                          #aantal minuten dat er gespeeld kan worden
     start_tijd = time.time()                                                  #start tijd is de actueele tijd van nu
     while True:                                                               #loop altijd
         gespeeld_tijd = time.time() - start_tijd                              #berekening gespeelde tijd
@@ -104,20 +104,6 @@ if __name__ == '__main__':
             time.sleep(1)
             pwm.set_pwm(servo3, 0, servo_min)
 
-        if afstand() < 10:
-            punten_nomering = 0
-
-        if afstand() > 10 and afstand() < 30:
-            punten_nomering = 1
-
-        if afstand() > 30 and afstand() < 50:
-            punten_nomering = 2
-
-        if afstand() > 50 and afstand() < 100:
-            punten_nomering = 3
-
-        if afstand() > 100:
-            punten_nomering = 4
 
 
 
