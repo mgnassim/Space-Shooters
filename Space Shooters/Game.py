@@ -16,8 +16,8 @@ GPIO.setup(5, GPIO.IN)                            # Pin 5 is input van sensor 3
 
 #decaleer ik waarden
 Sensor1 = 4
-Sensor2 = 27
-Sensor3 = 5
+Sensor2 = 5
+Sensor3 = 27
 
 #afstandsensor
 TRIG = 23
@@ -105,23 +105,26 @@ if __name__ == '__main__':
         if RandomTarget == 0:
             pwm.set_pwm(servo1, 0, servo_actief)
             while True:
-                pwm.set_pwm(servo1, 0, servo_rust)
-                geraakt += 1
-                break
+                if GPIO.input(Sensor1):
+                    pwm.set_pwm(servo1, 0, servo_rust)
+                    geraakt += 1
+                    break
 
         if RandomTarget == 1:
             pwm.set_pwm(servo2, 0, servo_actief)
             while True:
-                pwm.set_pwm(servo2, 0, servo_rust)
-                geraakt += 1
-                break
+                if GPIO.input(Sensor2):
+                    pwm.set_pwm(servo2, 0, servo_rust)
+                    geraakt += 1
+                    break
 
         if RandomTarget == 2:
             pwm.set_pwm(servo3, 0, servo_actief)
             while True:
-                pwm.set_pwm(servo3, 0, servo_rust)
-                geraakt += 1
-                break
+                if GPIO.input(Sensor3):
+                    pwm.set_pwm(servo3, 0, servo_rust)
+                    geraakt += 1
+                    break
 
     if afstand() < 10:
         punten_nomering = 0
