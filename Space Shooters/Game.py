@@ -29,7 +29,7 @@ geraakt = 0
 punten_nomering = 0
 
 
-def afstand():
+def afstand_meting():
     GPIO.output(TRIG, False)  # Set TRIG as LOW
     time.sleep(2)
 
@@ -146,23 +146,25 @@ if __name__ == '__main__':
     pwm.set_pwm(servo3, 0, servo_rust)
     print('game over')
 
-    if afstand() < 10:
+    afstand = afstand_meting()
+
+    if afstand < 10:
         punten_nomering = 0
 
-    elif afstand() >= 10 & afstand() <= 30:
+    elif afstand >= 10 & afstand <= 30:
         punten_nomering = 1
 
-    elif afstand() >= 30 & afstand() < 50:
+    elif afstand >= 30 & afstand < 50:
         punten_nomering = 2
 
-    elif afstand() >= 50 & afstand() <= 100:
+    elif afstand >= 50 & afstand <= 100:
         punten_nomering = 3
 
-    elif afstand() > 100:
+    elif afstand > 100:
         punten_nomering = 4
 
     totaalscore = geraakt * punten_nomering
     print(totaalscore)
-    print(afstand())
+    print(afstand)
     print('targets geraakt ' + str(geraakt) + ' score is ' + str(totaalscore) + ' nomering ' + str(punten_nomering))
     print(totaalscore)
