@@ -4,19 +4,14 @@ import RPi.GPIO as GPIO  # Import library GPIO
 import time, threading  # Import library Time.
 import Adafruit_PCA9685  # Import library van PCA9685 module.
 from random import randint
+import smtplib
+
+from flask import Blueprint, render_template, redirect, url_for, session, request, g
+
+Game = Blueprint("Game", __name__, static_folder="static", template_folder="templates")
 
 GPIO.setmode(GPIO.BCM)  # Aangeven welke type pin notering er gebruikt word
 GPIO.setwarnings(False)  # Zet waarschuwing uit
-
-# pinnen instellen
-GPIO.setup(4, GPIO.IN)  # Pin 4 is input van sensor 3
-GPIO.setup(27, GPIO.IN)  # Pin 27 is input van sensor 3
-GPIO.setup(5, GPIO.IN)  # Pin 5 is input van sensor 3
-
-# decaleer ik waarden
-Sensor1 = 4
-Sensor2 = 5
-Sensor3 = 27
 
 # afstandsensor
 TRIG = 23
@@ -24,12 +19,9 @@ ECHO = 24
 GPIO.setup(TRIG, GPIO.OUT)  # Set pin als GPIO out
 GPIO.setup(ECHO, GPIO.IN)  # Set pin als GPIO in
 
-# puten
-geraakt = 0
-punten_nomering = 0
+game_active = 0
 
-
-def afstand():
+def afstand_meting():
     GPIO.output(TRIG, False)  # Set TRIG as LOW
     time.sleep(2)
 
@@ -51,7 +43,20 @@ def afstand():
     return distance
 
 
-if __name__ == '__main__':
+def game():
+    # pinnen instellen
+    GPIO.setup(4, GPIO.IN)  # Pin 4 is input van sensor 3
+    GPIO.setup(27, GPIO.IN)  # Pin 27 is input van sensor 3
+    GPIO.setup(5, GPIO.IN)  # Pin 5 is input van sensor 3
+
+    # decaleer ik waarden
+    sensor1 = 4
+    sensor2 = 5
+    sensor3 = 27
+
+    # puten
+    geraakt = 0
+    punten_nomering = 0
 
     pwm = Adafruit_PCA9685.PCA9685()  # Initialiseer de PCA9685 met het standaardadres (basis adddres 0x40).
 
@@ -105,7 +110,7 @@ if __name__ == '__main__':
         if RandomTarget == 0:
             pwm.set_pwm(servo1, 0, servo_actief)
             while True:
-                if GPIO.input(Sensor1):
+                if GPIO.input(sensor1):
                     pwm.set_pwm(servo1, 0, servo_rust)
                     geraakt += 1
                     break
@@ -116,7 +121,7 @@ if __name__ == '__main__':
         if RandomTarget == 1:
             pwm.set_pwm(servo2, 0, servo_actief)
             while True:
-                if GPIO.input(Sensor2):
+                if GPIO.input(sensor2):
                     pwm.set_pwm(servo2, 0, servo_rust)
                     geraakt += 1
                     break
@@ -127,7 +132,7 @@ if __name__ == '__main__':
         if RandomTarget == 2:
             pwm.set_pwm(servo3, 0, servo_actief)
             while True:
-                if GPIO.input(Sensor3):
+                if GPIO.input(sensor3):
                     pwm.set_pwm(servo3, 0, servo_rust)
                     geraakt += 1
                     break
@@ -135,30 +140,9 @@ if __name__ == '__main__':
                 if gespeeld_tijd > tijd_limiet:
                     break
 
-    if afstand() < 10:
-        punten_nomering = 0
-
-    elif afstand() >= 10 & afstand() <= 30:
-        punten_nomering = 1
-
-    elif afstand() >= 30 & afstand() < 50:
-        punten_nomering = 2
-
-    elif afstand() >= 50 & afstand() <= 100:
-        punten_nomering = 3
-
-    elif afstand() > 100:
-        punten_nomering = 4
-
-    pwm.set_pwm(servo1, 0, servo_rust)
-    pwm.set_pwm(servo2, 0, servo_rust)
-    pwm.set_pwm(servo3, 0, servo_rust)
-
-    time.sleep(1)
-
-    pwm.set_pwm(servo1, 0, servo_actief)  # draao90graden
-    pwm.set_pwm(servo2, 0, servo_actief)  # draao90graden
-    pwm.set_pwm(servo3, 0, servo_actief)  # draao90graden
+    pwm.set_pwm(servo1, 0, servo_actief)
+    pwm.set_pwm(servo2, 0, servo_actief)
+    pwm.set_pwm(servo3, 0, servo_actief)
 
     time.sleep(1)
 
@@ -167,8 +151,36 @@ if __name__ == '__main__':
     pwm.set_pwm(servo3, 0, servo_rust)
     print('game over')
 
+    afstand = afstand_meting()
+
+    if afstand < 10:
+        punten_nomering = 0
+
+    elif afstand >= 10 & afstand <= 30:
+        punten_nomering = 1
+
+    elif afstand >= 30 & afstand < 50:
+        punten_nomering = 2
+
+    elif afstand >= 50 & afstand <= 100:
+        punten_nomering = 3
+
+    elif afstand > 100:
+        punten_nomering = 4
+
     totaalscore = geraakt * punten_nomering
     print(totaalscore)
     print(afstand())
     print('targets geraakt ' + str(geraakt) + ' score is ' + str(totaalscore) + ' nomering ' + str(punten_nomering))
     print(totaalscore)
+
+@Game.route("/", methods=['GET', 'POST'])
+def game_site_nl(game_active=game_active):
+    if game_active == 0:
+        game_active = 1
+        game()
+        return redirect(url_for('Nederlands.homepage_nl'))
+    else:
+        return redirect(url_for('Nederlands.homepage_nl'))
+
+    return render_template("Space_Shooters_Web_game.html")

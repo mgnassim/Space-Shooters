@@ -7,6 +7,7 @@ from users.Nederlands.Nederlands import Nederlands
 from users.Engels.Engels import Engels
 from Admin.Admin import Admin
 from Error.Error import Error
+from Game.Game import Game
 
 
 acounts = []
@@ -86,6 +87,7 @@ app.register_blueprint(Error, url_prefix="")
 app.register_blueprint(Nederlands, url_prefix="/NL")
 app.register_blueprint(Engels, url_prefix="/EN")
 app.register_blueprint(Admin, url_prefix="/admin")
+app.register_blueprint(Game, url_prefix="/game")
 
 
 @app.route("/language")
