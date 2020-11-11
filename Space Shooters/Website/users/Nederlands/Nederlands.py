@@ -249,6 +249,4 @@ def homepage_nl():
     g.scourebord = array
 
 
-
-
     return render_template("Space_Shooter_Web_NL_Homepage.html", list_to_send=array)
