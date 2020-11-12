@@ -1,8 +1,9 @@
-import base64
-import smtplib
-import socket
-
+#pip install
+import smtplib      #api module om email's te versturen
+import socket       #ip achterhalen
 from flask import Flask, render_template, redirect, session, g
+
+#eigen packages
 from users.Nederlands.Nederlands import Nederlands
 from users.Engels.Engels import Engels
 from Admin.Admin import Admin
@@ -10,10 +11,9 @@ from Error.Error import Error
 from Game.Game import Game
 
 
-acounts = []
 users = []
 
-
+#array word opgezet
 class User:
     def __init__(self, id, username, password, email, logins):
         self.id = id
@@ -33,9 +33,11 @@ for line in open("../Website/accountfile.txt", "r").readlines():
 ##by start send email of connected ip
 ##enable this when deployd
 def test():
+    #ip word opgevraagd door de pi
     hostname = socket.gethostname()
     IPAddr = socket.gethostbyname(hostname)
 
+    #email sturen
     gmail_user = 'spaceshooters1@gmail.com'
     gmail_password = 'SpaceInvaders'
 
@@ -68,9 +70,10 @@ app.secret_key = 'somesecretkeythatonlyishouldknow'
 
 
 @app.before_request
-def before_request():
+def before_request():           #word uitgevoerd voordat je op de site komt
     g.user = None
 
+    #maakt een session id aan als gast
     if 'user_id' in session:
         try:
             user = [x for x in users if x.id == session['user_id']][0]

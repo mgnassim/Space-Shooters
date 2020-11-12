@@ -1,4 +1,4 @@
-import base64
+import base64   #encriptie
 import smtplib
 
 from flask import Blueprint, render_template, redirect, url_for, session, request, g
@@ -34,6 +34,7 @@ def registration_nl():
         email = request.form["email"]
 
         if password == password2:
+            #encriptie
             message = password
             message_bytes = message.encode('ascii')
             base64_bytes = base64.b64encode(message_bytes)
@@ -144,6 +145,7 @@ def login_nl():
 
                             file = open(filename, "a")
                             file.write(accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " + str(logins))
+                            f.close()
 
                             users.append(
                                 User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3],
@@ -215,6 +217,11 @@ def password_reset_nl():
 
     return render_template("Space_Shooter_Web_NL_Password_Reset.html")
 
+
+@Nederlands.route("/RFID")
+def RFID_nl():
+
+    return render_template("Space_Shooter_RFID.html")
 
 @Nederlands.route("/Homepage")
 def homepage_nl():

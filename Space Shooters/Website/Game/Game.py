@@ -44,17 +44,17 @@ def afstand_meting():
 
 
 def game():
-    # pinnen instellen
-    GPIO.setup(4, GPIO.IN)  # Pin 4 is input van sensor 3
-    GPIO.setup(27, GPIO.IN)  # Pin 27 is input van sensor 3
-    GPIO.setup(5, GPIO.IN)  # Pin 5 is input van sensor 3
-
     # decaleer ik waarden
     sensor1 = 4
     sensor2 = 5
     sensor3 = 27
 
-    # puten
+    # pinnen instellen
+    GPIO.setup(sensor1, GPIO.IN)  # Pin 4 is input van sensor 3
+    GPIO.setup(sensor2, GPIO.IN)  # Pin 27 is input van sensor 3
+    GPIO.setup(sensor3, GPIO.IN)  # Pin 5 is input van sensor 3
+
+    #puten
     geraakt = 0
     punten_nomering = 0
 
@@ -91,13 +91,13 @@ def game():
 
     time.sleep(1)
 
-    tijd_limiet = 30  # aantal minuten dat er gespeeld kan worden
+    tijd_limiet = 30  # aantal seconde dat er gespeeld kan worden
     start_tijd = time.time()  # start tijd is de actueele tijd van nu
     pervRandomTarget = -1
     while True:  # loop altijd
         gespeeld_tijd = time.time() - start_tijd  # berekening gespeelde tijd
 
-        if gespeeld_tijd > tijd_limiet:  # als gespeelde tijd groter is dan tijd limiet stop de loop
+        if gespeeld_tijd >= tijd_limiet:  # als gespeelde tijd groter is dan tijd limiet stop de loop
             break
 
         while True:
@@ -170,7 +170,7 @@ def game():
 
     totaalscore = geraakt * punten_nomering
     print(totaalscore)
-    print(afstand())
+    print(afstand)
     print('targets geraakt ' + str(geraakt) + ' score is ' + str(totaalscore) + ' nomering ' + str(punten_nomering))
     print(totaalscore)
 
@@ -179,6 +179,7 @@ def game_site_nl(game_active=game_active):
     if game_active == 0:
         game_active = 1
         game()
+        game_active = 0
         return redirect(url_for('Nederlands.homepage_nl'))
     else:
         return redirect(url_for('Nederlands.homepage_nl'))
