@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="f7c41c03-4745-43d0-9dd4-1103dcaa7307" name="Pi Butros">
-        <fileTransfer rootFolder="/home/pi" accessType="SFTP" host="192.168.2.150" port="22" sshConfigId="e1fdd151-d003-472f-9946-44361950c6bd" sshConfig="pi@192.168.2.150:22 password">
+      <webServer id="8fbbc426-27b0-4c99-8e9f-41fde0d6d74c" name="piNass">
+        <fileTransfer rootFolder="/home/pi" accessType="SFTP" host="192.168.137.206" port="22" sshConfigId="e1fdd151-d003-472f-9946-44361950c6bd" sshConfig="pi@192.168.137.206:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
