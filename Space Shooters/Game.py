@@ -11,16 +11,6 @@ from random import randint
 GPIO.setmode(GPIO.BCM)  # Aangeven welke type pin notering er gebruikt word
 GPIO.setwarnings(False)  # Zet waarschuwing uit
 
-# pinnen instellen
-GPIO.setup(4, GPIO.IN)  # Pin 4 is input van sensor 3
-GPIO.setup(27, GPIO.IN)  # Pin 27 is input van sensor 3
-GPIO.setup(5, GPIO.IN)  # Pin 5 is input van sensor 3
-
-# decaleer ik waarden
-Sensor1 = 4
-Sensor2 = 5
-Sensor3 = 27
-
 # afstandsensor
 TRIG = 23
 ECHO = 24
@@ -61,7 +51,32 @@ if __name__ == '__main__':
     pwm.set_pwm_freq(50)  # Verander de PWM frequentrie naar 50MHZ
     #readerWaarde = reader.read()
 
-#while readerWaarde == 1093379580815:
+    #while readerWaarde == 1093379580815:
+    # Hier congigureer ik de minimaale en maximaale waardes voor de pulse
+    servo_actief = 100  # Min pulse length out of 4096
+    servo_rust = 350  # Max pulse length out of 4096 (90 graden)
+    
+    sensor1 = 4
+    sensor2 = 5
+    sensor3 = 27
+    sensor4 = 22
+    sensor5 = 17
+
+    # pinnen instellen
+    GPIO.setup(sensor1, GPIO.IN)
+    GPIO.setup(sensor2, GPIO.IN)
+    GPIO.setup(sensor3, GPIO.IN)
+    GPIO.setup(sensor4, GPIO.IN)
+    GPIO.setup(sensor5, GPIO.IN)
+
+    # puten
+    geraakt = 0
+    punten_nomering = 0
+
+    pwm = Adafruit_PCA9685.PCA9685()  # Initialiseer de PCA9685 met het standaardadres (basis adddres 0x40).
+
+    pwm.set_pwm_freq(50)  # Verander de PWM frequentrie naar 50MHZ
+
     # Hier congigureer ik de minimaale en maximaale waardes voor de pulse
     servo_actief = 100  # Min pulse length out of 4096
     servo_rust = 350  # Max pulse length out of 4096 (90 graden)
@@ -69,39 +84,45 @@ if __name__ == '__main__':
     servo2 = 12
     servo3 = 0
     servo4 = 1
-    servo5 = 5
+    servo5 = 7
 
     print('press Ctrl-C to quit...')
 
     pwm.set_pwm(servo1, 0, servo_rust)
     pwm.set_pwm(servo2, 0, servo_rust)
     pwm.set_pwm(servo3, 0, servo_rust)
+    pwm.set_pwm(servo4, 0, servo_rust)
+    pwm.set_pwm(servo5, 0, servo_rust)
 
     time.sleep(1)
 
-    pwm.set_pwm(servo1, 0, servo_actief)  # draao90graden
-    pwm.set_pwm(servo2, 0, servo_actief)  # draao90graden
-    pwm.set_pwm(servo3, 0, servo_actief)  # draao90graden
+    pwm.set_pwm(servo1, 0, servo_actief)
+    pwm.set_pwm(servo2, 0, servo_actief)
+    pwm.set_pwm(servo3, 0, servo_actief)
+    pwm.set_pwm(servo4, 0, servo_actief)
+    pwm.set_pwm(servo5, 0, servo_actief)
 
     time.sleep(1)
 
     pwm.set_pwm(servo1, 0, servo_rust)
     pwm.set_pwm(servo2, 0, servo_rust)
     pwm.set_pwm(servo3, 0, servo_rust)
+    pwm.set_pwm(servo4, 0, servo_rust)
+    pwm.set_pwm(servo5, 0, servo_rust)
 
     time.sleep(1)
 
-    tijd_limiet = 30  # aantal minuten dat er gespeeld kan worden
+    tijd_limiet = 30  # aantal seconde dat er gespeeld kan worden
     start_tijd = time.time()  # start tijd is de actueele tijd van nu
     pervRandomTarget = -1
     while True:  # loop altijd
         gespeeld_tijd = time.time() - start_tijd  # berekening gespeelde tijd
 
-        if gespeeld_tijd > tijd_limiet:  # als gespeelde tijd groter is dan tijd limiet stop de loop
+        if gespeeld_tijd >= tijd_limiet:  # als gespeelde tijd groter is dan tijd limiet stop de loop
             break
 
         while True:
-            RandomTarget = randint(0, 2)
+            RandomTarget = randint(0, 4)
             if RandomTarget != pervRandomTarget:
                 break
 
@@ -110,7 +131,7 @@ if __name__ == '__main__':
         if RandomTarget == 0:
             pwm.set_pwm(servo1, 0, servo_actief)
             while True:
-                if GPIO.input(Sensor1):
+                if GPIO.input(sensor1):
                     pwm.set_pwm(servo1, 0, servo_rust)
                     geraakt += 1
                     break
@@ -121,7 +142,7 @@ if __name__ == '__main__':
         if RandomTarget == 1:
             pwm.set_pwm(servo2, 0, servo_actief)
             while True:
-                if GPIO.input(Sensor2):
+                if GPIO.input(sensor2):
                     pwm.set_pwm(servo2, 0, servo_rust)
                     geraakt += 1
                     break
@@ -132,8 +153,30 @@ if __name__ == '__main__':
         if RandomTarget == 2:
             pwm.set_pwm(servo3, 0, servo_actief)
             while True:
-                if GPIO.input(Sensor3):
+                if GPIO.input(sensor3):
                     pwm.set_pwm(servo3, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+        if RandomTarget == 3:
+            pwm.set_pwm(servo4, 0, servo_actief)
+            while True:
+                if GPIO.input(sensor4):
+                    pwm.set_pwm(servo4, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+        if RandomTarget == 4:
+            pwm.set_pwm(servo5, 0, servo_actief)
+            while True:
+                if GPIO.input(sensor5):
+                    pwm.set_pwm(servo5, 0, servo_rust)
                     geraakt += 1
                     break
 
@@ -143,12 +186,16 @@ if __name__ == '__main__':
     pwm.set_pwm(servo1, 0, servo_actief)
     pwm.set_pwm(servo2, 0, servo_actief)
     pwm.set_pwm(servo3, 0, servo_actief)
+    pwm.set_pwm(servo4, 0, servo_actief)
+    pwm.set_pwm(servo5, 0, servo_actief)
 
     time.sleep(1)
 
     pwm.set_pwm(servo1, 0, servo_rust)
     pwm.set_pwm(servo2, 0, servo_rust)
     pwm.set_pwm(servo3, 0, servo_rust)
+    pwm.set_pwm(servo4, 0, servo_rust)
+    pwm.set_pwm(servo5, 0, servo_rust)
     print('game over')
 
     afstand = afstand_meting()

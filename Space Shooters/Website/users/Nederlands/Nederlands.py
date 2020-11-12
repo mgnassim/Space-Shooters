@@ -1,5 +1,7 @@
 import base64   #encriptie
 import smtplib
+import RPi.GPIO as GPIO
+from mfrc522 import SimpleMFRC522
 
 from flask import Blueprint, render_template, redirect, url_for, session, request, g
 
@@ -145,7 +147,7 @@ def login_nl():
 
                             file = open(filename, "a")
                             file.write(accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " + str(logins))
-                            f.close()
+                            file.close()
 
                             users.append(
                                 User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3],
@@ -220,8 +222,26 @@ def password_reset_nl():
 
 @Nederlands.route("/RFID")
 def RFID_nl():
+    # Maakt een variable van de rfid
+    reader = SimpleMFRC522()
+    filecodes = []
+    try:
+        cardcode = reader.read()
 
-    return render_template("Space_Shooter_RFID.html")
+        for line in open("../Website/highscore.txt", "r").readlines():
+            filecodes.append(line)
+
+        n = len(filecodes)
+
+        for i in range(n):
+            if cardcode[0] == filecodes[i]:
+                return redirect(url_for('Nederlands.homepage_gast_nl'))
+    finally:
+        # Finally betekent dat het de code toch uitvoert
+        # maakt niet uit of try/except false of true is.
+        GPIO.cleanup()
+
+    return render_template("Space_Shooter_Web_NL_RFID.html")
 
 @Nederlands.route("/Homepage")
 def homepage_nl():
@@ -233,7 +253,7 @@ def homepage_nl():
 
     array = []
 
-    for line in open("../Website/highscore", "r").readlines():
+    for line in open("../Website/highscore.txt", "r").readlines():
         scorebord = line.split()
         array.append(scorebord[0] + " " + scorebord[1])
 
@@ -257,3 +277,7 @@ def homepage_nl():
 
 
     return render_template("Space_Shooter_Web_NL_Homepage.html", list_to_send=array)
+
+@Nederlands.route("/Homepage/Gast")
+def homepage_gast_nl():
+    return render_template("Space_Shooter_Web_NL_Homepage_Gast.html")

@@ -48,11 +48,15 @@ def game():
     sensor1 = 4
     sensor2 = 5
     sensor3 = 27
+    sensor4 = 22
+    sensor5 = 17
 
     # pinnen instellen
-    GPIO.setup(sensor1, GPIO.IN)  # Pin 4 is input van sensor 3
-    GPIO.setup(sensor2, GPIO.IN)  # Pin 27 is input van sensor 3
-    GPIO.setup(sensor3, GPIO.IN)  # Pin 5 is input van sensor 3
+    GPIO.setup(sensor1, GPIO.IN)
+    GPIO.setup(sensor2, GPIO.IN)
+    GPIO.setup(sensor3, GPIO.IN)
+    GPIO.setup(sensor4, GPIO.IN)
+    GPIO.setup(sensor5, GPIO.IN)
 
     #puten
     geraakt = 0
@@ -69,25 +73,31 @@ def game():
     servo2 = 12
     servo3 = 0
     servo4 = 1
-    servo5 = 5
+    servo5 = 7
 
     print('press Ctrl-C to quit...')
 
     pwm.set_pwm(servo1, 0, servo_rust)
     pwm.set_pwm(servo2, 0, servo_rust)
     pwm.set_pwm(servo3, 0, servo_rust)
+    pwm.set_pwm(servo4, 0, servo_rust)
+    pwm.set_pwm(servo5, 0, servo_rust)
 
     time.sleep(1)
 
-    pwm.set_pwm(servo1, 0, servo_actief)  # draao90graden
-    pwm.set_pwm(servo2, 0, servo_actief)  # draao90graden
-    pwm.set_pwm(servo3, 0, servo_actief)  # draao90graden
+    pwm.set_pwm(servo1, 0, servo_actief)
+    pwm.set_pwm(servo2, 0, servo_actief)
+    pwm.set_pwm(servo3, 0, servo_actief)
+    pwm.set_pwm(servo4, 0, servo_actief)
+    pwm.set_pwm(servo5, 0, servo_actief)
 
     time.sleep(1)
 
     pwm.set_pwm(servo1, 0, servo_rust)
     pwm.set_pwm(servo2, 0, servo_rust)
     pwm.set_pwm(servo3, 0, servo_rust)
+    pwm.set_pwm(servo4, 0, servo_rust)
+    pwm.set_pwm(servo5, 0, servo_rust)
 
     time.sleep(1)
 
@@ -101,7 +111,7 @@ def game():
             break
 
         while True:
-            RandomTarget = randint(0, 2)
+            RandomTarget = randint(0, 4)
             if RandomTarget != pervRandomTarget:
                 break
 
@@ -140,15 +150,41 @@ def game():
                 if gespeeld_tijd > tijd_limiet:
                     break
 
+        if RandomTarget == 3:
+            pwm.set_pwm(servo4, 0, servo_actief)
+            while True:
+                if GPIO.input(sensor4):
+                    pwm.set_pwm(servo4, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+        if RandomTarget == 4:
+            pwm.set_pwm(servo5, 0, servo_actief)
+            while True:
+                if GPIO.input(sensor5):
+                    pwm.set_pwm(servo5, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
     pwm.set_pwm(servo1, 0, servo_actief)
     pwm.set_pwm(servo2, 0, servo_actief)
     pwm.set_pwm(servo3, 0, servo_actief)
+    pwm.set_pwm(servo4, 0, servo_actief)
+    pwm.set_pwm(servo5, 0, servo_actief)
 
     time.sleep(1)
 
     pwm.set_pwm(servo1, 0, servo_rust)
     pwm.set_pwm(servo2, 0, servo_rust)
     pwm.set_pwm(servo3, 0, servo_rust)
+    pwm.set_pwm(servo4, 0, servo_rust)
+    pwm.set_pwm(servo5, 0, servo_rust)
     print('game over')
 
     afstand = afstand_meting()
@@ -173,6 +209,10 @@ def game():
     print(afstand)
     print('targets geraakt ' + str(geraakt) + ' score is ' + str(totaalscore) + ' nomering ' + str(punten_nomering))
     print(totaalscore)
+
+    file = open("/Website/highscore.txt", "w")
+    file.write(totaalscore + " " + g.user.username)
+    file.close()
 
 @Game.route("/", methods=['GET', 'POST'])
 def game_site_nl(game_active=game_active):

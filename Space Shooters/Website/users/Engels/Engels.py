@@ -218,7 +218,7 @@ def homepage_en():
 
     array = []
 
-    for line in open("../Website/highscore", "r").readlines():
+    for line in open("../Website/highscore.txt", "r").readlines():
         scorebord = line.split()
         array.append(scorebord[0] + " " + scorebord[1] + " ")
 
