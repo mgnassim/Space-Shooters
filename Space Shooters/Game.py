@@ -4,6 +4,9 @@ import RPi.GPIO as GPIO  # Import library GPIO
 import time, threading  # Import library Time.
 import Adafruit_PCA9685  # Import library van PCA9685 module.
 from random import randint
+#from mfrc522 import SimpleMFRC522
+# Maakt een variable van de rfid
+#reader = SimpleMFRC522()
 
 GPIO.setmode(GPIO.BCM)  # Aangeven welke type pin notering er gebruikt word
 GPIO.setwarnings(False)  # Zet waarschuwing uit
@@ -24,7 +27,7 @@ ECHO = 24
 GPIO.setup(TRIG, GPIO.OUT)  # Set pin als GPIO out
 GPIO.setup(ECHO, GPIO.IN)  # Set pin als GPIO in
 
-# puten
+# punten
 geraakt = 0
 punten_nomering = 0
 
@@ -56,7 +59,9 @@ if __name__ == '__main__':
     pwm = Adafruit_PCA9685.PCA9685()  # Initialiseer de PCA9685 met het standaardadres (basis adddres 0x40).
 
     pwm.set_pwm_freq(50)  # Verander de PWM frequentrie naar 50MHZ
+    #readerWaarde = reader.read()
 
+#while readerWaarde == 1093379580815:
     # Hier congigureer ik de minimaale en maximaale waardes voor de pulse
     servo_actief = 100  # Min pulse length out of 4096
     servo_rust = 350  # Max pulse length out of 4096 (90 graden)
@@ -168,3 +173,4 @@ if __name__ == '__main__':
     print(afstand)
     print('targets geraakt ' + str(geraakt) + ' score is ' + str(totaalscore) + ' nomering ' + str(punten_nomering))
     print(totaalscore)
+    #break
