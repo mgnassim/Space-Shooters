@@ -210,8 +210,11 @@ def game():
     print('targets geraakt ' + str(geraakt) + ' score is ' + str(totaalscore) + ' nomering ' + str(punten_nomering))
     print(totaalscore)
 
+    gemiddelde_tijd = totaalscore/tijd_limiet
+
     file = open("../Website/highscore.txt", "a")
-    file.write(str(totaalscore) + " " + g.user.username)
+    file.write(g.user.username + " " + str(totaalscore) + " " + str(geraakt) + " " + str(afstand) + " " + str(
+        punten_nomering) + " " + str(gemiddelde_tijd))
     file.close()
 
 @Game.route("/", methods=['GET', 'POST'])

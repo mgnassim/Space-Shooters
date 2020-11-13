@@ -146,7 +146,9 @@ def login_nl():
                             print('Deleted line: {}'.format(line_to_delete))
 
                             file = open(filename, "a")
-                            file.write(accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " + str(logins))
+                            file.write(
+                                accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " +
+                                    str(logins))
                             file.close()
 
                             users.append(
@@ -186,7 +188,8 @@ def password_reset_nl():
                         accounts = line.split()
                         line1 += 1
                         if accounts[1] == username & accounts[3] == email:
-                            users.append(User(id=accounts[0], username=accounts[1], password=password, email=accounts[3], logins=accounts[4]))
+                            users.append(User(id=accounts[0], username=accounts[1], password=password,
+                                              email=accounts[3], logins=accounts[4]))
 
                             filename = '../Website/accountfile.txt'
                             line_to_delete = line1
@@ -222,26 +225,74 @@ def password_reset_nl():
 
 @Nederlands.route("/RFID")
 def RFID_nl():
-    # Maakt een variable van de rfid
-    reader = SimpleMFRC522()
-    filecodes = []
-    try:
-        cardcode = reader.read()
+    startup = 1
+    line1 = 0
+    while True:
+        while True:
+            if startup == 1:
+                startup = 0
+                break
 
-        for line in open("../Website/highscore.txt", "r").readlines():
-            filecodes.append(line)
+            # Maakt een variable van de rfid
+            reader = SimpleMFRC522()
+            filecodes = []
+            try:
+                cardcode = reader.read()
 
-        n = len(filecodes)
+                for line in open("../Website/highscore.txt", "r").readlines():
+                    filecodes.append(line)
 
-        for i in range(n):
-            if cardcode[0] == filecodes[i]:
-                return redirect(url_for('Nederlands.homepage_gast_nl'))
-    finally:
-        # Finally betekent dat het de code toch uitvoert
-        # maakt niet uit of try/except false of true is.
-        GPIO.cleanup()
+                n = len(filecodes)
 
-    return render_template("Space_Shooter_Web_NL_RFID.html")
+                for i in range(n):
+                    if cardcode[0] == filecodes[i]:
+                        user = [x for x in users if x.username == "gast"][0]
+                        session['user_id'] = user.id
+
+                        for line in open("../Website/accountfile.txt", "r").readlines():
+                            accounts = line.split()
+                            line1 += 1
+                            if accounts[1] == user.username:
+                                filename = '../Website/accountfile.txt'
+                                line_to_delete = line1
+                                initial_line = 1
+                                file_lines = {}
+
+                                logins = int(accounts[4])
+                                logins += 1
+
+                                with open(filename) as f:
+                                    content = f.readlines()
+
+                                for line in content:
+                                    file_lines[initial_line] = line.strip()
+                                    initial_line += 1
+
+                                f = open(filename, "w")
+                                for line_number, line_content in file_lines.items():
+                                    if line_number != line_to_delete:
+                                        f.write('{}\n'.format(line_content))
+
+                                f.close()
+                                print('Deleted line: {}'.format(line_to_delete))
+
+                                file = open(filename, "a")
+                                file.write(
+                                    accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " +
+                                    str(logins))
+                                file.close()
+
+                                users.append(
+                                    User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3],
+                                         logins=logins))
+
+                                return redirect(url_for('Nederlands.homepage_gast_nl'))
+            finally:
+                # Finally betekent dat het de code toch uitvoert
+                # maakt niet uit of try/except false of true is.
+                GPIO.cleanup()
+
+        return render_template("Space_Shooter_Web_NL_RFID.html")
 
 @Nederlands.route("/Homepage")
 def homepage_nl():
@@ -255,7 +306,7 @@ def homepage_nl():
 
     for line in open("../Website/highscore.txt", "r").readlines():
         scorebord = line.split()
-        array.append(scorebord[0] + " " + scorebord[1])
+        array.append(scorebord[1] + " " + scorebord[0])
 
     n = len(array)
 

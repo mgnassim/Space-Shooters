@@ -51,10 +51,7 @@ if __name__ == '__main__':
     pwm.set_pwm_freq(50)  # Verander de PWM frequentrie naar 50MHZ
     #readerWaarde = reader.read()
 
-    #while readerWaarde == 1093379580815:
-    # Hier congigureer ik de minimaale en maximaale waardes voor de pulse
-    servo_actief = 100  # Min pulse length out of 4096
-    servo_rust = 350  # Max pulse length out of 4096 (90 graden)
+
 
     sensor1 = 4
     sensor2 = 5

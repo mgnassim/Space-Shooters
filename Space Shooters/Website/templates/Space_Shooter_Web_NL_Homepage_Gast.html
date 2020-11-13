@@ -36,17 +36,76 @@
 
     <main>
       <section id="sec1" data-index="0" class="home">
-        <h2>Home</h2>
-        <form action="/game">
-          <input type="submit" class="login" value="Wachtwoord vergeten?">
-        </form>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+
+        <div class="item">
+          <h2>Home</h2>
+        </div>
+
+        <div class="break"></div>
+
+        <div class="item">
+          <form action="/game">
+            <button type="submit">Game start</button>
+          </form>
+        </div>
+
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
       </section>
+
       <section id="sec2" data-index="1" class="Scoreboard">
-        <h2>Scoreboard</h2>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+
+        <div class="item">
+          <h2>Scoreboard</h2>
+        </div>
+
+        <div class="break"></div>
+
+        <div class="itemlist">
+          <h3>eigen scorebord</h3>
+          {% for element in list_to_send%}
+            <p>{{element}}</p>
+          {% endfor %}
+        </div>
+
+        <div class="itemlist">
+          <h3>week scorebord</h3>
+          {% for element in list_to_send%}
+            <p>{{element}}</p>
+          {% endfor %}
+        </div>
+
+        <div class="itemlist">
+          <h3>alle tijden scorebord</h3>
+          {% for element in list_to_send%}
+            <p>{{element}}</p>
+          {% endfor %}
+        </div>
+
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
+        <div class="break"></div>
       </section>
+
       <section id="sec3" data-index="2" class="Gamerules">
         <h2>Game rules</h2>
       </section>
+
       <section id="sec4" data-index="3" class="About">
         <h2>About</h2>
       </section>

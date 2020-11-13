@@ -1,5 +1,7 @@
 import base64
 import smtplib
+import RPi.GPIO as GPIO
+from mfrc522 import SimpleMFRC522
 
 from flask import Blueprint, render_template, redirect, url_for, session, request, g
 
@@ -21,6 +23,7 @@ class User:
 for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
+
 
 @Engels.route("/Registration", methods=['GET', 'POST'])
 def registration_en():
@@ -208,6 +211,78 @@ def password_reset_en():
     return render_template("Space_Shooter_Web_EN_Password_Reset.html")
 
 
+@Engels.route("/RFID")
+def RFID_en():
+    startup = 1
+    line1 = 0
+    while True:
+        while True:
+            if startup == 1:
+                startup = 0
+                break
+
+            # Maakt een variable van de rfid
+            reader = SimpleMFRC522()
+            filecodes = []
+            try:
+                cardcode = reader.read()
+
+                for line in open("../Website/highscore.txt", "r").readlines():
+                    filecodes.append(line)
+
+                n = len(filecodes)
+
+                for i in range(n):
+                    if cardcode[0] == filecodes[i]:
+                        user = [x for x in users if x.username == "gast"][0]
+                        session['user_id'] = user.id
+
+                        for line in open("../Website/accountfile.txt", "r").readlines():
+                            accounts = line.split()
+                            line1 += 1
+                            if accounts[1] == user.username:
+                                filename = '../Website/accountfile.txt'
+                                line_to_delete = line1
+                                initial_line = 1
+                                file_lines = {}
+
+                                logins = int(accounts[4])
+                                logins += 1
+
+                                with open(filename) as f:
+                                    content = f.readlines()
+
+                                for line in content:
+                                    file_lines[initial_line] = line.strip()
+                                    initial_line += 1
+
+                                f = open(filename, "w")
+                                for line_number, line_content in file_lines.items():
+                                    if line_number != line_to_delete:
+                                        f.write('{}\n'.format(line_content))
+
+                                f.close()
+                                print('Deleted line: {}'.format(line_to_delete))
+
+                                file = open(filename, "a")
+                                file.write(
+                                    accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " +
+                                    str(logins))
+                                file.close()
+
+                                users.append(
+                                    User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3],
+                                         logins=logins))
+
+                                return redirect(url_for('Engels.homepage_gast_en'))
+            finally:
+                # Finally betekent dat het de code toch uitvoert
+                # maakt niet uit of try/except false of true is.
+                GPIO.cleanup()
+
+        return render_template("Space_Shooter_Web_EN_RFID.html")
+
+
 @Engels.route("/Homepage")
 def homepage_en():
     try:
@@ -241,3 +316,8 @@ def homepage_en():
     g.scourebord = array
 
     return render_template("Space_Shooter_Web_EN_Homepage.html")
+
+
+@Engels.route("/Homepage/Gast")
+def homepage_gast_en():
+    return render_template("Space_Shooter_Web_EN_Homepage_Gast.html")
