@@ -64,9 +64,9 @@ if __name__ == '__main__':
 
     print('press Ctrl-C to quit...')
 
-    pwm.set_pwm(servo1, 0, servo_min)                                             #draao90graden
-    pwm.set_pwm(servo2, 0, servo_min)                                             #draao90graden
-    pwm.set_pwm(servo3, 0, servo_min)                                             #draao90graden
+    #pwm.set_pwm(12, 0, servo_max)                                             #draao90graden
+    #pwm.set_pwm(servo2, 0, servo_min)                                             #draao90graden
+    #pwm.set_pwm(servo3, 0, servo_min)                                             #draao90graden
     time.sleep(1)
 
     #score instelling
@@ -107,10 +107,10 @@ if __name__ == '__main__':
 
 
 
-    pwm.set_pwm(servo1, 0, servo_max)                                       #draai naar thuispositie
-    pwm.set_pwm(servo2, 0, servo_max)                                       #draai naar thuispositie
-    pwm.set_pwm(servo3, 0, servo_max)                                       #draai naar thuispositie
-    time.sleep(1)
+    #pwm.set_pwm(servo1, 0, servo_max)                                       #draai naar thuispositie
+    #pwm.set_pwm(servo2, 0, servo_max)                                       #draai naar thuispositie
+    #pwm.set_pwm(servo3, 0, servo_max)                                       #draai naar thuispositie
+    #time.sleep(1)
 
     print('game over')
 

@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO                    #Import GPIO library
 import time                                #Import time
 GPIO.setmode(GPIO.BCM)                     #Set GPIO pin numbering
 GPIO.setwarnings(False)
-TRIG = 23                                  #Associate pin 16 to TRIG
+TRIG = 23                                  #Asssociate pin 16 to TRIG
 ECHO = 24                                  #Associate pin 18 to ECHO
 
 GPIO.setup(TRIG,GPIO.OUT)                  #Set pin as GPIO out
