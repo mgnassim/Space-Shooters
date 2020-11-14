@@ -58,7 +58,7 @@ def game():
     GPIO.setup(sensor4, GPIO.IN)
     GPIO.setup(sensor5, GPIO.IN)
 
-    #puten
+    # puten
     geraakt = 0
     punten_nomering = 0
 
@@ -74,8 +74,6 @@ def game():
     servo3 = 0
     servo4 = 1
     servo5 = 7
-
-    print('press Ctrl-C to quit...')
 
     pwm.set_pwm(servo1, 0, servo_rust)
     pwm.set_pwm(servo2, 0, servo_rust)

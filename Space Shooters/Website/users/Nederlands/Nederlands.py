@@ -2,6 +2,9 @@ import base64   #encriptie
 import smtplib
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
+import datetime
+
+now = datetime.datetime.now()
 
 from flask import Blueprint, render_template, redirect, url_for, session, request, g
 
@@ -115,7 +118,7 @@ def login_nl():
 
             if passwordencode == password:
                 session['user_id'] = user.id
-                if user.id == 1:
+                if int(user.id) == 1:
                     return redirect(url_for('Admin.admin'))
                 else:
                     for line in open("../Website/accountfile.txt", "r").readlines():
@@ -303,6 +306,9 @@ def homepage_nl():
         return redirect(url_for('Nederlands.login_nl'))
 
     array = []
+
+    tijd = now.strftime("%Y-%m-%d %H:%M")
+    print(tijd)
 
     for line in open("../Website/highscore.txt", "r").readlines():
         scorebord = line.split()

@@ -114,7 +114,7 @@ def login_en():
 
             if passwordencode == password:
                 session['user_id'] = user.id
-                if user.id == 1:
+                if int(user.id) == 1:
                     return redirect(url_for('Admin.admin'))
                 else:
                     for line in open("../Website/accountfile.txt", "r").readlines():

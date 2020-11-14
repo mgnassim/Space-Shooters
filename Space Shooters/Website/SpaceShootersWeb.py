@@ -30,9 +30,9 @@ for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
     users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
 
-##by start send email of connected ip
-##enable this when deployd
 def test():
+    ##by start send email of connected ip
+    ##enable this when deployd
     #ip word opgevraagd door de pi
     hostname = socket.gethostname()
     IPAddr = socket.gethostbyname(hostname)
