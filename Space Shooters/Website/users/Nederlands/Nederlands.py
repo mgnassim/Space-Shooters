@@ -63,6 +63,7 @@ def registration_nl():
 
             users.append(User(id=totalusersnew, username=username, password=password, email=email, logins=accounts[4]))
 
+
             gmail_user = 'spaceshooters1@gmail.com'
             gmail_password = 'SpaceInvaders'
 
@@ -306,9 +307,6 @@ def homepage_nl():
         return redirect(url_for('Nederlands.login_nl'))
 
     array = []
-
-    tijd = now.strftime("%Y-%m-%d %H:%M")
-    print(tijd)
 
     for line in open("../Website/highscore.txt", "r").readlines():
         scorebord = line.split()

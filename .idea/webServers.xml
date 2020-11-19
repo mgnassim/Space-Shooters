@@ -23,6 +23,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="e14b75f1-6e91-4eba-bb36-f1e7fa667376" name="pi bilal ethernet">
+        <fileTransfer rootFolder="/home/pi" accessType="SFTP" host="192.168.137.225" port="22" sshConfigId="4fea6f67-72b3-4249-8070-1db8395c0505" sshConfig="pi@192.168.137.225:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

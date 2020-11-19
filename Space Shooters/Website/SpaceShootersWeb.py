@@ -95,7 +95,7 @@ app.register_blueprint(Game, url_prefix="/game")
 
 @app.route("/language")
 def language_selection():
-    return render_template("Space_Shooter_Web_Language-Selection.html")
+    return render_template("Space_Shooter_Web_Language_selector.html")
 
 
 if __name__ == '__main__':
