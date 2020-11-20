@@ -243,7 +243,7 @@ def RFID_nl():
             try:
                 cardcode = reader.read()
 
-                for line in open("../Website/highscore.txt", "r").readlines():
+                for line in open("../Website/RFID_Codes.txt", "r").readlines():
                     filecodes.append(line)
 
                 n = len(filecodes)

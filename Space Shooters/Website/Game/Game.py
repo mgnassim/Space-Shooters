@@ -6,7 +6,7 @@ import Adafruit_PCA9685  # Import library van PCA9685 module.
 from random import randint
 import datetime
 
-from flask import Blueprint, render_template, redirect, url_for, session, request, g
+from flask import Blueprint, render_template, redirect, url_for, g
 
 now = datetime.datetime.now()
 
@@ -15,7 +15,7 @@ Game = Blueprint("Game", __name__, static_folder="static", template_folder="temp
 GPIO.setmode(GPIO.BCM)  # Aangeven welke type pin notering er gebruikt word
 GPIO.setwarnings(False)  # Zet waarschuwing uit
 
-# afstandsensor
+ #afstandsensor
 TRIG = 23
 ECHO = 24
 GPIO.setup(TRIG, GPIO.OUT)  # Set pin als GPIO out
