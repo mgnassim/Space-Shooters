@@ -17,7 +17,7 @@
         </fileTransfer>
       </webServer>
       <webServer id="c6f92c6d-0b0b-42f4-b57e-94cdf2318dc1" name="butros pi enternet">
-        <fileTransfer rootFolder="/home/pi" accessType="SFTP" host="192.168.137.213" port="22" sshConfigId="7b4b9f2a-eec4-4aca-926c-80ea2b1ebfa3" sshConfig="pi@192.168.137.213:22 password">
+        <fileTransfer rootFolder="/home/pi" accessType="SFTP" host="192.168.137.238" port="22" sshConfigId="e0e25d55-c168-4e36-ae09-bbb8f563e46a" sshConfig="pi@192.168.137.238:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
