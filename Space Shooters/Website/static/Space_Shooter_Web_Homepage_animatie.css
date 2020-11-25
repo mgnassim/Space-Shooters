@@ -1,19 +1,30 @@
+/*
+Standaard desgin, standaard styling
+ */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+/*
+Achtergrond kleur, standaard styling
+ */
 body {
   background-color: #111a21;
   font-family: sans-serif;
 }
-
+/*
+Gewoon tekst, standaard styling
+ */
 p {
   color: white;
   text-align: center;
   margin: 2px;
 }
 
+/*
+De header verschijnt pas na een paar seconden, standaard styling
+ */
 header {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 5);
   animation: nietverschijnen 3.5s, verschijnen 1s 3.5s;
@@ -21,6 +32,9 @@ header {
   top: 0px;
 }
 
+/*
+De navigation verschijnt ook pas na een paar seconden en lettertypen, standaard styling
+ */
 nav {
   display: flex;
   justify-content: space-around;
@@ -33,11 +47,16 @@ nav {
   position: sticky;
   top: 0px;
 }
+/*
+De logo, standaard styling
+ */
 .top {
   color: #50ff61;
   letter-spacing: 0px;
 }
-
+/*
+De plaatsing van de links, standaard styling
+ */
 .nav-links {
   display: flex;
   justify-content: space-around;
@@ -46,17 +65,24 @@ nav {
   width: 65%;
 }
 
+/*
+Weghalen van heel lelijk Puntje aan de zijkant, standaard styling
+ */
 .nav-links li {
   list-style: none;
 }
-
+/*
+Weghalen van heel lelijk streepje aan de onderkant, standaard styling
+ */
 .nav-links a {
   color: #50ff61;
   text-decoration: none;
   letter-spacing: 4px;
   font-weight: bold;
 }
-
+/*
+De inhoud, standaard styling
+ */
 section {
   min-height: 100vh;
   display: flex;
@@ -64,23 +90,29 @@ section {
   justify-content: center;
   align-items: center;
 }
-
+/*
+De inhoud, standaard styling
+ */
 section h2 {
   font-size: 5rem;
   color: #50ff61;
 }
-
+/*
+De inhoud, standaard styling
+ */
 h3 {
   color: white;
   margin: 4px;
   text-align: center;
 }
 
+/*
+Vershillennde blokken en sections
+ */
 .break {
   flex-basis: 100%;
   height: 0;
 }
-
 .itemlist {
   flex-basis: 33%
 }
