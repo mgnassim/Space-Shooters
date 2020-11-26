@@ -72,9 +72,9 @@ def registration_nl():
             # accountfile.txt word geopend om er in te schrijven. wat er geschreven word is: totalusernem( UserID),
             # username, achtwoord, E-mailaddress, en de aantal logins dat er gedaan zijn wat nu nog 0 is want er is nog
             # niet ingelogt met dit account. Het bestand word hierna gesloten om geheugen te besparen,
-            file = open(filename, "a")
-            file.write("\n" + str(totalusersnew) + " " + username + " " + password + " " + email + " 0")
-            file.close()
+            with open(filename, "a") as file:
+                file.write("\n" + str(totalusersnew) + " " + username + " " + password + " " + email + " 0")
+                file.close()
 
             # Er word een nieuwe gebruiker toe gevoegd aan de users array zoat het in het bestand kan worden opgevraagd
             # De array is opgeslagen in de RAM geheugen en het text document is voor het langdurige opslag.
@@ -113,8 +113,8 @@ def registration_nl():
     return render_template("Space_Shooter_Web_NL_Registration.html")
 
 
-# De weburl basis_url/NL/login en basis_url/NL/Login word hier aangemaakt. de twee url hebben er mee te maken dat er 1
-# met hoofdletter is en 1 zonder zodat er geen vergissing gemaakt kan worden en jer zoizo altijd de goede krijgt.
+# De weburl basis_url/NL/login en basis_url/NL/Login worden hier aangemaakt. de twee url hebben er mee te maken dat er
+# één met hoofdletter is en één zonder zodat er geen vergissing gemaakt kan worden en je zoizo altijd de goede krijgt.
 # Met methods GET en Post om informatie van de HTML pagina te kunnen krijgen voor het inloggen.
 # Dit is de inlog pagina hier word de backend van het inloggen verhanddeld. De username en Wachtwoord dat je op de HTML
 # pagina invult worden hier binnengekregen en word het vergeleken met de users array ofdat het er instaat.
@@ -168,35 +168,68 @@ def login_nl():
                         accounts_login = line.split()
                         # Hier word bijgehouden welke regel het bestand zit. Bij elke regel telt het er één bij op.
                         line1 += 1
+                        # Hier word gezocht naar de username dat is ingevuld in het document
                         if accounts_login[1] == user.username:
+                            # Line1 staat in welke regel het programma zit zodat het nu weet welke regel het programma
+                            # moet verweideren.
                             line_to_delete = line1
+                            # dit geeft aan vanaf welke regel er getetd moet worden in het document. Wanneer je dit
+                            # veranderd begint het verweider script in een latere regel in het document accountfile.txt
                             initial_line = 1
+                            # Hier word aangegeven wat er bij elke regel toegevoegd moet worden bij het refactoren.
+                            # Dat is hier leeg gelaten want er hoeft niet overal iets te veranderen alleen 1 regel
+                            # verweiderd te worden.
                             file_lines = {}
 
+                            # Hier word de aantal logins opgeslagen wat de gebruiker heeft gedaan voor deze keer
+                            # inloggen. Zodat het nieuwe inlog hoeveelheid berekend kan worden.
                             logins = int(accounts[4])
+                            # Er word één toegevoegd bij de hoeveeldheid logins omdat je maar 1 keer in kan loggen per
+                            # keer dat dit script draait.
                             logins += 1
 
+                            # bestand accountfile.txt word geopend en alle regles worden gelezen en opgeslagen in het
+                            # variable content
                             with open(filename) as f:
                                 content = f.readlines()
 
+                            # Hier word de content uit elkaar gehaald en maakt er bruikbare regels van dat makkelijker
+                            # te verwerken zijn. nog wat extra informatie om verschil .split en .strip uit te leggen:
+                            # https://findanyanswer.com/what-is-the-difference-between-strip-and-split-in-python
                             for line in content:
                                 file_lines[initial_line] = line.strip()
                                 initial_line += 1
 
-                            f = open(filename, "w")
-                            for line_number, line_content in file_lines.items():
-                                if line_number != line_to_delete:
-                                    f.write('{}\n'.format(line_content))
-
+                            # accountfile.txt word geopend om er in te schrijven( dat geeft de W aan). Het bestand word
+                            # dan opgeslagen in het variable F. Hier word gekeken ofdat de regel waar het document op
+                            # zit de regel is dat verweiderd moet worden. Wanneer het niet op de regel zit word het
+                            # verweiderd en gelijk weer opnieuwe geschreven. Wanneer het wel de regel is dat verweiderd
+                            # Moet worden dan word de regel niet terug geschreven.
+                            with open(filename, "w") as f:
+                                for line_number, line_content in file_lines.items():
+                                    if line_number != line_to_delete:
+                                        f.write('{}\n'.format(line_content))
+                            # bestand accountfile.txt word afgesloten. Geheugen besparing
                             f.close()
-                            print('Deleted line: {}'.format(line_to_delete))
 
+                            # accountfile.txt word geopend om te schrijven aan het einde van het document daar staat de
+                            # "a" voor:
+                            # https://stackoverflow.com/questions/1466000/difference-between-modes-a-a-w-w-and-r-in-built-in-open-function
+                            # Wanneer het geopend is word de verweiderde regel terug geschreven met de nieuwe
+                            # hoeveeldheid aan logins.
                             file = open(filename, "a")
                             file.write(
-                                accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " +
-                                    str(logins))
+                                accounts[0] + " " + accounts[1] + " " + accounts[2] + " " + accounts[3] + " " + str(
+                                    logins))
+                            # bestand accountfile.txt word afgesloten. Geheugen besparing
                             file.close()
 
+                            # Er word eerst opgevraagd welk nummer in de array de gewijzigde varariable bevat. Wanneer
+                            # dat gevonden is word het verweiderd dat doet .pop en dan word het aan het einde van het
+                            # array weer toegevoegd door middel van append
+                            # https://www.web2.nl/index.php?p=python&a=python_lists
+                            deletnumber = users.index(user)
+                            users.pop(deletnumber)
                             users.append(
                                 User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3],
                                      logins=logins))
@@ -209,8 +242,13 @@ def login_nl():
     return render_template("Space_Shooter_Web_NL_Login.html")
 
 
+# De weburl basis_url/NL/Password/Reset word hier aangemaakt. Op deze website kan je wachtwoord veranderen. De pagina
+# gebruikt allemaal technieken die ook gebruikt worden in de login en regestratie pagina. Zoals het vervangen van de
+# user array in users
 @Nederlands.route("/Password/Reset", methods=['GET', 'POST'])
 def password_reset_nl():
+    filename = "../Website/accountfile.txt"
+
     if request.method == "POST":
         username = request.form['username']
         email = request.form["email"]
@@ -231,14 +269,10 @@ def password_reset_nl():
 
                     line1 = 0
 
-                    for line in open("../Website/accountfile.txtt", "r").readlines():
+                    for line in open(filename, "r").readlines():
                         accounts = line.split()
                         line1 += 1
                         if accounts[1] == username & accounts[3] == email:
-                            users.append(User(id=accounts[0], username=accounts[1], password=password,
-                                              email=accounts[3], logins=accounts[4]))
-
-                            filename = '../Website/accountfile.txt'
                             line_to_delete = line1
                             initial_line = 1
                             file_lines = {}
@@ -263,7 +297,13 @@ def password_reset_nl():
 
                             file = open(filename, "a")
                             file.write(
-                                accounts[0] + " " + accounts[1] + " " + password + " " + accounts[3] + " " + accounts[4])
+                                accounts[0] + " " + accounts[1] + " " + password + " " + accounts[3] + " " +
+                                accounts[4])
+
+                            deletnumber = users.index(user)
+                            users.pop(deletnumber)
+                            users.append(User(id=accounts[0], username=accounts[1], password=password,
+                                              email=accounts[3], logins=accounts[4]))
 
                     return redirect(url_for('Nederlands.login_nl'))
 
@@ -271,38 +311,49 @@ def password_reset_nl():
     return render_template("Space_Shooter_Web_NL_Password_Reset.html")
 
 
+# De weburl basis_url/NL/Homepage word hier aangemaakt. Op deze pagina start de speler het spel en kan hij de score
+# zien dat behaald is in de afgelopen week, alltime en persoonlijke highscores.
 @Nederlands.route("/Homepage")
 def homepage_nl():
+    # path voor de highscore.txt
+    highscore_file = "../Website/highscore.txt"
+    # er word gekeken ofdat de persoon die inlogd ingelogd heeft op de site. Wanneer er nog niet is ingelogd is de
+    # g.user.id 0. wanneer je niet bent ingelogd word je terug gestuurd naar de login pagina.
     try:
         if not int(g.user.id) >= 1:
             return redirect(url_for('Nederlands.login_nl'))
-    except:
+    except IndexError:
         return redirect(url_for('Nederlands.login_nl'))
 
-    array = []
+    # lege array gecreërd om daar daarna alle variabelen in te doen om daarna te gaan sorteren
+    array_refomate = []
 
-    for line in open("../Website/highscore.txt", "r").readlines():
+    # het bestand highscore.txt word geopend om er in te lezen aangegeven door de "r". het word regel voor regel
+    # gelezen. Elke regel word appart van elkaar in het varariable scorebord gezet. Waarna het zich split en de naam en
+    # score er alleen uitpakt en het dan formateerd: "score naam". waarna het word in array_refomate word gezet.
+    for line in open(highscore_file, "r").readlines():
         scorebord = line.split()
-        array.append(scorebord[1] + " " + scorebord[0])
+        array_refomate.append(scorebord[1] + " " + scorebord[0])
 
-    n = len(array)
+    # er word gemeten hoelang de array is in array_refomate.
+    n = len(array_refomate)
 
+    # Dit is een loop dat even vaak rond gaat als de array lang is. Om de array te gaan sorteren als een bubbel sort.
+    # https://en.wikipedia.org/wiki/Bubble_sort
     for i in range(n):
         already_sorted = True
-
         for j in range(n - i - 1):
-
-            if array[j] > array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
+            if array_refomate[j] > array_refomate[j + 1]:
+                array_refomate[j], array_refomate[j + 1] = array_refomate[j + 1], array_refomate[j]
 
                 already_sorted = False
 
         if already_sorted:
             break
 
-    array.reverse()
-    g.scourebord = array
+    array_refomate.reverse()
+    g.scourebord = array_refomate
 
     # Hier word aangegeven welke HTML template gerender moet worden hier is dat Space_Shooter_Web_NL_Homepage.html
     # De informatie van de array string word ook verstuurd naar de html pagina.
-    return render_template("Space_Shooter_Web_NL_Homepage.html", list_to_send=array)
+    return render_template("Space_Shooter_Web_NL_Homepage.html", list_to_send=array_refomate)

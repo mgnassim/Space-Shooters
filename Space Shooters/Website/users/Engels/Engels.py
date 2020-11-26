@@ -227,7 +227,7 @@ def RFID_en():
             try:
                 cardcode = reader.read()
 
-                for line in open("../Website/highscore.txt", "r").readlines():
+                for line in open("../Website/RFID_Code.txt", "r").readlines():
                     filecodes.append(line)
 
                 n = len(filecodes)

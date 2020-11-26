@@ -97,9 +97,9 @@ def link1():
 
 
 # Wanneer er op een url word gezocht gaat het kijken naar welke bluepint( pythonpackage) het naar hoe word gestuurd.
-# Alle zoek opdrachten worden door de Error detectie heen gehaald zodat wanneer er iets fout gaat dat het
-# word opgevangen daar in. De nederlandse pagina's beginnen met /NL in de url dus die worden daar naartoe gestuurd
-# enzovoort
+# Alle zoek opdrachten worden door de Error detectie heen gehaald zodat wanneer er iets fout gaat dat het word
+# opgevangen daar in. De nederlandse pagina's beginnen met /NL in de url dus die worden daar naartoe gestuurd enzovoort
+# Blueprint uitlegvideo: https://www.youtube.com/watch?v=Wfx4YBzg16s&t=1306s
 app.register_blueprint(Error, url_prefix="")
 app.register_blueprint(Nederlands, url_prefix="/NL")
 app.register_blueprint(Engels, url_prefix="/EN")

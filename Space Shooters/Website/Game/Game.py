@@ -1,5 +1,3 @@
-# from __future__ import division                  #helpt bij het jet importen zorgt voor geen verwaring
-
 import RPi.GPIO as GPIO  # Import library GPIO
 import time  # Import library Time.
 import Adafruit_PCA9685  # Import library van PCA9685 module.
@@ -15,13 +13,14 @@ Game = Blueprint("Game", __name__, static_folder="static", template_folder="temp
 GPIO.setmode(GPIO.BCM)  # Aangeven welke type pin notering er gebruikt word
 GPIO.setwarnings(False)  # Zet waarschuwing uit
 
- #afstandsensor
+# afstandsensor
 TRIG = 23
 ECHO = 24
 GPIO.setup(TRIG, GPIO.OUT)  # Set pin als GPIO out
 GPIO.setup(ECHO, GPIO.IN)  # Set pin als GPIO in
 
 game_active = 0
+
 
 def afstand_meting():
     GPIO.output(TRIG, False)  # Set TRIG as LOW
@@ -49,7 +48,7 @@ def game():
     pwm = Adafruit_PCA9685.PCA9685()  # Initialiseer de PCA9685 met het standaardadres (basis adddres 0x40).
     pwm.set_pwm_freq(50)  # Verander de PWM frequentrie naar 50MHZ
 
-    #puten
+    # puten
     geraakt = 0
     punten_nomering = 0
 
@@ -100,7 +99,7 @@ def game():
 
     tijd_limiet = 30  # aantal seconde dat er gespeeld kan worden
     start_tijd = time.time()  # start tijd is de actueele tijd van nu
-    pervRandomTarget = -1
+    perv_random_target = -1
     while True:  # loop altijd
         gespeeld_tijd = time.time() - start_tijd  # berekening gespeelde tijd
 
@@ -108,13 +107,13 @@ def game():
             break
 
         while True:
-            RandomTarget = randint(0, 4)
-            if RandomTarget != pervRandomTarget:
+            random_target = randint(0, 4)
+            if random_target != perv_random_target:
                 break
 
-        pervRandomTarget = RandomTarget
+        perv_random_target = random_target
 
-        if RandomTarget == 0:
+        if random_target == 0:
             pwm.set_pwm(servo1, 0, servo_actief)
             time.sleep(0.5)
             while True:
@@ -128,7 +127,7 @@ def game():
                 if gespeeld_tijd > tijd_limiet:
                     break
 
-        if RandomTarget == 1:
+        if random_target == 1:
             pwm.set_pwm(servo2, 0, servo_actief)
             time.sleep(0.5)
             while True:
@@ -142,7 +141,7 @@ def game():
                 if gespeeld_tijd > tijd_limiet:
                     break
 
-        if RandomTarget == 2:
+        if random_target == 2:
             pwm.set_pwm(servo3, 0, servo_actief)
             time.sleep(0.5)
             while True:
@@ -156,7 +155,7 @@ def game():
                 if gespeeld_tijd > tijd_limiet:
                     break
 
-        if RandomTarget == 3:
+        if random_target == 3:
             pwm.set_pwm(servo4, 0, servo_actief)
             time.sleep(0.5)
             while True:
@@ -170,7 +169,7 @@ def game():
                 if gespeeld_tijd > tijd_limiet:
                     break
 
-        if RandomTarget == 4:
+        if random_target == 4:
             pwm.set_pwm(servo5, 0, servo_actief)
             time.sleep(0.5)
             while True:

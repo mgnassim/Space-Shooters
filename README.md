@@ -59,7 +59,7 @@ We gebruiken de RFID sensor(MFRC-522 RC522) voor het scannen van
 de speel pas. die gescand moet worden voor het activeren van het
 spel.
 
-### Servomotor
+### Servo
 De servomotoren worden gebruikt om de doelwitten om te laten
 vallen wanneer ze zij geraakt en aan het einde van het spel weer rechtop te zetten.
 
