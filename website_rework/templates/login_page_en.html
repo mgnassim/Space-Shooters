@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login page NL</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/Login_page.css" />
+        <link rel="shortcut icon" type="image/png" href="/static/iconwebsite.png/">
+  </head>
+
+  <body>
+    <div class="box">
+      <h2>Log in</h2>
+      <form method="POST">
+        <div class="input-box">
+          <input type = "text" name = "username" autocomplete="off" placeholder="Username">
+
+          <input type = "password" name = "password" autocomplete="off" placeholder="Password">
+        </div>
+        <input type="submit" class="submit" value="Login" />
+      </form>
+
+      <form action="/en/registration">
+        <input type="submit" class="login" value="Make accout">
+      </form>
+
+      <form action="/en/reset">
+        <input type="submit" class="login" value="forgot password?">
+      </form>
+
+      <form action="/language">
+        <input type="submit" class="login" value="change the language">
+      </form>
+    </div>
+  </body>
+</html>

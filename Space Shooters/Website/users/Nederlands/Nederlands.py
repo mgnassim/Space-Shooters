@@ -30,7 +30,8 @@ class User:
 # Na het lezen van de regel word het gesplitst en in de users array gezet waarna het later terug gevraagd kan worden.
 for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
-    users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
+    users.append(
+        User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
 
 
 # De weburl basis_url/NL/Regestration word hier aangemaakt. Met methods GET en Post om informatie van de HTML pagina te
@@ -45,7 +46,7 @@ def registration_nl():
     # Geeft aan dat de code gestard moet worden wanneer er op de html pagina een Post word gedaan met ingevulde
     # gebruikersnaam en wachtwoord.
     if request.method == "POST":
-        # variable later nodig in het script wanneer er word geteld hoeveel accounts er al zijn voor de UserID
+        # variable later nodig in het script wanneer er word geteld hoeveel accounts.txt er al zijn voor de UserID
         totalusersnew = 1
         # hier worden de ingevulde gebruikersnaam, wachtwoord, conformatie wachtwoord en email opgevraagd
         # van de html pagina.
@@ -65,7 +66,7 @@ def registration_nl():
             password = base64_bytes.decode('ascii')
 
             # accountfile.txt word regel voor regel gelezen en telt voor elke gelezen regen één user bij op zodat het
-            # weet hoeveel accounts er zijn om een goed ID te geven aan het nieuwe accout dat gemaakt word.
+            # weet hoeveel accounts.txt er zijn om een goed ID te geven aan het nieuwe accout dat gemaakt word.
             for line in open(filename, "r").readlines():
                 totalusersnew += 1
 
@@ -104,7 +105,7 @@ def registration_nl():
                 server.sendmail(sent_from, to, email_text)
                 server.close()
 
-            except:
+            except IndexError:
                 print("Something went wrong...")
 
             return redirect(url_for('Nederlands.login_nl'))
@@ -141,7 +142,7 @@ def login_nl():
         # weer terug gestuurd naar de login pagina.
         try:
             user = [x for x in users if x.username == username][0]
-        except:
+        except IndexError:
             return redirect(url_for('Nederlands.login_nl'))
         else:
             # base 64 Decryptie met de encode ascii word uitgevoerd op het opgeslagen wachtwoord. Zodat het vergeleken
@@ -258,7 +259,7 @@ def password_reset_nl():
         if password == password2:
             try:
                 user = [x for x in users if x.username == username][0]
-            except:
+            except IndexError:
                 return redirect(url_for('Nederlands.registration_nl'))
             else:
                 if user.email == email:

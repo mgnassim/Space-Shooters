@@ -49,6 +49,8 @@ pwm = Adafruit_PCA9685.PCA9685()  # Initialiseer de PCA9685 met het standaardadr
 pwm.set_pwm_freq(50)  # Verander de PWM frequentrie naar 50MHZ
 
 perv_random_target = -1
+punten_nomering = 0
+afstand = 0
 
 
 def afstand_meting():
@@ -73,6 +75,27 @@ def afstand_meting():
     return distance
 
 
+def punten_nomering_cal():
+    global afstand
+    global punten_nomering
+    if afstand <= 10:
+        punten_nomering = 0
+
+    elif afstand >= 10 & afstand <= 30:
+        punten_nomering = 1
+
+    elif afstand >= 30 & afstand < 50:
+        punten_nomering = 2
+
+    elif afstand >= 50 & afstand <= 100:
+        punten_nomering = 3
+
+    elif afstand >= 100:
+        punten_nomering = 4
+
+    return punten_nomering
+
+
 def all_servos_up():
     pwm.set_pwm(servo1, 0, servo_actief)
     pwm.set_pwm(servo2, 0, servo_actief)
@@ -90,6 +113,7 @@ def all_servos_down():
 
 
 def random_servo():
+    global perv_random_target
     while True:
         random_target = randint(0, 4)
         if random_target != perv_random_target:
@@ -100,7 +124,6 @@ def random_servo():
 def game():
     # puten
     geraakt = 0
-    punten_nomering = 0
 
     all_servos_down()
     time.sleep(1)
@@ -192,45 +215,14 @@ def game():
     time.sleep(1)
     all_servos_down()
 
-    afstand = afstand_meting()
+    distance_player = afstand_meting()
+    puten_vermenigvuldiging = punten_nomering_cal()
 
-    if afstand <= 10:
-        punten_nomering = 0
-
-    elif afstand >= 10 & afstand <= 30:
-        punten_nomering = 1
-
-    elif afstand >= 30 & afstand < 50:
-        punten_nomering = 2
-
-    elif afstand >= 50 & afstand <= 100:
-        punten_nomering = 3
-
-    elif afstand >= 100:
-        punten_nomering = 4
-
-    totaalscore = geraakt * punten_nomering
+    totaalscore = geraakt * puten_vermenigvuldiging
     gemiddelde_tijd = totaalscore/tijd_limiet
 
     file = open("../Website/highscore.txt", "a")
     file.write("\n")
-    file.write(g.user.username + " " + str(totaalscore) + " " + str(geraakt) + " " + str(afstand) + " " +
-        str(punten_nomering) + " " + str(gemiddelde_tijd) + " " + now.strftime("%Y-%m-%d %H:%M"))
+    file.write(g.user.username + " " + str(totaalscore) + " " + str(geraakt) + " " + str(distance_player) + " " + str(
+        punten_nomering) + " " + str(gemiddelde_tijd) + " " + now.strftime("%Y-%m-%d %H:%M"))
     file.close()
-
-
-@Game.route("/", methods=['GET', 'POST'])
-def game_site_nl(game_active=game_active):
-    startup = 1
-    while True:
-        if startup == 1:
-            if game_active == 0:
-                game_active = 1
-                game()
-                game_active = 0
-                return redirect(url_for('Nederlands.homepage_nl'))
-            else:
-                return redirect(url_for('Nederlands.homepage_nl'))
-        startup = 0
-
-        return render_template("Space_Shooters_Web_game.html")

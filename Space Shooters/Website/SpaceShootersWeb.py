@@ -31,7 +31,8 @@ class User:
 # Na het lezen van de regel word het gesplitst en in de users array gezet waarna het later terug gevraagd kan worden.
 for line in open("../Website/accountfile.txt", "r").readlines():
     accounts = line.split()
-    users.append(User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
+    users.append(
+        User(id=accounts[0], username=accounts[1], password=accounts[2], email=accounts[3], logins=accounts[4]))
 
 
 # Een script dat een Email stuurd naar Butrosgroot@gmail.com met het ipadres van het apperaat waar het op draait.
@@ -64,7 +65,7 @@ def test():
         server.sendmail(sent_from, to, email_text)
         server.close()
         print("Email sent!")
-    except:
+    except IndexError:
         print("Something went wrong...")
 
 
@@ -85,7 +86,7 @@ def before_request():
         try:
             user = [x for x in users if x.id == session['user_id']][0]
             g.user = user
-        except:
+        except IndexError:
             g.user = users[0]
 
 
