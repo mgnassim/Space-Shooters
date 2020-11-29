@@ -80,4 +80,34 @@ body {
   position: relative;
   width: 70%;
 }
+.circle {
+  color: #fdfefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 270px;
+  width: 270px;
+
+  border: 4px solid;
+  border-radius: 50%;
+}
+.time {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  font-size: 48px;
+  color: #66ff00;
+}
+#stopKnop {
+  display: none;
+  color: #66ff00;
+}
+button {
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  border: none;
+  margin: 0;
+  outline: none;
+}
 
