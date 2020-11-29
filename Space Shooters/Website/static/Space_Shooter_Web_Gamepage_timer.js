@@ -13,12 +13,6 @@ function updatetimer() {
     timer.innerHTML = seconden;//verander de HTML waarde met de  met de gegeven waarde: seconden
     tijdLimiet--; //seconden -1
     if (seconden<=0){timer.innerHTML = "GAME OVER"}// als seconden onder of gelijk is aan 0 weergeef GAME OVER
-    StopKnop.addEventListener("click", Stoppen);
 
-
-}
-
-function Stoppen() {
-timer.innerHTML = "GAME STOPPED"
 
 }
