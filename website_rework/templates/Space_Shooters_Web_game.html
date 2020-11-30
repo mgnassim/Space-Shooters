@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <title>game page</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/static/Login_Space_shooters_Login.css" />
-        <link rel="shortcut icon" type="image/png" href="/static/iconwebsite.png/">
-  </head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/static/Login_page.css" />
+        <link rel="shortcut icon" type="image/png" href="../static/Iconwebsite.png/">
+    </head>
 
-  <body>
-    <div class="box">
-      <h2>Game started</h2>
-    </div>
-  </body>
+    <body>
+        <div class="box">
+        <h2>Game started</h2>
+        <div class="circle">
+        <p class="time" id="timer">60</p>
+        </div>
+        <form action="/nl/home">
+            <input type="submit" class="login" value="All een account? Log hier in!" />
+        </form>
+        </div>
+        <script src="/static/Space_Shooter_Web_Gamepage_timer.js"></script>
+    </body>
 </html>
