@@ -1,10 +1,9 @@
 users = []
-account_file = (
-    "C:/Users/butro/Desktop/Google drive/Projecten/Code/Python/PycharmProjects/Home_Control/text_files/accounts.txt"
-)
+account_file = "../website_rework/text_files/accounts.txt"
 
 
 def user_create():
+
     # word aan gegeven wat er in de array users komt te staan
     class User:
         def __init__(self, id, username, password, email, logins):

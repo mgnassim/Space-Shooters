@@ -11,7 +11,10 @@ def logedin_check():
 
 
 def bubble_sorting():
-    highscore_file = "../Website/highscore.txt"
+    highscore_file = (
+
+        "../website_rework/text_files/highscore.txt"
+)
 
     # lege array gecreërd om daar daarna alle variabelen in te doen om daarna te gaan sorteren
     array_refomate = []

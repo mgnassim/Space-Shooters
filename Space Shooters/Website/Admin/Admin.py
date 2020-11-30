@@ -6,6 +6,7 @@ import time
 
 Admin = Blueprint("Admin", __name__, static_folder="static", template_folder="templates")
 
+
 def afstand_meting():
     GPIO.setmode(GPIO.BCM)  # Aangeven welke type pin notering er gebruikt word
     GPIO.setwarnings(False)  # Zet waarschuwing uit

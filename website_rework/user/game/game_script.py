@@ -6,6 +6,14 @@ import datetime
 
 from flask import Blueprint, render_template, redirect, url_for, g
 
+account_file = (
+    "../website_rework/text_files/accounts.txt"
+)
+
+game_active = (
+    "../website_rework/text_files/highscore.txt"
+)
+
 now = datetime.datetime.now()
 
 Game = Blueprint("Game", __name__, static_folder="static", template_folder="templates")
@@ -226,3 +234,142 @@ def game():
     file.write(g.user.username + " " + str(totaalscore) + " " + str(geraakt) + " " + str(distance_player) + " " + str(
         punten_nomering) + " " + str(gemiddelde_tijd) + " " + now.strftime("%Y-%m-%d %H:%M"))
     file.close()
+
+
+def game_rfid():
+    # puten
+    geraakt = 0
+
+    all_servos_down()
+    time.sleep(1)
+    all_servos_up()
+    time.sleep(1)
+    all_servos_down()
+
+    tijd_limiet = 30  # aantal seconde dat er gespeeld kan worden
+    start_tijd = time.time()  # start tijd is de actueele tijd van nu
+    while True:  # loop altijd
+        gespeeld_tijd = time.time() - start_tijd  # berekening gespeelde tijd
+
+        if gespeeld_tijd >= tijd_limiet:  # als gespeelde tijd groter is dan tijd limiet stop de loop
+            break
+
+        random_target = random_servo()
+
+        if random_target == 0:
+            pwm.set_pwm(servo1, 0, servo_actief)
+            time.sleep(0.5)
+            while True:
+                if GPIO.input(sensor1):
+                    pwm.set_pwm(servo1, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                gespeeld_tijd = time.time() - start_tijd
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+        if random_target == 1:
+            pwm.set_pwm(servo2, 0, servo_actief)
+            time.sleep(0.5)
+            while True:
+                if GPIO.input(sensor2):
+                    pwm.set_pwm(servo2, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                gespeeld_tijd = time.time() - start_tijd
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+        if random_target == 2:
+            pwm.set_pwm(servo3, 0, servo_actief)
+            time.sleep(0.5)
+            while True:
+                if GPIO.input(sensor3):
+                    pwm.set_pwm(servo3, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                gespeeld_tijd = time.time() - start_tijd
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+        if random_target == 3:
+            pwm.set_pwm(servo4, 0, servo_actief)
+            time.sleep(0.5)
+            while True:
+                if GPIO.input(sensor4):
+                    pwm.set_pwm(servo4, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                gespeeld_tijd = time.time() - start_tijd
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+        if random_target == 4:
+            pwm.set_pwm(servo5, 0, servo_actief)
+            time.sleep(0.5)
+            while True:
+                if GPIO.input(sensor5):
+                    pwm.set_pwm(servo5, 0, servo_rust)
+                    geraakt += 1
+                    break
+
+                gespeeld_tijd = time.time() - start_tijd
+
+                if gespeeld_tijd > tijd_limiet:
+                    break
+
+    all_servos_up()
+    time.sleep(1)
+    all_servos_down()
+
+    distance_player = afstand_meting()
+    puten_vermenigvuldiging = punten_nomering_cal()
+
+    totaalscore = geraakt * puten_vermenigvuldiging
+    gemiddelde_tijd = totaalscore/tijd_limiet
+
+    file = open(account_file, "a")
+    file.write("\n" + "gast" + " " + str(totaalscore) + " " + str(geraakt) + " " + str(distance_player) + " " + str(
+        punten_nomering) + " " + str(gemiddelde_tijd) + " " + now.strftime("%Y-%m-%d %H:%M"))
+    file.close()
+
+
+def game_active_check():
+    state = open(game_active, "r")
+    return state
+
+
+def game_activate():
+    with open(account_file, "r") as f:
+        lines = f.readlines()
+        f.close()
+
+    with open(account_file, "w") as f:
+        for line in lines:
+            if line.strip("\n") != "0":
+                f.write(line)
+
+        f.write("1")
+        f.close()
+
+
+def game_deactiveate():
+    with open(account_file, "r") as f:
+        lines = f.readlines()
+        f.close()
+
+    with open(account_file, "w") as f:
+        for line in lines:
+            if line.strip("\n") != "1":
+                f.write(line)
+
+        f.write("0")
+        f.close()
