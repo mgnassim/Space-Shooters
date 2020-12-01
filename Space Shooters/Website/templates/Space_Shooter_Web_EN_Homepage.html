@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!--Standaard HTML pagina-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Space Shooters</title>
+    <!--    Linked naar een css bestand-->
     <link rel="stylesheet" href="/static/Space_Shooter_Web_Homepage_animatie.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
@@ -15,11 +17,13 @@
 
   <body>
     <header>
+      <!--  De bovenkant van de website, de nav, de header en logo-->
       <nav>
         <div class="top">
           <h1>Space Shooters</h1>
         </div>
         <ul class="nav-links">
+<!--          Je ziet hier dat de linkjes naar een bepaalde sec voor geleid-->
           <li><a data-page="home" href="#sec1">Home</a></li>
           <li><a data-page="Scoreboard" href="#sec2">Scoreboard</a></li>
           <li><a data-page="Gamerules" href="#sec3">Game rules</a></li>
@@ -35,6 +39,7 @@
     </header>
 
     <main>
+<!--      Indeling voor de website-->
       <section id="sec1" data-index="0" class="home">
         <div class="break"></div>
         <div class="break"></div>
@@ -47,7 +52,7 @@
         </div>
 
         <div class="break"></div>
-
+<!--        Submit button om de game te beginnen-->
         <div class="item">
           <form action="/game">
             <button type="submit">Game start</button>
@@ -60,7 +65,7 @@
         <div class="break"></div>
         <div class="break"></div>
       </section>
-
+<!--Hier wordt de scoreboard opgehaald en als hij refreshed komen de scores erbij te staan-->
       <section id="sec2" data-index="1" class="Scoreboard">
         <div class="break"></div>
         <div class="break"></div>
@@ -101,16 +106,16 @@
         <div class="break"></div>
         <div class="break"></div>
       </section>
-
+<!--De gamerules section-->
       <section id="sec3" data-index="2" class="Gamerules">
         <h2>Game rules</h2>
       </section>
-
+<!--About section-->
       <section id="sec4" data-index="3" class="About">
         <h2>About</h2>
       </section>
     </main>
-
+<!--Een afbeelding Dit is het logo in het beginscherm (Laadscherm)-->
     <svg
       id="logo"
       width="1283"
@@ -215,7 +220,7 @@
         mask="url(#path-1-outside-1)"
       />
     </svg>
-
+<!--Hier wordt verwezen naar een javascript bestand-->
     <script src="../static/Space_Shooter_Web_Homepage_java-motion.js"></script>
   </body>
 </html>

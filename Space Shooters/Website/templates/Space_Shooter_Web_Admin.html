@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
+<!--Standaard HTML pagina-->
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Space Shooters</title>
+<!--    Linked naar een css bestand-->
     <link rel="stylesheet" href="/static/Admincss.css" />
+<!--    Linked naar lettertypes-->
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
       rel="stylesheet"
     />
+<!--    Linked naar een icon-->
         <link rel="shortcut icon" type="image/png" href="/static/iconwebsite.png/">
   </head>
-
   <body>
+<!--  De bovenkant van de website, de nav, de header-->
     <header>
       <nav>
         <div class="top">
           <h1>Admin</h1>
         </div>
+<!--        Linksjes waar je op kunt drukken-->
         <ul class="nav-links">
           <li><a data-page="home" href="#sec1">Home</a></li>
           <li><a data-page="Scoreboard" href="#sec2">Scoreboard</a></li>
@@ -28,7 +33,7 @@
         </ul>
       </nav>
     </header>
-
+<!--Testen van de servo's en indelingen voor de website-->
     <main>
       <section id="sec1" data-index="0" class="home">
         <div class="break"></div>
@@ -42,7 +47,7 @@
         </div>
 
         <div class="break"></div>
-
+<!--De servos's aansturen per servo-->
         <div class="item">
           <form action="/admin/servo1">
             <button type="submit" name = "servo1">servo 1</button>
@@ -71,7 +76,7 @@
         <div class="break"></div>
         <div class="break"></div>
       </section>
-
+<!--      Scoreboard indelingen van website en de anderdelen-->
       <section id="sec2" data-index="1" class="Scoreboard">
         <div class="break"></div>
         <div class="break"></div>
@@ -96,7 +101,7 @@
         <div class="itemlist">
           <h3>...</h3>
         </div>
-
+<!--        De gamerules en indelingen van de website-->
         <div class="break"></div>
         <div class="break"></div>
         <div class="break"></div>
