@@ -4,15 +4,15 @@ import Adafruit_PCA9685  # Import library van PCA9685 module.
 from random import randint
 import datetime
 
-from flask import Blueprint, render_template, redirect, url_for, g
+from flask import Blueprint, g
 
-account_file = (
-    "../website_rework/text_files/accounts.txt"
-)
+account_file = "../website_rework/text_files/accounts.txt"
 
-game_active = (
-    "../website_rework/text_files/highscore.txt"
-)
+game_active = "../website_rework/text_files/game_active.txt"
+
+highscore = "../website_rework/text_files/highscore.txt"
+
+active_user_file = "../website_rework/text_files/active_user.txt"
 
 now = datetime.datetime.now()
 
@@ -229,10 +229,12 @@ def game():
     totaalscore = geraakt * puten_vermenigvuldiging
     gemiddelde_tijd = totaalscore/tijd_limiet
 
-    file = open("../Website/highscore.txt", "a")
-    file.write("\n")
-    file.write(g.user.username + " " + str(totaalscore) + " " + str(geraakt) + " " + str(distance_player) + " " + str(
-        punten_nomering) + " " + str(gemiddelde_tijd) + " " + now.strftime("%Y-%m-%d %H:%M"))
+    username = open(active_user_file, "r").readlines()
+    username -= str("[")
+    username -= str("]")
+
+    file = open(highscore, "a")
+    file.write("\n" + str(username) + " " + str(geraakt))
     file.close()
 
 
@@ -343,8 +345,10 @@ def game_rfid():
 
 
 def game_active_check():
-    state = open(game_active, "r")
-    return state
+    with open(account_file, "r") as f:
+        lines = f.readlines()
+        f.close()
+    return lines
 
 
 def game_activate():

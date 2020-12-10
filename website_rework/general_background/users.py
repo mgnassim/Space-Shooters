@@ -3,7 +3,6 @@ account_file = "../website_rework/text_files/accounts.txt"
 
 
 def user_create():
-
     # word aan gegeven wat er in de array users komt te staan
     class User:
         def __init__(self, id, username, password, email, logins):
@@ -17,6 +16,24 @@ def user_create():
             return f'<User: {self.username}>'
 
     return User
+
+
+def scores():
+    # word aan gegeven wat er in de array users komt te staan
+    class Score:
+        def __init__(self, id, totaalscore, geraakt, afstand_speler, punten_nomering, gem_tijd, tijd):
+            self.id = id
+            self.totaalscore = totaalscore
+            self.geraakt = geraakt
+            self.afstand_speler = afstand_speler
+            self.puntenNomering = punten_nomering
+            self.gem_tijd = gem_tijd
+            self.tijd = tijd
+
+        def __repr__(self):
+            return f'<id: {self.id}>'
+
+    return Score
 
 
 def users_pull_file():

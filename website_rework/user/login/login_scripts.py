@@ -2,11 +2,13 @@ import base64
 import os
 
 from flask import redirect, session, request, url_for
-from general_background.users import user_create, users_pull_file
+from general_background.users import users_pull_file
+from database.database import username_list_add, password_update, username_list_create
 
-user = user_create()
+user = username_list_create()
 users = users_pull_file()
 account_file = "../website_rework/text_files/accounts.txt"
+active_user_file = "../website_rework/text_files/active_user.txt"
 
 
 def login_script():
@@ -27,6 +29,16 @@ def login_script():
     passwordencode = message_bytes.decode('ascii')
 
     if passwordencode == password:
+        with open(active_user_file, "r") as f:
+            lines = f.readlines()
+            f.close()
+
+        with open(active_user_file, "w") as f:
+            for line in lines:
+                line.strip("\n")
+            f.write(user_login.username)
+            f.close()
+
         session["user_id"] = user_login.id
         with open(account_file, "r") as f:
             lines = f.readlines()
@@ -55,21 +67,17 @@ def registration_script():
     number_of_users = (len(users) + 1)  # array tellen begint bij 0 en heb nodig dat het bij 1 start
 
     username = request.form["username"]
-    password = request.form["password"]
+    wachtwoord = request.form["password"]
     password2 = request.form["password2"]
     email = request.form["email"]
 
-    if password == password2:
-        message = password
+    if wachtwoord == password2:
+        message = wachtwoord
         message_bytes = message.encode('ascii')
         base64_bytes = base64.b64encode(message_bytes)
-        password = base64_bytes.decode('ascii')
+        wachtwoord = base64_bytes.decode('ascii')
 
-        file = open(account_file, "a")
-        file.write("\n" + str(number_of_users) + " " + username + " " + password + " " + email + " 0")
-        file.close()
-
-        users.append(user(id=number_of_users, username=username, password=password, email=email, logins="0"))
+        username_list_add(number_of_users, username, wachtwoord, email)
 
         return redirect(url_for("login_backend_nl.login"))
 
@@ -81,7 +89,7 @@ def password_reset_script():
     global users
 
     username = request.form["username"]
-    password = request.form["password"]
+    wachtwoord = request.form["password"]
     password2 = request.form["password2"]
     email = request.form["email"]
 
@@ -89,28 +97,15 @@ def password_reset_script():
         user_login = [x for x in users if x.username == username][0]
     except IndexError:
         return redirect(url_for('Nederlands.registration_nl'))
-    if password == password2 and email == user.email:
-        message = password
+    if wachtwoord == password2 and email == user.email:
+        message = wachtwoord
         message_bytes = message.encode('ascii')
         base64_bytes = base64.b64encode(message_bytes)
         password = base64_bytes.decode('ascii')
 
+        password_update(wachtwoord, user_login)
+
         user_login.password = password
-
-        session["user_id"] = user.id
-        with open(account_file, "r") as f:
-            lines = f.readlines()
-
-        with open(account_file, "w") as f:
-            for line in lines:
-                if line.strip("\n") != (
-                        user_login.id + " " + user_login.username + " " + user_login.password + " " + user_login.email +
-                        " " + (str(user_login.logins))):
-                    f.write(line)
-
-            f.write(user.id + " " + user_login.username + " " + user_login.password + " " + user_login.email + " " +
-                    str(user_login.logins))
-            f.close()
 
         return redirect(url_for("login_backend_nl.login"))
 
