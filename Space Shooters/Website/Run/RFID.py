@@ -68,7 +68,7 @@ if __name__ == '__main__':
     # Hier congigureer ik de minimaale en maximaale waardes voor de pulse
     servo_actief = 100  # Min pulse length out of 4096
     servo_rust = 350  # Max pulse length out of 4096 (90 graden)
-    servo1 = 11
+    servo1 = 15
     servo2 = 12
     servo3 = 0
     servo4 = 1
