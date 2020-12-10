@@ -109,5 +109,125 @@ button {
   border: none;
   margin: 0;
   outline: none;
+
 }
+.puntenBox {
+  position: relative;
+  top:  0px;
+  right: -104px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 80px;
+  width: 100px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.score {
+  position: relative;
+  right: 0px;
+  top: -30px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  font-size: 48px;
+  color: #fdfefe;
+}
+.scoreBox0 {
+  position: relative;
+  right: 13px;
+  top: 40px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 40px;
+  width: 100px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.extraStats {
+  position: relative;
+  right: 0px;
+  top: -10px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  font-size: 20px;
+  color: #fdfefe;
+}
+
+.scoreBox1{
+  position: relative;
+  right: -115px;
+  top: -4px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 40px;
+  width: 80px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.scoreBox2{
+  position: relative;
+  right: -230px;
+  top: -118px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 40px;
+  width: 100px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.box h3 {
+  margin: 0 0 30px;
+  padding: 2px;
+  color: #fdfefe;
+  text-align: center;
+  font-size: 30px;
+}
+ .box h4 {
+  margin: 0 0 0;
+  padding: 2px;
+  color: #fdfefe;
+  position: relative ;
+  top: 45px;
+  right: -8px;
+}
+ .box h5 {
+  margin: 0 0 30px;
+  padding: 2px;
+  color: #fdfefe;
+  text-align: center;
+   font-size: 15px;
+
+} .box h6 {
+  margin: 0 0 0;
+  padding: 0;
+  color: #fdfefe;
+  position: relative;
+  top: -110px;
+  right: -230px;
+  font-size: 15px;
+}
+
 
