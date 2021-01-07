@@ -1,5 +1,5 @@
 import mysql.connector
-from general_background.users import user_create, scores
+from general_background.users import user_create, scoreboard_score
 
 database = mysql.connector.connect(
     host="oege.ie.hva.nl",
@@ -117,13 +117,13 @@ def logins_update(user_login):
     cursor.close()
 
 def nieuwste_score():
-    score = scores()
+    score = scoreboard_score()
     score_list = []
     cursor = database.cursor()
-    cursor.execute("SELECT `totaalscore`, `geraakt`, `afstand_speler`, `punten_nomering`, `tijd` FROM `Score` ORDER BY `scoreID` DESC;")
+    cursor.execute("SELECT `totaalscore`, `geraakt`, `afstand_speler`, `punten_normering`, `tijd` FROM `Score` ORDER BY `scoreID` DESC;")
 
     result = cursor.fetchall()
-    score_list.append(score(id=str(result[0]), username=str(result[1]), password=str(result[2]), email=str(result[3]), logins=int(str(result[4]))))
+    score_list.append(score(totaalscore=str(result[0]), geraakt=str(result[1]), afstand_speler=str(result[2]), puntenNomering=str(result[3]), tijd=str(result[4])))
 
     cursor.close()
     return score_list 

@@ -34,6 +34,21 @@ def scores():
 
     return Score
 
+def scoreboard_score():
+    # word aan gegeven wat er in de array users komt te staan
+    class Score:
+        def __init__(self, totaalscore, geraakt, afstand_speler, punten_nomering, tijd):
+            self.totaalscore = totaalscore
+            self.geraakt = geraakt
+            self.afstand_speler = afstand_speler
+            self.puntenNomering = punten_nomering
+            self.tijd = tijd
+
+        def __repr__(self):
+            return f'<id: {self.tijd}>'
+
+    return Score
+
 
 def users_pull_file():
     user = user_create()

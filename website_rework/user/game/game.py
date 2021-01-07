@@ -15,13 +15,15 @@ def game_site_nl():
 def game_site_en():
     return render_template("Space_Shooters_Web_game.html")
 
+
 @game_page.route('/start')
 def game_start():
     print(game_active_check())
     game_activate()
     game()
     game_deactiveate()
-    return redirect(url_for("home_page_nl.home_page"))
+    return redirect(url_for("game_page.scoreboard"))
+
 
 @game_page.route('/score')
 def scoreboard():
