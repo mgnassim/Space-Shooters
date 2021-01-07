@@ -123,7 +123,9 @@ def nieuwste_score():
     cursor.execute("SELECT `totaalscore`, `geraakt`, `afstand_speler`, `punten_normering`, `tijd` FROM `Score` ORDER BY `scoreID` DESC;")
 
     result = cursor.fetchall()
-    score_list.append(score(totaalscore=str(result[0]), geraakt=str(result[1]), afstand_speler=str(result[2]), puntenNomering=str(result[3]), tijd=str(result[4])))
+    score_list.append(score(totaalscore=str(result[0]), geraakt=str(result[1]), afstand_speler=str(result[2]), punten_nomering=str(result[3]), tijd=str(result[4])))
+
+    print(score_list.geraakt)
 
     cursor.close()
     return score_list 

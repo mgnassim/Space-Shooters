@@ -26,7 +26,7 @@ def scores():
             self.totaalscore = totaalscore
             self.geraakt = geraakt
             self.afstand_speler = afstand_speler
-            self.puntenNomering = punten_nomering
+            self.punten_nomering = punten_nomering
             self.tijd = tijd
 
         def __repr__(self):
@@ -41,7 +41,7 @@ def scoreboard_score():
             self.totaalscore = totaalscore
             self.geraakt = geraakt
             self.afstand_speler = afstand_speler
-            self.puntenNomering = punten_nomering
+            self.punten_nomering = punten_nomering
             self.tijd = tijd
 
         def __repr__(self):

@@ -28,5 +28,5 @@ def game_start():
 @game_page.route('/score')
 def scoreboard():
     score_list = nieuwste_score()
-    Gemiddelde_tijd = (score_list.geraakt/30)
+    Gemiddelde_tijd = (int(score_list.geraakt)/30)
     return render_template("Space_Shooters_Web_game.html", totaalscore=score_list.totaalscore, afstand_speler=score_list.afstand_speler, Geraakte_targets=score_list.Geraakte_targets, Gemiddelde_tijd=Gemiddelde_tijd)
