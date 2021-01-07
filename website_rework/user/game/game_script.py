@@ -41,7 +41,7 @@ sensor5 = 17
 # Hier congigureer ik de minimaale en maximaale waardes voor de pulse
 servo_actief = 100  # Min pulse length out of 4096
 servo_rust = 350  # Max pulse length out of 4096 (90 graden)
-servo1 = 11
+servo1 = 15
 servo2 = 12
 servo3 = 0
 servo4 = 1
@@ -84,9 +84,7 @@ def afstand_meting():
     return distance
 
 
-def punten_nomering_cal():
-    global afstand
-    global punten_nomering
+def punten_nomering_cal(afstand):
     if afstand <= 10:
         punten_nomering = 0
 
@@ -225,10 +223,9 @@ def game():
     all_servos_down()
 
     distance_player = afstand_meting()
-    puten_vermenigvuldiging = punten_nomering_cal()
+    puten_vermenigvuldiging = punten_nomering_cal(distance_player)
 
     totaalscore = geraakt * puten_vermenigvuldiging
-    gemiddelde_tijd = totaalscore/tijd_limiet
 
     score_list_add(session["user_id"], totaalscore, geraakt, distance_player, punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
 
@@ -331,12 +328,10 @@ def game_rfid():
     puten_vermenigvuldiging = punten_nomering_cal()
 
     totaalscore = geraakt * puten_vermenigvuldiging
-    gemiddelde_tijd = totaalscore/tijd_limiet
 
-    file = open(account_file, "a")
-    file.write("\n" + "gast" + " " + str(totaalscore) + " " + str(geraakt) + " " + str(distance_player) + " " + str(
-        punten_nomering) + " " + str(gemiddelde_tijd) + " " + now.strftime("%Y-%m-%d %H:%M"))
-    file.close()
+    totaalscore = geraakt * puten_vermenigvuldiging
+
+    score_list_add(2, totaalscore, geraakt, distance_player, punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
 
 
 def game_active_check():

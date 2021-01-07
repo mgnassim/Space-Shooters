@@ -5,7 +5,7 @@ from user.game.game_script import game, game_deactiveate, game_activate, game_ac
 game_page = Blueprint("game_page", __name__, static_folder="static", template_folder="templates")
 
 
-@game_page.route('/nl')
+@game_page.route('/nl', methods=["GET", "POST"])
 def game_site_nl():
     if request.method == "POST":
         print(game_active_check())
@@ -16,7 +16,7 @@ def game_site_nl():
     return render_template("Space_Shooters_Web_game.html")
 
 
-@game_page.route('/en')
+@game_page.route('/en', methods=["GET", "POST"])
 def game_site_nl():
     if request.method == "POST":
         print(game_active_check())

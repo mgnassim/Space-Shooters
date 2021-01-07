@@ -67,13 +67,13 @@ def username_list_add(number_of_users, username, wachtwoord, email):
     cursor.close()
 
 
-def score_list_add(user_id, totaalscore, geraakt, afstand_speler, punten_nomering, tijd):
+def score_list_add(user_id, totaalscore, geraakt, afstand_speler, punten_normering, tijd):
     cursor = database.cursor()
     new_score = ("INSERT INTO Score "
-                    "(`totaalscore`, `geraakt`, `afstand_speler`, `punten_nomering`, `userID`, `tijd`)"
+                    "(`totaalscore`, `geraakt`, `afstand_speler`, `punten_normering`, `userID`, `tijd`)"
                     "VALUES (%s, %s, %s, %s, %s, %s)")
 
-    data_new_score = (totaalscore, geraakt, afstand_speler, punten_nomering, user_id, tijd)
+    data_new_score = (totaalscore, geraakt, afstand_speler, punten_normering, user_id, tijd)
 
     cursor.execute(new_score, data_new_score)
     database.commit()
