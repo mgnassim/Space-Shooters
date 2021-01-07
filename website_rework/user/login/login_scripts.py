@@ -35,11 +35,10 @@ def login_script(language):
     if passwordencode == password:
         logins_update(user_login)
         
-        deletnumber = users.index(user_login)
-        users.pop(deletnumber)
-        users.append(user(id=str(user_login.id), susername=str(user_login.username), password=str(user_login.password), email=str(user_login.email), logins=str(user_login.logins + 1)))
-        
         session["user_id"] = user_login.id
+
+        users.pop()
+        users = username_list_create()
 
         if user_login.id == 1:
             return redirect(url_for("admin.admin"))
@@ -107,10 +106,9 @@ def password_reset_script(language):
 
         password_update(password, user_login)
 
-        deletnumber = users.index(user_login)
-        users.pop(deletnumber)
-        users.append(user(id=str(user_login.id), username=str(user_login.username), password=str(password), email=str(user_login.email), logins=str(user_login.logins)))
-
+        users.pop()
+        users = username_list_create()
+        
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
         else:
