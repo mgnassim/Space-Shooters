@@ -2,9 +2,10 @@ import base64
 import os
 
 from flask import redirect, session, request, url_for
-from general_background.users import users_pull_file
+from general_background.users import users_pull_file, user_create
 from database.database import username_list_add, password_update, username_list_create, username_list_create, logins_update
 
+user = user_create
 users = username_list_create()
 account_file = "../website_rework/text_files/accounts.txt"
 active_user_file = "../website_rework/text_files/active_user.txt"
@@ -13,6 +14,7 @@ active_user_file = "../website_rework/text_files/active_user.txt"
 def login_script(language):
     global account_file
     global users
+    global user
     session.pop("user_id", None)
     username = request.form["username"]
     password = request.form["password"]
@@ -32,6 +34,10 @@ def login_script(language):
 
     if passwordencode == password:
         logins_update(user_login)
+        
+        deletnumber = users.index(user_login)
+        users.pop(deletnumber)
+        users.append(user(id=user_login.id, username=user_login.username, password=user_login.wachtwoord, email=user_login.email, logins=(user_login.logins + 1)))
         
         session["user_id"] = user_login.id
 
@@ -62,6 +68,8 @@ def registration_script(language):
         wachtwoord = base64_bytes.decode('ascii')
 
         username_list_add(number_of_users, username, wachtwoord, email)
+        
+        users.append(user(id=number_of_users, username=username, password=wachtwoord, email=email, logins=0))
 
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
@@ -99,7 +107,9 @@ def password_reset_script(language):
 
         password_update(password, user_login)
 
-        user_login.password = password
+        deletnumber = users.index(user_login)
+        users.pop(deletnumber)
+        users.append(user(id=user_login.id, username=user_login.username, password=password, email=user_login.email, logins=user_login.logins))
 
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
