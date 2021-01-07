@@ -106,7 +106,6 @@ def password_update(wachtwoord, user_login):
 
 def logins_update(user_login):
     logins_new = user_login.logins + 1
-    print("test" + user_login.id)
     cursor = database.cursor()
     update_user = "UPDATE `User` SET `User`.`login` = %s WHERE `User`.`userid` = %s AND `User`.`login` = %s"
 
@@ -117,3 +116,14 @@ def logins_update(user_login):
 
     cursor.close()
 
+def nieuwste_score():
+    score = scores()
+    score_list = []
+    cursor = database.cursor()
+    cursor.execute("SELECT `totaalscore`, `geraakt`, `afstand_speler`, `punten_nomering`, `tijd` FROM `Score` ORDER BY `scoreID` DESC;")
+
+    result = cursor.fetchall()
+    score_list.append(score(id=str(result[0]), username=str(result[1]), password=str(result[2]), email=str(result[3]), logins=int(str(result[4]))))
+
+    cursor.close()
+    return score_list 

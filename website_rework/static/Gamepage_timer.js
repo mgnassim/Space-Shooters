@@ -1,5 +1,5 @@
 //const StartMinuten =1;
-let tijdLimiet = 60;
+let tijdLimiet = 30;
 
 const timer = document.getElementById("timer")// declareer timer met de waarde uit de HTML file met de aangegeven ID
 
@@ -13,6 +13,4 @@ function updatetimer() {
     timer.innerHTML = seconden;//verander de HTML waarde met de  met de gegeven waarde: seconden
     tijdLimiet--; //seconden -1
     if (seconden<=0){timer.innerHTML = "GAME OVER"}// als seconden onder of gelijk is aan 0 weergeef GAME OVER
-
-
 }

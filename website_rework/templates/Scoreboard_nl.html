@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scoreboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../static/timer_scorebord.css" />
+        <link rel="shortcut icon" type="image/png" href="/static/iconwebsite.png/">
+</head>
+<body>
+    <div class="box">
+      <h2>GAME OVER</h2>
+        <div class="puntenBox">
+            {% for element in totaalscore%}
+                <p class="score" id="punten">{{element}}</p>
+            {% endfor %}
+        </div>
+        <h3>Punten</h3>
+
+        <div class="scoreBox0">
+            {% for element in afstand_speler%}
+                <p class="extraStats" id="afstand">{{element}}</p>
+            {% endfor %}
+        </div>
+        <h4>Afstand</h4>
+
+        <div class="scoreBox1">
+            {% for element in Geraakte_targets%}
+                <p class="extraStats" id="geraakteTargets">{{element}}</p>
+            {% endfor %}
+        </div>
+        <h5>Geraakte targets</h5>
+
+        <div class="scoreBox2">
+            {% for element in Gemiddelde_tijd%}
+                <p class="extraStats" id="gemiddeldeTijd">{{element}}</p>
+            {% endfor %}
+        </div>
+        <h6>Gemiddelde tijd</h6>
+
+        <form action="/nl/homepage">
+            <input type="submit" class="login" value="back to homepage" />
+        </form>
+      </div>
+</body>
+</html>
