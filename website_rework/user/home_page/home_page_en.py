@@ -7,6 +7,7 @@ home_page_en = Blueprint("home_page_en", __name__, static_folder="static", templ
 
 @home_page_en.route('/', methods=["GET", "POST"])
 def home_page():
-    logedin_check()
+    language = 'EN'
+    logedin_check(language)
     scoreboard_altime = bubble_sorting()
     return render_template("home_page_en.html", list_to_send=scoreboard_altime)

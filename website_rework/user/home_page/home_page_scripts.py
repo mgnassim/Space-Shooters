@@ -5,9 +5,12 @@ user = user_create()
 users = users_pull_file()
 
 
-def logedin_check():
+def logedin_check(language):
     if not int(session["user_id"]) >= 1:
-        return redirect(url_for("login_backend.login"))
+        if language == 'NL':
+            return redirect(url_for("login_backend_nl.login"))
+        else:
+            return redirect(url_for("login_backend_en.login"))
 
 
 def bubble_sorting():

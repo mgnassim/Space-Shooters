@@ -8,19 +8,22 @@ login_backend_nl = Blueprint("login_backend_nl", __name__, static_folder="static
 @login_backend_nl.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        return login_script()
+        language = 'NL'
+        return login_script(language)
     return render_template("Login_page_nl.html")
 
 
 @login_backend_nl.route('/registration', methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
-        return registration_script()
+        language = 'NL'
+        return registration_script(language)
     return render_template("registration_page_nl.html")
 
 
 @login_backend_nl.route('/reset', methods=["GET", "POST"])
 def password_reset():
     if request.method == "POST":
-        return password_reset_script()
+        language = 'NL'
+        return password_reset_script(language)
     return render_template("password_reset_page_nl.html")

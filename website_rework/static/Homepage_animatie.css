@@ -101,7 +101,7 @@ section h2 {
 De inhoud, standaard styling
  */
 h3 {
-  color: white;
+  color: #50ff61;
   margin: 4px;
   text-align: center;
 }
@@ -114,7 +114,15 @@ Vershillennde blokken en sections
   height: 0;
 }
 .itemlist {
-  flex-basis: 33%
+  font-family: "Orbitron", sans-serif;
+  background-color: #111a21;
+  border: 2px;
+  border-style: solid;
+  border-color: #50ff61;
+  border-radius: 13px;
+  color: #50ff61;
+  margin: 6px;
+  flex-basis: 33%;
 }
 
 .home {

@@ -3,15 +3,14 @@ import os
 
 from flask import redirect, session, request, url_for
 from general_background.users import users_pull_file
-from database.database import username_list_add, password_update, username_list_create
+from database.database import username_list_add, password_update, username_list_create, username_list_create, logins_update
 
-user = username_list_create()
-users = users_pull_file()
+users = username_list_create()
 account_file = "../website_rework/text_files/accounts.txt"
 active_user_file = "../website_rework/text_files/active_user.txt"
 
 
-def login_script():
+def login_script(language):
     global account_file
     global users
     session.pop("user_id", None)
@@ -21,7 +20,10 @@ def login_script():
     try:
         user_login = [x for x in users if x.username == username][0]
     except IndexError:
-        return redirect(url_for("login_backend_nl.login"))
+        if language == 'NL':
+            return redirect(url_for("login_backend_nl.login"))
+        else:
+            return redirect(url_for("login_backend_en.login"))
 
     base64_message = user_login.password
     base64_bytes = base64_message.encode('ascii')
@@ -29,38 +31,20 @@ def login_script():
     passwordencode = message_bytes.decode('ascii')
 
     if passwordencode == password:
-        with open(active_user_file, "r") as f:
-            lines = f.readlines()
-            f.close()
-
-        with open(active_user_file, "w") as f:
-            for line in lines:
-                line.strip("\n")
-            f.write(user_login.username)
-            f.close()
-
+        logins_update(user_login)
+        
         session["user_id"] = user_login.id
-        with open(account_file, "r") as f:
-            lines = f.readlines()
-            f.close()
 
-        with open(account_file, "w") as f:
-            for line in lines:
-                if line.strip("\n") != (
-                    user_login.id + " " + user_login.username + " " + user_login.password + " " + user_login.email + " "
-                        + (str(user_login.logins))):
-                    f.write(line)
-
-            user_login.logins += 1
-            f.write(user_login.id + " " + user_login.username + " " + user_login.password + " " + user_login.email + " " +
-                    str(user_login.logins))
-            f.close()
         if user_login.id == 1:
             return redirect(url_for("admin.admin"))
-        return redirect(url_for("home_page_nl.home_page"))
+        
+        if language == 'NL':
+            return redirect(url_for("home_page_nl.home_page"))
+        else:
+            return redirect(url_for("home_page_en.home_page"))
 
 
-def registration_script():
+def registration_script(language):
     global account_file
     global users
     global user
@@ -79,12 +63,18 @@ def registration_script():
 
         username_list_add(number_of_users, username, wachtwoord, email)
 
-        return redirect(url_for("login_backend_nl.login"))
+        if language == 'NL':
+            return redirect(url_for("login_backend_nl.login"))
+        else:
+            return redirect(url_for("login_backend_en.login"))
 
-    return redirect(url_for("login_backend_nl.registration"))
+    if language == 'NL':
+        return redirect(url_for("login_backend_nl.registration"))
+    else:
+        return redirect(url_for("login_backend_en.registration"))
 
 
-def password_reset_script():
+def password_reset_script(language):
     global account_file
     global users
 
@@ -96,17 +86,27 @@ def password_reset_script():
     try:
         user_login = [x for x in users if x.username == username][0]
     except IndexError:
-        return redirect(url_for('Nederlands.registration_nl'))
+        if language == 'NL':
+            return redirect(url_for('Nederlands.registration_nl'))
+        else:
+            return redirect(url_for('Nederlands.registration_en'))
+    
     if wachtwoord == password2 and email == user.email:
         message = wachtwoord
         message_bytes = message.encode('ascii')
         base64_bytes = base64.b64encode(message_bytes)
         password = base64_bytes.decode('ascii')
 
-        password_update(wachtwoord, user_login)
+        password_update(password, user_login)
 
         user_login.password = password
 
-        return redirect(url_for("login_backend_nl.login"))
+        if language == 'NL':
+            return redirect(url_for("login_backend_nl.login"))
+        else:
+            return redirect(url_for("login_backend_en.login"))
 
-    return redirect(url_for("login_backend_nl.password_reset"))
+    if language == 'NL':
+        return redirect(url_for("login_backend_nl.password_reset"))
+    else:
+        return redirect(url_for("login_backend_en.password_reset"))

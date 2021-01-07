@@ -4,7 +4,8 @@ import Adafruit_PCA9685  # Import library van PCA9685 module.
 from random import randint
 import datetime
 
-from flask import Blueprint, g
+from flask import Blueprint, session
+from database.database import score_list_add
 
 account_file = "../website_rework/text_files/accounts.txt"
 
@@ -229,13 +230,7 @@ def game():
     totaalscore = geraakt * puten_vermenigvuldiging
     gemiddelde_tijd = totaalscore/tijd_limiet
 
-    username = open(active_user_file, "r").readlines()
-    username -= str("[")
-    username -= str("]")
-
-    file = open(highscore, "a")
-    file.write("\n" + str(username) + " " + str(geraakt))
-    file.close()
+    score_list_add(session["user_id"], totaalscore, geraakt, distance_player, punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
 
 
 def game_rfid():
