@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Space Shooters</title>
-    <link rel="stylesheet" href="/static/Homepage_animatie.css" />
+    <link rel="stylesheet" href="/static/Homepage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
       rel="stylesheet"
@@ -13,122 +14,92 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <div class="top">
-          <h1>Space Shooters</h1>
-        </div>
-        <ul class="nav-links">
-          <li><a data-page="home" href="#sec1">Home</a></li>
-          <li><a data-page="Scoreboard" href="#sec2">Scoreboard</a></li>
-          <li><a data-page="Gamerules" href="#sec3">Game rules</a></li>
-          <li><a data-page="About" href="#sec4">About</a></li>
-          <div class="border"></div>
-        </ul>
-        <div class="menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-      </nav>
-    </header>
+      <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">Home</a>
+        <a href="#leaderboard">Leaderboards</a>
+        <a href="#gamerules">Game Rules</a>
+        <a href="#aboutspace">About</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
 
-    <main>
-      <section id="sec1" data-index="0" class="home">
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
+      <div class="bg">
+      <div id="home" class="item">
+        <form action="/game/nl">
+          <button class="button" type="submit">
+            <a>Klik om game te starten !</a>
+          </button>
+        </form>
+      </div>
+     </div>
 
-        <div class="item">
-          <h2>Home</h2>
-        </div>
+      <div id="leaderboard" class="frame">
+        <h1>Scoreboard</h1>
 
-        <div class="break"></div>
-
-        <div class="item">
-          <form action="/game/nl">
-            <button type="submit">Game start</button>
-          </form>
-        </div>
-
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-      </section>
-
-      <section id="sec2" data-index="1" class="Scoreboard">
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-
-        <div class="item">
-          <h2>Scoreboard</h2>
-        </div>
-
-        <div class="break"></div>
-
-        <div class="itemlist">
-          <h3>eigen scorebord</h3>
-          {% for element in list_to_send%}
+        <div class="frame2">
+          <div class="itemlist">
+            <h3>eigen scorebord</h3>
+            {% for element in personal_scoreboard%}
             <p>{{element}}</p>
-          {% endfor %}
-        </div>
+            {% endfor %}
+          </div>
 
-        <div class="itemlist">
-          <h3>week scorebord</h3>
-          {% for element in list_to_send%}
+          <div class="itemlist">
+            <h3>week scorebord</h3>
+            {% for element in general_scoreboard%}
             <p>{{element}}</p>
-          {% endfor %}
-        </div>
+            {% endfor %}
+          </div>
 
-        <div class="itemlist">
-          <h3>alle tijden scorebord</h3>
-          {% for element in list_to_send%}
+          <div class="itemlist">
+            <h3>alle tijden scorebord</h3>
+            {% for element in general_scoreboard%}
             <p>{{element}}</p>
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
+      </div>
 
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-      </section>
+    <div id="gamerules" class="rules">
+      <h1>Game Rules</h1>
+      <div class="rulestekst">
+      <p>
+        · De laser kan schadelijk zijn voor het menselijk oog, richt deze niet op het menselijk oog.</h2><br>
+        · De bezoekers mogen niet aan de targets komen. Dit kan mogelijk de apparatuur beschadigen.<br>
+        · De bezoekers mogen niet het laserpistool meenemen, en mogen het laserpistool niet open maken.<br>
+        · Het apparatuur (o.a de laserpistool) niet laten rondslingeren, altijd goed en beheerd achterlaten.<br>
+        · Niet wisselen van persoon mid-match, sinds dit natuurlijk cheaten is.<br>
+        · Plezier hebben!
+      <p>    
+      </div>
+    </div>
 
-      <section id="sec3" data-index="2" class="Gamerules">
-        <h2>Game rules</h2>
-      </section>
 
-      <section id="sec4" data-index="3" class="About">
-        <h2>About</h2>
+    <div id="aboutspace" class="about">
+        <h1>About Space Shooters</h1>
+        <div class="abouttekst">
+        <p>
+            <bz>Historie van Space Shooters</b>
+            We kunnen met zekerheid zeggen dat Space Shooters een ongeluk was. Nadat er wat ideeën uit het raam gegooid werden of werd geweigerd en het project heel ver was, werd het eens tijd om ECHT met een idee op te komen. En soms is het beter om een stap terug te nemen, en terug naar de roots (basis) van dingen, zelfs met spellen. Wat heel veel mensen het meest leuk vinden, zijn natuurlijk dingen kapotmaken. Toen bedacht het team erbij om een schietspel te maken! En zo is Space Shooters uiteindelijk ontstaan. Uiteindelijk werd er bedacht om niet echte projectielen te gebruiken zoals gebruikelijk bij schietspellen, werd er gebruik gemaakt van een laser! 
 
-
-      <div class="aboutin">
-        <h2>Historie van Space Shooters 
-          We kunnen met zekerheid zeggen dat Space Shooters een ongeluk was. 
-          Nadat er wat ideeën uit het raam gegooid werden of werd geweigerd en het project heel ver was, werd het eens tijd om ECHT met een idee op te komen. 
-          En soms is het beter om een stap terug te nemen, en terug naar de roots (basis) van dingen, zelfs met spellen. 
-          Wat heel veel mensen het meest leuk vinden, zijn natuurlijk dingen kapotmaken. Toen bedacht het team erbij om een schietspel te maken! 
-          En zo is Space Shooters uiteindelijk ontstaan. 
-          Uiteindelijk werd er bedacht om niet echte projectielen te gebruiken zoals gebruikelijk bij schietspellen, werd er gebruik gemaakt van een laser! 
-          De ontwikkeling van team GameShooters Onze missie nadat Space Shooters definitief was als idee begon team GameShooters met het ontwikkelen van dit idee! 
-          Het grootste doel van het team was natuurlijk niet alleen voor een goed cijfer, maar daarnaast het spel zo leuk mogelijk te maken. 
-          Maar die twee dingen staan in 1:1 verhouding. 
-          Gelukkig is team GameShooters heel divers met verschillende visies waardoor er verschillende aspecten van Space Shooters voor het betere is veranderd en heel amuserend is. 
-          Het interessante van team GameShooters is hoe onwetend bijna het hele team was op het begin over wat er nodig was en gedaan moest worden voor Space Shooters. 
-          GameShooters heeft heel vaak gefaald maar wist zich elke keer te overkomen en sterker terug te komen en wat minder onwetend.</h2>
+            <b>De ontwikkeling van team GameShooters</b>
+            Onze missie nadat Space Shooters definitief was als idee begon team GameShooters met het ontwikkelen van dit idee! Het grootste doel van het team was natuurlijk niet alleen voor een goed cijfer, maar daarnaast het spel zo leuk mogelijk te maken. Maar die twee dingen staan in 1:1 verhouding. Gelukkig is team GameShooters heel divers met verschillende visies waardoor er verschillende aspecten van Space Shooters voor het betere is veranderd en heel amuserend is. Het interessante van team GameShooters is hoe onwetend bijna het hele team was op het begin over wat er nodig was en gedaan moest worden voor Space Shooters. GameShooters heeft heel vaak gefaald maar wist zich elke keer te overkomen en sterker terug te komen en wat minder onwetend.
+        </p>    
         </div>
+    </div>
 
-      </section>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+      </script>
 
-
-    </main>
 
     <svg
       id="logo"
@@ -235,7 +206,7 @@
       />
     </svg>
 
-    <script src="../static/Space_Shooter_Web_Homepage_java-motion.js"></script>
+    <script src="javamotion.js"></script>
   </body>
 </html>
 

@@ -1,5 +1,6 @@
 import mysql.connector
-from general_background.users import user_create, scoreboard_score
+from general_background.users import user_create, scoreboard_score, scores
+from flask import session
 
 database = mysql.connector.connect(
     host="oege.ie.hva.nl",
@@ -95,9 +96,9 @@ def rfid_codes_add(rfid_code):
 
 def password_update(wachtwoord, user_login):
     cursor = database.cursor()
-    update_user = "UPDATE `User` SET `User`.`wachtwoord` = %s WHERE `User`.`userid` = %s AND `User`.`wachtwoord` = %s"
+    update_user = "UPDATE `User` SET `User`.`wachtwoord` = %s WHERE `User`.`userid` = %s"
 
-    data_update_user = (user_login.wachtwoord, wachtwoord)
+    data_update_user = (wachtwoord, user_login.userid)
 
     cursor.execute(update_user, data_update_user)
     database.commit() 
@@ -117,15 +118,43 @@ def logins_update(user_login):
     cursor.close()
 
 def nieuwste_score():
-    score = scoreboard_score()
-    score_list = []
-    cursor = database.cursor()
+    cursor = database.cursor(buffered=True)
     cursor.execute("SELECT `totaalscore`, `geraakt`, `afstand_speler`, `punten_normering`, `tijd` FROM `Score` ORDER BY `scoreID` DESC;")
 
-    result = cursor.fetchall()
-    score_list.append(score(totaalscore=str(result[0]), geraakt=str(result[1]), afstand_speler=str(result[2]), punten_nomering=str(result[3]), tijd=str(result[4])))
-
-    print(score_list.geraakt)
+    result = cursor.fetchone()
 
     cursor.close()
-    return score_list 
+    return result 
+
+def score_list():
+    score_lijst = []
+    cursor = database.cursor(buffered=True)
+    cursor.execute("SELECT `Score`.`totaalscore`, `User`.`username` FROM `User`"
+        "INNER JOIN `Score` ON `User`.`userID` = `Score`.`userID` ORDER BY `totaalscore` DESC;")
+
+    result = cursor.fetchmany(20)
+
+    for row in result:
+        score_lijst.append("\n" + "\t Player: " + row[1] + "\t score: " + str(row[0]))
+
+    cursor.close()
+    return score_lijst 
+
+def score_list_personal():
+    user_id = session["user_id"]
+    score_lijst_personal = []
+    cursor = database.cursor(buffered=True)
+    cursor.execute("SELECT `Score`.`totaalscore`, `User`.`userID`, `Score`.`tijd` FROM `User`"
+        "INNER JOIN `Score` ON `User`.`userID` = `Score`.`userID` ORDER BY `totaalscore` DESC;")
+
+    result = cursor.fetchall()
+
+    for row in result:
+        print("userid" + user_id)
+        print("row1" + str(row[1]))
+        if int(user_id) == int(row[1]):
+            score_lijst_personal.append("\n" + "\t score: " + str(row[0]) + "\t Tijd: " + str(row[2]))
+
+    print(score_lijst_personal)
+    cursor.close()
+    return score_lijst_personal 

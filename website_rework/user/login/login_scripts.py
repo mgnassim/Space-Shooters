@@ -5,14 +5,11 @@ from flask import redirect, session, request, url_for
 from general_background.users import users_pull_file, user_create
 from database.database import username_list_add, password_update, username_list_create, username_list_create, logins_update
 
-user = user_create
+user = user_create()
 users = username_list_create()
-account_file = "../website_rework/text_files/accounts.txt"
-active_user_file = "../website_rework/text_files/active_user.txt"
 
 
 def login_script(language):
-    global account_file
     global users
     global user
     session.pop("user_id", None)
@@ -21,6 +18,7 @@ def login_script(language):
 
     try:
         user_login = [x for x in users if x.username == username][0]
+        print(user_login.password)
     except IndexError:
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
@@ -108,7 +106,7 @@ def password_reset_script(language):
 
         users.pop()
         users = username_list_create()
-        
+
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
         else:
