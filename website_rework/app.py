@@ -1,4 +1,5 @@
 from flask import Flask
+from threading import *
 
 from general_background.befor_request import befor_request
 from redirects.redirects import redirects
@@ -8,8 +9,10 @@ from user.home_page.home_page_nl import home_page_nl
 from user.home_page.home_page_en import home_page_en
 from user.language.language import language
 from user.game.game import game_page
-# from admin.admin import admin
+from admin.admin import admin
 from error_detection.error_detection import error_detection
+
+from rfid.rfid import rfid
 
 app = Flask(__name__)
 app.secret_key = "8lxYKK24Tghvolv9ElokdxGj9fnCT7tZ"
@@ -22,9 +25,12 @@ app.register_blueprint(home_page_nl, url_prefix="/nl/home")
 app.register_blueprint(home_page_en, url_prefix="/en/home")
 app.register_blueprint(language, url_prefix="/language")
 app.register_blueprint(game_page, url_prefix="/game")
-# app.register_blueprint(admin, url_prefix="/admin")
+app.register_blueprint(admin, url_prefix="/admin")
 app.register_blueprint(error_detection, url_prefix="")
-
+    
 
 if __name__ == '__main__':
+    x = Thread(target=rfid)
+    x.start()
+    
     app.run(debug=True, host="0.0.0.0")

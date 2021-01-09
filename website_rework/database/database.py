@@ -84,7 +84,7 @@ def score_list_add(user_id, totaalscore, geraakt, afstand_speler, punten_normeri
 
 def rfid_codes_add(rfid_code):
     cursor = database.cursor()
-    new_rfid = ("INSERT INTO RFID (`RFID_CODE`) VALUES (%s)")
+    new_rfid = ("INSERT INTO RFID `RFID_CODE` VALUES (%s)")
 
     data_new_rfid = (rfid_code)
 
@@ -135,7 +135,7 @@ def score_list():
     result = cursor.fetchmany(20)
 
     for row in result:
-        score_lijst.append("\n" + "\t Player: " + row[1] + "\t score: " + str(row[0]))
+        score_lijst.append("\t Player: " + row[1] + "\t score: " + str(row[0]))
 
     cursor.close()
     return score_lijst 
@@ -150,11 +150,49 @@ def score_list_personal():
     result = cursor.fetchall()
 
     for row in result:
-        print("userid" + user_id)
-        print("row1" + str(row[1]))
         if int(user_id) == int(row[1]):
-            score_lijst_personal.append("\n" + "\t score: " + str(row[0]) + "\t Tijd: " + str(row[2]))
+            score_lijst_personal.append("\t score: " + str(row[0]) + "\t Tijd: " + str(row[2]))
 
-    print(score_lijst_personal)
     cursor.close()
     return score_lijst_personal 
+
+
+def aantal_logins():
+    user_id = session["user_id"]
+    logins = []
+    cursor = database.cursor(buffered=True)
+    cursor.execute("SELECT `User`.`username`, `User`.`login` FROM `User` ORDER BY `userID` DESC;")
+
+    result = cursor.fetchall()
+
+    for row in result:
+        logins.append("\t username: " + str(row[0]) + "\t logins: " + str(row[1]))
+
+    cursor.close()
+    return logins
+
+def aantal_games():
+    times_played = 0
+    times_played_total = []
+    username = ""
+    cursor = database.cursor(buffered=True)
+    cursor.execute("SELECT `Score`.`scoreID`, `User`.`userID`, `User`.`username` FROM `User`"
+        "INNER JOIN `Score` ON `User`.`userID` = `Score`.`userID` ORDER BY `userID` DESC;")
+
+    result = cursor.fetchall()
+
+    cursor.execute("SELECT `User`.`userID` FROM `User` ORDER BY `userID` DESC;")
+
+    numer_of_users = cursor.fetchone()
+
+    for x in range(int(numer_of_users[0])+1):
+        for row in result:
+            if x == int(row[1]):
+                times_played += 1
+                username = row[2]
+        if times_played >= 1:
+            times_played_total.append("Aantal games van " + username + " " + str(times_played))
+            times_played = 0
+    
+    cursor.close()
+    return times_played_total 

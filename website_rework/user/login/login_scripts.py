@@ -38,8 +38,8 @@ def login_script(language):
         users.pop()
         users = username_list_create()
 
-        if user_login.id == 1:
-            return redirect(url_for("admin.admin"))
+        if int(user_login.id) == 1:
+            return redirect(url_for("admin.admin_web"))
         
         if language == 'NL':
             return redirect(url_for("home_page_nl.home_page"))

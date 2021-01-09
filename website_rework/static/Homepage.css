@@ -13,7 +13,7 @@ Standaard desgin, standaard styling
     background-color: #111a21;
     font-family: sans-serif;
   }
-  
+
   main {
     animation: nietverschijnen 3.5s, verschijnen 1s 3.5s;
   }
@@ -21,7 +21,7 @@ Standaard desgin, standaard styling
     overflow: hidden;
     background-color: #111a21;
   }
-  
+
   .topnav a {
     float: left;
     display: block;
@@ -32,21 +32,21 @@ Standaard desgin, standaard styling
     font-family: "Orbitron";
     font-size: 25px;
   }
-  
+
   .topnav a:hover {
     background-color: #ddd;
     color: black;
   }
-  
+
   .topnav a.active {
     background-color:#50ff61;
     color: white;
   }
-  
+
   .topnav .icon {
     display: none;
   }
-  
+
   .button {
     border: 2px solid #50ff61;
     background-color: transparent;
@@ -61,12 +61,12 @@ Standaard desgin, standaard styling
     cursor: pointer;
     animation: nietverschijnen 3.5s, verschijnen 1s 3.5s;
   }
-  
+
   .button1:hover {
     background-color: #111a21;
     color: white;
   }
-  
+
   .item {
     background-color: #111a21;
     width: 100%;
@@ -76,76 +76,76 @@ Standaard desgin, standaard styling
     align-items: center;
     background-image: url(https://i.ibb.co/tKwYtY1/image-1.png);
   }
-  
+
   .frame {
     background-color: #111a21;
     width: 100%;
-    height: 600px;
+    height: auto;
   }
-  
+
   .frame h1 {
     font-family: "Orbitron";
     text-align: center;
     padding: 20px;
     color: #50ff61;
   }
-  
+
   .frame2 {
     background-color: #111a21;
     width: 100%;
-    height: 600px;
+    height: auto;
   }
-  
+
   .itemlist {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: space-between;
   }
-  
+
   .itemlist h3 {
     font-family: "Orbitron";
     text-align: center;
     color: white;
   }
-  
+
   .itemlist p {
     font-family: "Orbitron";
     text-align: left;
     color: white;
   }
-  
+
   .rules {
     width: 100%;
-    height: 600px;
+    height: auto;
   }
-  
+
   .rules h1 {
       font-family: "Orbitron";
       text-align: center;
       padding: 20px;
       color: #50ff61;
   }
-  
+
   .rulestekst p {
       color: white; font-size: 40px; font-family: 'Signika', sans-serif; margin: 10px;
   }
-  
+
   .about {
     width: 100%;
-    height: 600px;
+    height: auto;
   }
-  
+
   .about h1 {
       font-family: "Orbitron";
       text-align: center;
       padding: 20px;
       color: #50ff61;
   }
-  
+
   .abouttekst p {
     color: white; font-size: 25px; font-family: 'Signika', sans-serif; margin: 10px;
   }
-  
+
   .border {
     position: absolute;
     z-index: -2;
@@ -157,7 +157,7 @@ Standaard desgin, standaard styling
     border-radius: 13px;
     transition: all 0.7s;
   }
-  
+
   #logo {
     position: absolute;
     top: 50%;
@@ -166,7 +166,7 @@ Standaard desgin, standaard styling
     animation: fills 1s ease forwards 0.5s, verdwijnen 1s 2.4s,
       nietverschijnen 1s 4s, nietverschijnen 36000000s 3.4s;
   }
-  
+
   .menu div {
     width: 25px;
     height: 3px;
@@ -175,23 +175,23 @@ Standaard desgin, standaard styling
     transition: all 0.3s;
     opacity: 0;
   }
-  
+
   @keyframes line-anim {
     to {
       stroke-dashoffset: 0;
     }
   }
-  
+
   @keyframes fills {
     from {
       fill: transparent;
     }
-  
+
     to {
       fill: #50ff61;
     }
   }
-  
+
   @keyframes boven {
     from {
       top: 50%;
@@ -202,57 +202,57 @@ Standaard desgin, standaard styling
       transform: translate(-110.49%, 0%) scale(0.17);
     }
   }
-  
+
   @keyframes nietverschijnen {
     from {
       opacity: 0;
     }
-  
+
     to {
       opacity: 0;
     }
   }
-  
+
   @keyframes verschijnen {
     from {
       opacity: 0;
     }
-  
+
     to {
       opacity: 1;
     }
   }
-  
+
   @keyframes verdwijnen {
     from {
       opacity: 1;
     }
-  
+
     to {
       opacity: 0;
     }
   }
-  
+
   .menu {
     cursor: pointer;
   }
-  
+
   .frame {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-  
+
   .frame h1 {
     font-family: "Orbitron", sans-serif;
     text-align: center;
     padding: 20px;
     color: #50ff61;
   }
-  
+
   .frame2 {
     display: flex;
     align-content: space-between;
   }
-  
+
   .itemlist {
     font-family: "Orbitron", sans-serif;
     background-color: #111a21;
@@ -268,18 +268,15 @@ Standaard desgin, standaard styling
     width: 32%;
     padding: 10px;
   }
-  
+
   @media screen and (max-width: 768px) {
-    body {
-      overflow-x: hidden;
-    }
-  
+
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
         float: right;
         display: block;
       }
-  
+
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
         position: absolute;
@@ -291,120 +288,29 @@ Standaard desgin, standaard styling
         display: block;
         text-align: left;
       }
-  
+
+   .frame2 {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+   }
+
+   .itemlist {
+       width: 100%;
+       height: auto;
+   }
+
+  .about h1 { text-align: center;}
+  .rules h1 {text-align: center;}
+
   .abouttekst p {
-        color: white; font-size: 15px; font-family: 'Signika', sans-serif; margin: 10px;
+        color: white; font-size: 15px; font-family: 'Signika', sans-serif; margin: 10px; text-align: center; width: 100%;
       }
-  
+
   .rulestekst p {
-        color: white; font-size: 15px; font-family: 'Signika', sans-serif; margin: 10px;
+        color: white; font-size: 15px; font-family: 'Signika', sans-serif; margin: 10px; text-align: center; width: 100%;
     }
-    
-  
-  @keyframes navLinkFade {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0px);
-    }
+
+
+
   }
-  
-  .toggle .line1 {
-    transform: rotate(-45deg) translate(-7px, 6px);
-  }
-  
-  .toggle .line2 {
-    opacity: 0;
-  }
-  
-  .toggle .line3 {
-    transform: rotate(45deg) translate(-7px, -6px);
-  }
-  
-  #logo path:nth-child(1) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anime 2s ease forwards;
-  }
-  
-  #logo path:nth-child(2) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(3) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(4) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(5) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(6) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(7) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(8) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(9) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(10) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(11) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(12) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(13) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-  
-  #logo path:nth-child(14) {
-    stroke-dasharray: 762.86962890625;
-    stroke-dashoffset: 762.86962890625;
-    animation: line-anim 2s ease forwards;
-  }
-}

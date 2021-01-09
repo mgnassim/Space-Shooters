@@ -10,4 +10,4 @@ home_page_nl = Blueprint("home_page_nl", __name__, static_folder="static", templ
 def home_page():
     language = 'NL'
     logedin_check(language)
-    return render_template("home_page_nl.html", general_scoreboard=score_list(), personal_scoreboard=score_list_personal())
+    return render_template("home_page_nl.html", general_scoreboard=score_list(), personal_scoreboard=score_list_personal()) 
