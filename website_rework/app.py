@@ -7,8 +7,8 @@ from user.login.login_backend_en import login_backend_en
 from user.home_page.home_page_nl import home_page_nl
 from user.home_page.home_page_en import home_page_en
 from user.language.language import language
-# from user.game.game import game_page
-# from admin.admin import admin
+from user.game.game import game_page
+from admin.admin import admin
 from error_detection.error_detection import error_detection
 
 app = Flask(__name__)
@@ -21,8 +21,8 @@ app.register_blueprint(login_backend_en, url_prefix="/en")
 app.register_blueprint(home_page_nl, url_prefix="/nl/home")
 app.register_blueprint(home_page_en, url_prefix="/en/home")
 app.register_blueprint(language, url_prefix="/language")
-# app.register_blueprint(game_page, url_prefix="/game")
-# app.register_blueprint(admin, url_prefix="/admin")
+app.register_blueprint(game_page, url_prefix="/game")
+app.register_blueprint(admin, url_prefix="/admin")
 app.register_blueprint(error_detection, url_prefix="")
 
 
