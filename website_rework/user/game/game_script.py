@@ -17,7 +17,8 @@ active_user_file = "../website_rework/text_files/active_user.txt"
 
 now = datetime.datetime.now()
 
-Game = Blueprint("Game", __name__, static_folder="static", template_folder="templates")
+Game = Blueprint("Game", __name__, static_folder="static",
+                 template_folder="templates")
 
 GPIO.setmode(GPIO.BCM)  # Aangeven welke type pin notering er gebruikt word
 GPIO.setwarnings(False)  # Zet waarschuwing uit
@@ -54,7 +55,8 @@ GPIO.setup(sensor3, GPIO.IN)
 GPIO.setup(sensor4, GPIO.IN)
 GPIO.setup(sensor5, GPIO.IN)
 
-pwm = Adafruit_PCA9685.PCA9685()  # Initialiseer de PCA9685 met het standaardadres (basis adddres 0x40).
+# Initialiseer de PCA9685 met het standaardadres (basis adddres 0x40).
+pwm = Adafruit_PCA9685.PCA9685()
 pwm.set_pwm_freq(50)  # Verander de PWM frequentrie naar 50MHZ
 
 perv_random_target = -1
@@ -78,7 +80,8 @@ def afstand_meting():
 
     pulse_lengte = pulse_end - pulse_start  # bereken de pulse looptijd
 
-    distance = (pulse_lengte * 24300) / 2  # vermenigvuldig met de sonische snelheid (34300 cm/s :2 ) omdat heen en weer
+    # vermenigvuldig met de sonische snelheid (34300 cm/s :2 ) omdat heen en weer
+    distance = (pulse_lengte * 24300) / 2
     distance = round(distance, 2)
     distance = int(distance)
     return distance
@@ -222,14 +225,15 @@ def game():
     time.sleep(1)
     all_servos_down()
 
-    distance_player = afstand_meting()
+    distance_player = int(afstand_meting())
     puten_vermenigvuldiging = punten_nomering_cal(distance_player)
 
     totaalscore = geraakt * puten_vermenigvuldiging
 
     tijd = now.strftime("%Y-%m-%d %H:%M")
 
-    score_list_add(session["user_id"], totaalscore, geraakt, distance_player, punten_nomering, tijd)
+    score_list_add(session["user_id"], totaalscore,
+                   geraakt, distance_player, punten_nomering, tijd)
 
 
 def game_rfid():
@@ -326,14 +330,15 @@ def game_rfid():
     time.sleep(1)
     all_servos_down()
 
-    distance_player = afstand_meting()
+    distance_player = int(afstand_meting())
     puten_vermenigvuldiging = punten_nomering_cal()
 
     totaalscore = geraakt * puten_vermenigvuldiging
 
     totaalscore = geraakt * puten_vermenigvuldiging
 
-    score_list_add(3, totaalscore, geraakt, distance_player, punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
+    score_list_add(3, totaalscore, geraakt, distance_player,
+                   punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
 
 
 def game_active_check():

@@ -32,7 +32,7 @@ def login_script(language):
 
     if passwordencode == password:
         logins_update(user_login)
-        
+
         session["user_id"] = user_login.id
 
         users.pop()
@@ -40,7 +40,7 @@ def login_script(language):
 
         if int(user_login.id) == 1:
             return redirect(url_for("admin.admin_web"))
-        
+
         if language == 'NL':
             return redirect(url_for("home_page_nl.home_page"))
         else:
@@ -51,7 +51,8 @@ def registration_script(language):
     global account_file
     global users
     global user
-    number_of_users = (len(users) + 1)  # array tellen begint bij 0 en heb nodig dat het bij 1 start
+    # array tellen begint bij 0 en heb nodig dat het bij 1 start
+    number_of_users = (len(users) + 1)
 
     username = request.form["username"]
     wachtwoord = request.form["password"]
@@ -65,8 +66,9 @@ def registration_script(language):
         wachtwoord = base64_bytes.decode('ascii')
 
         username_list_add(number_of_users, username, wachtwoord, email)
-        
-        users.append(user(id=number_of_users, username=username, password=wachtwoord, email=email, logins=0))
+
+        users.append(user(id=number_of_users, username=username,
+                          password=wachtwoord, email=email, logins=0))
 
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
@@ -95,7 +97,7 @@ def password_reset_script(language):
             return redirect(url_for('Nederlands.registration_nl'))
         else:
             return redirect(url_for('Nederlands.registration_en'))
-    
+
     if wachtwoord == password2 and email == user.email:
         message = wachtwoord
         message_bytes = message.encode('ascii')

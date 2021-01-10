@@ -1,7 +1,9 @@
-from flask import Flask, render_template, redirect, session, g, Blueprint, url_for  # Flask inport met de benodigde flask packages
+# Flask inport met de benodigde flask packages
+from flask import redirect, Blueprint, url_for
 
 # Hier word aan gegeven dat dit bestand een flask blueprint is. met de naam Nederlands
-redirects = Blueprint("redirects", __name__, static_folder="static", template_folder="templates")
+redirects = Blueprint("redirects", __name__,
+                      static_folder="static", template_folder="templates")
 
 
 @redirects.route('/')

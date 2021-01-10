@@ -58,7 +58,6 @@ body {
   font-size: 17px;
 }
 .box input[type="submit"] {
-
   top: 0;
   left: 15.7%;
   background: transparent;
@@ -109,11 +108,10 @@ button {
   border: none;
   margin: 0;
   outline: none;
-
 }
 .puntenBox {
   position: relative;
-  top:  0px;
+  top: 0px;
   right: -104px;
   color: #66ff00;
   display: flex;
@@ -125,8 +123,6 @@ button {
 
   border: 2px solid;
   border-radius: 5px;
-
-
 }
 .score {
   position: relative;
@@ -151,8 +147,6 @@ button {
 
   border: 2px solid;
   border-radius: 5px;
-
-
 }
 .extraStats {
   position: relative;
@@ -164,7 +158,7 @@ button {
   color: #fdfefe;
 }
 
-.scoreBox1{
+.scoreBox1 {
   position: relative;
   right: -115px;
   top: -4px;
@@ -178,10 +172,8 @@ button {
 
   border: 2px solid;
   border-radius: 5px;
-
-
 }
-.scoreBox2{
+.scoreBox2 {
   position: relative;
   right: -230px;
   top: -118px;
@@ -195,8 +187,6 @@ button {
 
   border: 2px solid;
   border-radius: 5px;
-
-
 }
 .box h3 {
   margin: 0 0 30px;
@@ -205,22 +195,22 @@ button {
   text-align: center;
   font-size: 30px;
 }
- .box h4 {
+.box h4 {
   margin: 0 0 0;
   padding: 2px;
   color: #fdfefe;
-  position: relative ;
+  position: relative;
   top: 45px;
   right: -8px;
 }
- .box h5 {
+.box h5 {
   margin: 0 0 30px;
   padding: 2px;
   color: #fdfefe;
   text-align: center;
-   font-size: 15px;
-
-} .box h6 {
+  font-size: 15px;
+}
+.box h6 {
   margin: 0 0 0;
   padding: 0;
   color: #fdfefe;

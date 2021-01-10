@@ -59,7 +59,7 @@ body {
 }
 .box input[type="submit"] {
   top: 0;
-  left:0;
+  left: 0;
   border: 2px solid #66ff00;
   outline: #66ff00;
   color: #66ff00;
@@ -83,6 +83,5 @@ body {
 .English {
   position: relative;
   width: 87%;
-    background-image: url(eglish_flag.png);
+  background-image: url(eglish_flag.png);
 }
-

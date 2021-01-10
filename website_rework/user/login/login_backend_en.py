@@ -1,8 +1,10 @@
-from flask import render_template, Blueprint, request  # Flask inport met de benodigde flask packages
+# Flask inport met de benodigde flask packages
+from flask import render_template, Blueprint, request
 from user.login.login_scripts import login_script, registration_script, password_reset_script
 
 # Hier word aan gegeven dat dit bestand een flask blueprint is. met de naam Nederlands
-login_backend_en = Blueprint("login_backend_en", __name__, static_folder="static", template_folder="templates")
+login_backend_en = Blueprint(
+    "login_backend_en", __name__, static_folder="static", template_folder="templates")
 
 
 @login_backend_en.route('/login', methods=["GET", "POST"])

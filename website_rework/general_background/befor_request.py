@@ -2,7 +2,8 @@
 from flask import Blueprint, session, g
 
 # Hier word aan gegeven dat dit bestand een flask blueprint is. met de naam Nederlands
-befor_request = Blueprint("befor_request", __name__, static_folder="static", template_folder="templates")
+befor_request = Blueprint("befor_request", __name__,
+                          static_folder="static", template_folder="templates")
 
 
 # word uitgevoerd voordat je op de site komt

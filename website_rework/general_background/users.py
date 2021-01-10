@@ -34,6 +34,7 @@ def scores():
 
     return Score
 
+
 def scoreboard_score():
     # word aan gegeven wat er in de array users komt te staan
     class scoreboard:
@@ -47,7 +48,7 @@ def scoreboard_score():
 
         def __repr__(self):
             return f'<id: {self.totaalscore}>'
-    
+
     return scoreboard
 
 

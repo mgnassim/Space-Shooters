@@ -27,10 +27,10 @@ app.register_blueprint(language, url_prefix="/language")
 app.register_blueprint(game_page, url_prefix="/game")
 app.register_blueprint(admin, url_prefix="/admin")
 app.register_blueprint(error_detection, url_prefix="")
-    
+
 
 if __name__ == '__main__':
     x = Thread(target=rfid)
     x.start()
-    
+
     app.run(debug=True, host="0.0.0.0")

@@ -1,7 +1,9 @@
-from flask import Blueprint, render_template        # flask inport met de benodigde packages
+# flask inport met de benodigde packages
+from flask import Blueprint, render_template
 
 # Blueprint word aangemaakt voor dit document.
-error_detection = Blueprint("error_detection", __name__, static_folder="static", template_folder="templates")
+error_detection = Blueprint("error_detection", __name__,
+                            static_folder="static", template_folder="templates")
 
 
 # Als er een http error ontstaat word het hier ontvangen en komt er een custum error pagina te voorschijn op de site.
