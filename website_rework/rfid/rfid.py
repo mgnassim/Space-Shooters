@@ -5,7 +5,7 @@ from database.database import pas_nummers
 
 def rfid():
     while True:
-        if rfid_scan() in pas_nummers():
+        if int(rfid_scan()) in int(pas_nummers()):
             if game_active_check == 0:
                 game_activate()
                 game_rfid()

@@ -74,7 +74,7 @@ def username_list_add(number_of_users, username, wachtwoord, email):
 
 def score_list_add(user_id, totaalscore, geraakt, afstand_speler, punten_normering, tijd):
     cursor = database.cursor()
-    new_score = ("INSERT INTO Score "
+    new_score = ("INSERT INTO `Score` "
                  "(`totaalscore`, `geraakt`, `afstand_speler`, `punten_normering`, `userID`, `tijd`)"
                  "VALUES (%s, %s, %s, %s, %s, %s)")
 
@@ -89,7 +89,7 @@ def score_list_add(user_id, totaalscore, geraakt, afstand_speler, punten_normeri
 
 def rfid_codes_add(rfid_code):
     cursor = database.cursor()
-    new_rfid = ("INSERT INTO RFID `RFID_CODE` VALUES (%s)")
+    new_rfid = ("INSERT INTO `RFID` (`RFID_CODE`) VALUES (%s)")
 
     data_new_rfid = (rfid_code)
 

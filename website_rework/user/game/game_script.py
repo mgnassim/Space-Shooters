@@ -66,11 +66,14 @@ afstand = 0
 
 def afstand_meting():
     GPIO.output(TRIG, False)  # Set TRIG as LOW
-    time.sleep(2)
+    time.sleep(0.5)
 
     GPIO.output(TRIG, True)  # Verstuur een signaal(true)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)  # Zet trigger na 0,01ms naar 0(low)
+
+    pulse_start = time.time()
+    pulse_end = time.time()
 
     while GPIO.input(ECHO) == 0:  # Check als  de ECHO LOW (0) is
         pulse_start = time.time()  # Bewaar de genoteerde tijd van de low pulse
@@ -81,26 +84,26 @@ def afstand_meting():
     pulse_lengte = pulse_end - pulse_start  # bereken de pulse looptijd
 
     # vermenigvuldig met de sonische snelheid (34300 cm/s :2 ) omdat heen en weer
-    distance = (pulse_lengte * 24300) / 2
+    distance = (pulse_lengte * 34300) / 2
     distance = round(distance, 2)
     distance = int(distance)
     return distance
 
 
 def punten_nomering_cal(afstand):
-    if afstand <= 10:
+    if int(afstand) < 10:
         punten_nomering = 0
 
-    elif afstand >= 10 & afstand <= 30:
+    elif 10 >= int(afstand) < 30:
         punten_nomering = 1
 
-    elif afstand >= 30 & afstand < 50:
+    elif 30 >= int(afstand) < 50:
         punten_nomering = 2
 
-    elif afstand >= 50 & afstand <= 100:
+    elif 50 >= int(afstand) < 100:
         punten_nomering = 3
 
-    elif afstand >= 100:
+    else:
         punten_nomering = 4
 
     return punten_nomering
@@ -228,7 +231,7 @@ def game():
     distance_player = int(afstand_meting())
     puten_vermenigvuldiging = punten_nomering_cal(distance_player)
 
-    totaalscore = geraakt * puten_vermenigvuldiging
+    totaalscore = int(geraakt) * int(puten_vermenigvuldiging)
 
     tijd = now.strftime("%Y-%m-%d %H:%M")
 
