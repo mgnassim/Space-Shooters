@@ -21,7 +21,7 @@ def user_create():
 def scores():
     # word aan gegeven wat er in de array users komt te staan
     class Score:
-        def __init__(self, id, totaalscore, geraakt, afstand_speler, punten_nomering, gem_tijd, tijd):
+        def __init__(self, id, totaalscore, geraakt, afstand_speler, punten_nomering, tijd):
             self.id = id
             self.totaalscore = totaalscore
             self.geraakt = geraakt
@@ -36,8 +36,9 @@ def scores():
 
 def scoreboard_score():
     # word aan gegeven wat er in de array users komt te staan
-    class Score:
-        def __init__(self, totaalscore, geraakt, afstand_speler, punten_nomering, tijd):
+    class scoreboard:
+        def __init__(self, id, totaalscore, geraakt, afstand_speler, punten_nomering, tijd):
+            self.id = id
             self.totaalscore = totaalscore
             self.geraakt = geraakt
             self.afstand_speler = afstand_speler
@@ -45,9 +46,9 @@ def scoreboard_score():
             self.tijd = tijd
 
         def __repr__(self):
-            return f'<id: {self.tijd}>'
-
-    return Score
+            return f'<id: {self.totaalscore}>'
+    
+    return scoreboard
 
 
 def users_pull_file():

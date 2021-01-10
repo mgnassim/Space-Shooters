@@ -227,7 +227,9 @@ def game():
 
     totaalscore = geraakt * puten_vermenigvuldiging
 
-    score_list_add(session["user_id"], totaalscore, geraakt, distance_player, punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
+    tijd = now.strftime("%Y-%m-%d %H:%M")
+
+    score_list_add(session["user_id"], totaalscore, geraakt, distance_player, punten_nomering, tijd)
 
 
 def game_rfid():
@@ -331,7 +333,7 @@ def game_rfid():
 
     totaalscore = geraakt * puten_vermenigvuldiging
 
-    score_list_add(2, totaalscore, geraakt, distance_player, punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
+    score_list_add(3, totaalscore, geraakt, distance_player, punten_nomering, now.strftime("%Y-%m-%d %H:%M"))
 
 
 def game_active_check():

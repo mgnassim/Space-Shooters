@@ -1,231 +1,231 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-image: url(blyatifuld.png);
-    background-size: cover;
-  }
-  .box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    padding: 40px;
-    background: rgba(0, 0, 0, 0.6);
-    box-sizing: border-box;
-    box-shadow: 0 10px 500px rgba(0, 0, 0, 0.4);
-    border-radius: 15px;
-  }
-  .box h2 {
-    margin: 0 0 70px;
-    padding: 0px;
-    color: #66ff00;
-    text-align: center;
-  }
-  
-  .box .input-box {
-    position: relative;
-  }
-  .box .input-box input {
-    width: 100%;
-    padding: 10px 0px;
-    font-size: 16px;
-    color: #fdfefe;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-    border: none;
-    outline: none;
-    background: transparent;
-    border-bottom: 1px solid #66ff00;
-  }
-  .box .input-box label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    letter-spacing: 5px;
-    padding: -20px 0px;
-    font-size: 16px;
-    color: #fff;
-    transition: 1s;
-    opacity: 0.6;
-  }
-  .box .input-box input:focus ~ label,
-  .box .input-box input:valid ~ label {
-    top: -20px;
-    color: #66ff00;
-    opacity: 1;
-    font-size: 17px;
-  }
-  .box input[type="submit"] {
-  
-    top: 0;
-    left: 15.7%;
-    background: transparent;
-    border: 2px solid #66ff00;
-    outline: #66ff00;
-    color: #66ff00;
-    padding: 12px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 6px;
-  }
-  
-  .submit {
-    position: relative;
-    width: 70%;
-  }
-  
-  .login {
-    position: relative;
-    width: 70%;
-  }
-  .circle {
-    color: #fdfefe;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    height: 270px;
-    width: 270px;
-  
-    border: 4px solid;
-    border-radius: 50%;
-  }
-  .time {
-    font-family: "Roboto Mono", monospace;
-    font-weight: 300;
-    font-size: 48px;
-    color: #66ff00;
-  }
-  #stopKnop {
-    display: none;
-    color: #66ff00;
-  }
-  button {
-    cursor: pointer;
-    background: transparent;
-    padding: 0;
-    border: none;
-    margin: 0;
-    outline: none;
-  
-  }
-  .puntenBox {
-    position: relative;
-    top:  0px;
-    right: -104px;
-    color: #66ff00;
-    display: flex;
-    justify-content: center;
-    align-items: normal;
-  
-    height: 80px;
-    width: 100px;
-  
-    border: 2px solid;
-    border-radius: 5px;
-  
-  
-  }
-  .score {
-    position: relative;
-    right: 0px;
-    top: -30px;
-    font-family: "Roboto Mono", monospace;
-    font-weight: 300;
-    font-size: 48px;
-    color: #fdfefe;
-  }
-  .scoreBox0 {
-    position: relative;
-    right: 13px;
-    top: 40px;
-    color: #66ff00;
-    display: flex;
-    justify-content: center;
-    align-items: normal;
-  
-    height: 40px;
-    width: 100px;
-  
-    border: 2px solid;
-    border-radius: 5px;
-  
-  
-  }
-  .extraStats {
-    position: relative;
-    right: 0px;
-    top: -10px;
-    font-family: "Roboto Mono", monospace;
-    font-weight: 300;
-    font-size: 20px;
-    color: #fdfefe;
-  }
-  
-  .scoreBox1{
-    position: relative;
-    right: -115px;
-    top: -4px;
-    color: #66ff00;
-    display: flex;
-    justify-content: center;
-    align-items: normal;
-  
-    height: 40px;
-    width: 80px;
-  
-    border: 2px solid;
-    border-radius: 5px;
-  
-  
-  }
-  .scoreBox2{
-    position: relative;
-    right: -230px;
-    top: -118px;
-    color: #66ff00;
-    display: flex;
-    justify-content: center;
-    align-items: normal;
-  
-    height: 40px;
-    width: 100px;
-  
-    border: 2px solid;
-    border-radius: 5px;
-  
-  
-  }
-  .box h3 {
-    margin: 0 0 30px;
-    padding: 2px;
-    color: #fdfefe;
-    text-align: center;
-    font-size: 30px;
-  }
-   .box h4 {
-    margin: 0 0 0;
-    padding: 2px;
-    color: #fdfefe;
-    position: relative ;
-    top: 45px;
-    right: -8px;
-  }
-   .box h5 {
-    margin: 0 0 30px;
-    padding: 2px;
-    color: #fdfefe;
-    text-align: center;
-     font-size: 15px;
-  
-  } .box h6 {
-    margin: 0 0 0;
-    padding: 0;
-    color: #fdfefe;
-    position: relative;
-    top: -110px;
-    right: -230px;
-    font-size: 15px;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url(blyatifuld.png);
+  background-size: cover;
+}
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  box-shadow: 0 10px 500px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+}
+.box h2 {
+  margin: 0 0 70px;
+  padding: 0px;
+  color: #66ff00;
+  text-align: center;
+}
+
+.box .input-box {
+  position: relative;
+}
+.box .input-box input {
+  width: 100%;
+  padding: 10px 0px;
+  font-size: 16px;
+  color: #fdfefe;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid #66ff00;
+}
+.box .input-box label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  letter-spacing: 5px;
+  padding: -20px 0px;
+  font-size: 16px;
+  color: #fff;
+  transition: 1s;
+  opacity: 0.6;
+}
+.box .input-box input:focus ~ label,
+.box .input-box input:valid ~ label {
+  top: -20px;
+  color: #66ff00;
+  opacity: 1;
+  font-size: 17px;
+}
+.box input[type="submit"] {
+
+  top: 0;
+  left: 15.7%;
+  background: transparent;
+  border: 2px solid #66ff00;
+  outline: #66ff00;
+  color: #66ff00;
+  padding: 12px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 6px;
+}
+
+.submit {
+  position: relative;
+  width: 70%;
+}
+
+.login {
+  position: relative;
+  width: 70%;
+}
+.circle {
+  color: #fdfefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 270px;
+  width: 270px;
+
+  border: 4px solid;
+  border-radius: 50%;
+}
+.time {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  font-size: 48px;
+  color: #66ff00;
+}
+#stopKnop {
+  display: none;
+  color: #66ff00;
+}
+button {
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  border: none;
+  margin: 0;
+  outline: none;
+
+}
+.puntenBox {
+  position: relative;
+  top:  0px;
+  right: -104px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 80px;
+  width: 100px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.score {
+  position: relative;
+  right: 0px;
+  top: -30px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  font-size: 48px;
+  color: #fdfefe;
+}
+.scoreBox0 {
+  position: relative;
+  right: 13px;
+  top: 40px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 40px;
+  width: 100px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.extraStats {
+  position: relative;
+  right: 0px;
+  top: -10px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  font-size: 20px;
+  color: #fdfefe;
+}
+
+.scoreBox1{
+  position: relative;
+  right: -115px;
+  top: -4px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 40px;
+  width: 80px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.scoreBox2{
+  position: relative;
+  right: -230px;
+  top: -118px;
+  color: #66ff00;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+
+  height: 40px;
+  width: 100px;
+
+  border: 2px solid;
+  border-radius: 5px;
+
+
+}
+.box h3 {
+  margin: 0 0 30px;
+  padding: 2px;
+  color: #fdfefe;
+  text-align: center;
+  font-size: 30px;
+}
+ .box h4 {
+  margin: 0 0 0;
+  padding: 2px;
+  color: #fdfefe;
+  position: relative ;
+  top: 45px;
+  right: -8px;
+}
+ .box h5 {
+  margin: 0 0 30px;
+  padding: 2px;
+  color: #fdfefe;
+  text-align: center;
+   font-size: 15px;
+
+} .box h6 {
+  margin: 0 0 0;
+  padding: 0;
+  color: #fdfefe;
+  position: relative;
+  top: -110px;
+  right: -230px;
+  font-size: 15px;
+}
