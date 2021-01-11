@@ -41,11 +41,17 @@ def login_script(language):
             if int(user_login.id) == 1:
                 return redirect(url_for("admin.admin_web"))
 
+            if language == 'NL':
+                return redirect(url_for("home_page_nl.home_page"))
+            else:
+                return redirect(url_for("home_page_en.home_page"))
+
     finally:
         if language == 'NL':
-            return redirect(url_for("home_page_nl.home_page"))
+            return redirect(url_for("login_backend_nl.login"))
         else:
-            return redirect(url_for("home_page_en.home_page"))
+            return redirect(url_for("login_backend_en.login"))
+        
     
 
 
