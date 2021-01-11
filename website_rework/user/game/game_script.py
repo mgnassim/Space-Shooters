@@ -91,16 +91,14 @@ def afstand_meting():
 
 
 def punten_nomering_cal(afstand):
-    if int(afstand) < 10:
-        punten_nomering = 0
-
-    elif 10 >= int(afstand) < 30:
+    print(afstand)
+    if int(afstand) < 30:
         punten_nomering = 1
 
-    elif 30 >= int(afstand) < 50:
+    elif 50 >= int(afstand) > 100:
         punten_nomering = 2
 
-    elif 50 >= int(afstand) < 100:
+    elif 100 >= int(afstand) > 150:
         punten_nomering = 3
 
     else:
@@ -334,11 +332,9 @@ def game_rfid():
     all_servos_down()
 
     distance_player = int(afstand_meting())
-    puten_vermenigvuldiging = punten_nomering_cal()
+    puten_vermenigvuldiging = punten_nomering_cal(distance_player)
 
-    totaalscore = geraakt * puten_vermenigvuldiging
-
-    totaalscore = geraakt * puten_vermenigvuldiging
+    totaalscore = int(geraakt) * int(puten_vermenigvuldiging)
 
     score_list_add(3, totaalscore, geraakt, distance_player,
                    punten_nomering, now.strftime("%Y-%m-%d %H:%M"))

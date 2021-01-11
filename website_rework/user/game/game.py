@@ -1,6 +1,6 @@
 # Flask inport met de benodigde flask packages
 from flask import render_template, Blueprint, url_for, redirect, request
-from user.game.game_script import game, game_deactiveate, game_activate, game_active_check
+from user.game.game_script import game
 from database.database import nieuwste_score
 
 # Hier word aan gegeven dat dit bestand een flask blueprint is. met de naam Nederlands
@@ -20,10 +20,7 @@ def game_site_en():
 
 @game_page.route('/start')
 def game_start():
-    print(game_active_check())
-    game_activate()
     game()
-    game_deactiveate()
     return redirect(url_for("game_page.scoreboard"))
 
 

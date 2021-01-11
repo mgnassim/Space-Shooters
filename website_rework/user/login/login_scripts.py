@@ -17,8 +17,7 @@ def login_script(language):
     password = request.form["password"]
 
     try:
-        user_login = [x for x in users if x.username == username][0]
-        print(user_login.password)
+        user_login = [x for x in users if x.username == username.lower()][0]
     except IndexError:
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
@@ -30,21 +29,24 @@ def login_script(language):
     message_bytes = base64.b64decode(base64_bytes)
     passwordencode = message_bytes.decode('ascii')
 
-    if passwordencode == password:
-        logins_update(user_login)
+    try:
+        if passwordencode == password:
+            logins_update(user_login)
 
-        session["user_id"] = user_login.id
+            session["user_id"] = user_login.id
 
-        users.pop()
-        users = username_list_create()
+            users.pop()
+            users = username_list_create()
 
-        if int(user_login.id) == 1:
-            return redirect(url_for("admin.admin_web"))
+            if int(user_login.id) == 1:
+                return redirect(url_for("admin.admin_web"))
 
+    finally:
         if language == 'NL':
             return redirect(url_for("home_page_nl.home_page"))
         else:
             return redirect(url_for("home_page_en.home_page"))
+    
 
 
 def registration_script(language):
