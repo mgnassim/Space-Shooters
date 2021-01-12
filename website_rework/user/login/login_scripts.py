@@ -102,9 +102,9 @@ def password_reset_script(language):
         user_login = [x for x in users if x.username == username][0]
     except IndexError:
         if language == 'NL':
-            return redirect(url_for('Nederlands.registration_nl'))
+            return redirect(url_for('login_backend_nl.password_reset'))
         else:
-            return redirect(url_for('Nederlands.registration_en'))
+            return redirect(url_for('login_backend_nl.password_reset'))
 
     if wachtwoord == password2 and email == user.email:
         message = wachtwoord

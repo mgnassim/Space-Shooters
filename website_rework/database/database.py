@@ -141,7 +141,8 @@ def score_list():
     cursor.execute("SELECT `Score`.`totaalscore`, `User`.`username` FROM `User`"
                    "INNER JOIN `Score` ON `User`.`userID` = `Score`.`userID` ORDER BY `totaalscore` DESC;")
 
-    result = cursor.fetchmany(20)
+    result = cursor.fetchmany(15)
+
 
     for row in result:
         score_lijst.append("\t Player: " + row[1] + "\t score: " + str(row[0]))
@@ -162,12 +163,12 @@ def score_list_seven_days():
         tijd_score = str(row[1])
         tijd_score_1 = tijd_score.split()
         tijd_score_2 = tijd_score_1[0].split("-")
-        tijd_score_maand = int(tijd_score_2[1])
+        tijd_score_dag = int(tijd_score_2[2])
 
-        tijd_check = now.strftime("%m")
-        tijd_change = int(tijd_check[1]) - 7
+        tijd_check = now.strftime("%d")
+        tijd_change = int(tijd_check) - 7
 
-        if tijd_score_maand >= tijd_change:
+        if tijd_score_dag >= tijd_change:
             score_lijst.append("\t Player: " + row[2] + "\t score: " + str(row[0]))
 
     cursor.close()
@@ -185,7 +186,7 @@ def score_list_personal():
 
     for row in result:
         if int(user_id) == int(row[1]):
-            if len(score_lijst_personal) <= 20:
+            if len(score_lijst_personal) <= 15:
                 score_lijst_personal.append(
                     "\t score: " + str(row[0]) + "\t Tijd: " + str(row[2]))
 
