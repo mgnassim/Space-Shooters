@@ -14,7 +14,7 @@ def admin_web():
 
 
 @admin.route("/rfid", methods=["GET", "POST"])
-def admin_web():
+def admin_rfid():
     rfid_code = rfid_scan()
     rfid_codes_add(rfid_code)
 

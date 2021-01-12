@@ -17,7 +17,7 @@ def login_script(language):
     password = request.form["password"]
 
     try:
-        user_login = [x for x in users if x.username == username.lower()][0]
+        user_login = [x for x in users if x.username.lower() == username.lower()][0]
     except IndexError:
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
@@ -46,7 +46,7 @@ def login_script(language):
             else:
                 return redirect(url_for("home_page_en.home_page"))
 
-    finally:
+    except:
         if language == 'NL':
             return redirect(url_for("login_backend_nl.login"))
         else:
@@ -73,7 +73,7 @@ def registration_script(language):
         base64_bytes = base64.b64encode(message_bytes)
         wachtwoord = base64_bytes.decode('ascii')
 
-        username_list_add(number_of_users, username, wachtwoord, email)
+        username_list_add(number_of_users, username.lower(), wachtwoord, email)
 
         users.append(user(id=number_of_users, username=username,
                           password=wachtwoord, email=email, logins=0))
@@ -99,14 +99,14 @@ def password_reset_script(language):
     email = request.form["email"]
 
     try:
-        user_login = [x for x in users if x.username == username][0]
+        user_login = [x for x in users if x.username.lower() == username.lower()][0]
     except IndexError:
         if language == 'NL':
             return redirect(url_for('login_backend_nl.password_reset'))
         else:
             return redirect(url_for('login_backend_nl.password_reset'))
 
-    if wachtwoord == password2 and email == user.email:
+    if wachtwoord == password2 and email.lower() == users.email.lower():
         message = wachtwoord
         message_bytes = message.encode('ascii')
         base64_bytes = base64.b64encode(message_bytes)
