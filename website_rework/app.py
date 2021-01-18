@@ -1,5 +1,4 @@
 from flask import Flask
-from threading import *
 
 from general_background.befor_request import befor_request
 from redirects.redirects import redirects

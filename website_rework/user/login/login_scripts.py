@@ -54,7 +54,6 @@ def login_script(language):
         
     
 
-
 def registration_script(language):
     global account_file
     global users
