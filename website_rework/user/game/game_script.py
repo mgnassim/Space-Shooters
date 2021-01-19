@@ -72,9 +72,6 @@ def afstand_meting():
     time.sleep(0.00001)
     GPIO.output(TRIG, False)  # Zet trigger na 0,01ms naar 0(low)
 
-    pulse_start = time.time()
-    pulse_end = time.time()
-
     while GPIO.input(ECHO) == 0:  # Check als  de ECHO LOW (0) is
         pulse_start = time.time()  # Bewaar de genoteerde tijd van de low pulse
 

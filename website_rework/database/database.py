@@ -103,7 +103,7 @@ def password_update(wachtwoord, user_login):
     cursor = database.cursor()
     update_user = "UPDATE `User` SET `User`.`wachtwoord` = %s WHERE `User`.`userid` = %s"
 
-    data_update_user = (wachtwoord, user_login.userid)
+    data_update_user = (wachtwoord, user_login.id)
 
     cursor.execute(update_user, data_update_user)
     database.commit()
@@ -168,8 +168,9 @@ def score_list_seven_days():
         tijd_check = now.strftime("%d")
         tijd_change = int(tijd_check) - 7
 
-        if tijd_score_dag >= tijd_change:
-            score_lijst.append("\t Player: " + row[2] + "\t score: " + str(row[0]))
+        if len(score_lijst) <= 15:
+            if tijd_score_dag >= tijd_change:
+                score_lijst.append("\t Player: " + row[2] + "\t score: " + str(row[0]))
 
     cursor.close()
     return score_lijst

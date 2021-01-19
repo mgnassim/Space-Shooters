@@ -106,7 +106,7 @@ def password_reset_script(language):
         else:
             return redirect(url_for('login_backend_nl.password_reset'))
 
-    if wachtwoord == password2 and email.lower() == users.email.lower():
+    if wachtwoord == password2 and email.lower() == user_login.email.lower():
         message = wachtwoord
         message_bytes = message.encode('ascii')
         base64_bytes = base64.b64encode(message_bytes)

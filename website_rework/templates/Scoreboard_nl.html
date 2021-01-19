@@ -23,10 +23,10 @@
 
       <div class="scoreBox0">
         {% for element in afstand_speler%}
-        <p class="extraStats" id="afstand">{{element}}</p>
+        <p class="extraStats" id="afstand in cm">{{element}}</p>
         {% endfor %}
       </div>
-      <h4>Afstand</h4>
+      <h4>afstand</h4>
 
       <div class="scoreBox1">
         {% for element in geraakt%}
@@ -37,10 +37,10 @@
 
       <div class="scoreBox2">
         {% for element in Gemiddelde_tijd%}
-        <p class="extraStats" id="gemiddeldeTijd">{{element}}</p>
+        <p class="extraStats" id="geraakt per seconde">{{element}}</p>
         {% endfor %}
       </div>
-      <h6>Gemiddelde tijd</h6>
+      <h6>per seconde</h6>
 
       <form action="/nl/home">
         <input type="submit" class="login" value="back to homepage" />

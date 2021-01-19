@@ -16,13 +16,13 @@ def servo1_test():
     sensor = 4
     GPIO.setup(sensor, GPIO.IN)
 
-    servo = 11
+    servo = 15
     pwm.set_pwm(servo, 0, servo_actief)
 
     while True:
         if GPIO.input(sensor):
             pwm.set_pwm(servo, 0, servo_rust)
-            return redirect(url_for('admin.admin'))
+            return redirect(url_for('admin.admin_web'))
 
 
 def servo2_test():
@@ -35,7 +35,7 @@ def servo2_test():
     while True:
         if GPIO.input(sensor):
             pwm.set_pwm(servo, 0, servo_rust)
-            return redirect(url_for('admin.admin'))
+            return redirect(url_for('admin.admin_web'))
 
 
 def servo3_test():
@@ -48,7 +48,7 @@ def servo3_test():
     while True:
         if GPIO.input(sensor):
             pwm.set_pwm(servo, 0, servo_rust)
-            return redirect(url_for('admin.admin'))
+            return redirect(url_for('admin.admin_web'))
 
 
 def servo4_test():
@@ -61,7 +61,7 @@ def servo4_test():
     while True:
         if GPIO.input(sensor):
             pwm.set_pwm(servo, 0, servo_rust)
-            return redirect(url_for('admin.admin'))
+            return redirect(url_for('admin.admin_web'))
 
 
 def servo5_test():
@@ -74,4 +74,4 @@ def servo5_test():
     while True:
         if GPIO.input(sensor):
             pwm.set_pwm(servo, 0, servo_rust)
-            return redirect(url_for('admin.admin'))
+            return redirect(url_for('admin.admin_web'))

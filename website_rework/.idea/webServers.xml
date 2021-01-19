@@ -10,7 +10,7 @@
         </fileTransfer>
       </webServer>
       <webServer id="55752aae-ad24-4297-baef-702de170783e" name="pi bilal op school">
-        <fileTransfer rootFolder="/home/pi" accessType="SFTP" host="192.168.137.159" port="22" sshConfigId="6f0101e9-d963-4895-9c17-e5aaf5a2c20d" sshConfig="pi@192.168.137.159:22 password">
+        <fileTransfer rootFolder="/home/pi" accessType="SFTP" host="192.168.137.72" port="22" sshConfigId="6f0101e9-d963-4895-9c17-e5aaf5a2c20d" sshConfig="pi@192.168.137.72:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
