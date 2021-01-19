@@ -168,8 +168,13 @@ def score_list_seven_days():
         tijd_check = now.strftime("%d")
         tijd_change = int(tijd_check) - 7
 
+<<<<<<< HEAD
         if len(score_lijst) <= 15:
             if tijd_score_dag >= tijd_change:
+=======
+        if tijd_score_dag >= tijd_change:
+            if len(score_lijst) <= 15:
+>>>>>>> 28bb35e3613faa84c9e2827491dd845ede76d248
                 score_lijst.append("\t Player: " + row[2] + "\t score: " + str(row[0]))
 
     cursor.close()
